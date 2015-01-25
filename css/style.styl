@@ -12,18 +12,32 @@ a
 	text-decoration none
 	transition all .2s ease-in
 
+a:hover
+	text-decoration none
+
 a.btn_nice
 	display block
+
 
 body
 	font-family 'Istok Web', sans-serif
 	font-size 16px
+	padding-top 5em
 
 header
 	background white
+	border-bottom 4px celeste solid
 	overflow hidden
-	max-width 1320px
+	position fixed
 	margin auto
+	top 0
+	width 100%
+	z-index 50
+
+	nav
+		margin auto
+		max-width 1325px
+
 
 	p
 		color azul_metal
@@ -67,93 +81,242 @@ header
 			a:hover
 				background rosaOscuro
 
-section.main
-	border-top 4px celeste solid
+section
 	background-color azul_metal
-	background-size cover
-	min-height 570px
-	
-	article
-		max-width 1320px
-
-article
-	margin auto
 	position relative
-	top 0
+	
+	&>article
+		max-width 1320px
+		min-height 613px
+		margin auto
 
-	figure
-		display block
+section.main
+	border-top 1px transparent solid
+
+	article
+		min-height 550px
 		position relative
-		margin 4em auto 0
-		width 50%
+		top 0
 
-		img
+		figure
 			display block
-			border-radius 50%
-			border 3px rosaOscuro solid
-			height 180px
 			position relative
-			z-index 5
+			margin 4em auto 0
+			width 50%
 
-		&:before
-			background red
-			border-bottom 2px rosaOscuro solid
-			content ""
-			left 0
-			position absolute
-			top 50%
-			width 100%
-		
-				
-		
-	h2
-		font-size 2.5em
-		color white
-		text-align center
-		margin-bottom .5em
+			img
+				display block
+				border-radius 50%
+				border 3px rosaOscuro solid
+				height 180px
+				position relative
+				z-index 5
 
-	p
-		color white
-		line-height 1.5em
-		margin 1em auto
-		width 58%
-
-		strong
-			color rgba(black, .1)
-
-	div
-		width 35%
-		margin 4em auto 0
-		
-		a
-			display inline-block
-			border 2px celeste solid
-			border-radius 5px
+			&:before
+				background red
+				border-bottom 2px rosaOscuro solid
+				content ""
+				left 0
+				position absolute
+				top 50%
+				width 100%
+			
+		h2
+			font-size 2.5em
 			color white
-			padding .5em 1em
 			text-align center
-			width 48%
+			margin-bottom .5em
 
-			&:hover
+		p
+			color white
+			line-height 1.5em
+			margin auto
+			width 62%
+
+			strong
+				color rgba(black, .1)
+
+		div
+			width 35%
+			margin 3em auto 0
+			
+			a
+				display inline-block
+				border 2px celeste solid
+				border-radius 5px
+				color white
+				padding .5em 1em
+				text-align center
+				width 48%
+
+					
+				&:hover
+					background celeste
+			
+			a:first-child
+				position relative
+
+				&:before
+					border-top 10px solid celeste
+					border-bottom 10px solid transparent
+					border-left 10px solid transparent
+					border-right 10px solid transparent
+					content ""
+					left 50%
+					margin-left -10px
+					position absolute
+					top 100%
+			a:nth-of-type(2)
 				background celeste
+				color azul_metal
+				margin-left 1%
 
-		a:nth-of-type(2)
+				&:hover
+					color white
+
+section.else
+	border-top 4px celeste solid
+
+	&>article
+		position relative
+		padding 2em
+
+		&>div
+			display inline-block
+
+		div.column
 			background celeste
 			color azul_metal
-			margin-left 1%
+			height 100%
+			position absolute
+			top 0
+			width 30%
+
+section.column_right
+	
+	div.column
+		right 7em
+
+section.column_left
+	
+	div.column
+		left 7em
+
+section.who_am_i
+
+	div.info
+		margin 10em 0 0 7em
+		border-left 4px celeste solid
+		color white
+		floar left
+		padding 2em
+		width 50%
+		
+	div.column
+		padding 6em 5.5em
+		
+
+		span
+			display block
+			text-align center
+			margin-bottom .5em
+			font-size 5em
+		
+		p
+			font-size .8em
+			border-left 2px rosa solid
+			padding 0 0 3em 1em
+			margin 0 auto
+			position relative
+			
+			&:before
+				background rosa
+				border-radius 50%
+				content ""
+				height 12px
+				left -7px
+				position absolute
+				top 2px
+				width 12px
+
+section.what_i_do
+	
+	div.column
+		padding 8em 2em
+
+		&>span
+			display block
+			font-size 5em
+			text-align center
+			margin-bottom .5em			
+
+		p
+			text-align center
+			color white
+			margin-bottom 5rem
+
+			span
+				color rosa
+
+	div.tech
+		position relative
+		width 50%
+		left 45%
+
+		div
+			margin 3em 0
+			text-align center
+			
+			span
+				font-size 7em
+				color white
+				margin-left 3rem
+				text-align center
+
+section.works
+	
+	div.worksObO
+		
+		p
+			display inline-block
+			border-left 4px celeste solid
+			color white
+			margin 3em
+			padding 1em
 			position relative
 
 			&:before
-				border-top 10px solid celeste
-				border-bottom 10px solid transparent
-				border-left 10px solid transparent
-				border-right 10px solid transparent
 				content ""
-				left 50%
-				margin-left -10px
 				position absolute
-				top 100%
+				border-bottom 2px white solid
+				top 80%
+				width 100%
 
-			&:hover
-				color white
+		div.list
+			background grey
 
+	div.column
+		padding-top 3.5em
+		
+		div
+			font-size 0.8em
+			padding 1em
+			text-align center
+			margin-bottom 1.3em
+
+			span
+				font-size 2em
+				color rosa
+				
+			p
+				margin .2em
+				
+				strong
+					position relative
+					
+				strong:before
+					border-bottom 2px rosa solid
+					content ""
+					top 90%
+					position absolute
+					width 100%
