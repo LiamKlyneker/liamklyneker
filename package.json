@@ -1,0 +1,11 @@
+{
+  "name": "LiamKlyneker",
+  "version": "1.0.0",
+  "private": true,
+  "devDependencies": {
+    "gulp": "^3.8.10",
+    "gulp-concat": "^2.4.3",
+    "gulp-stylus": "^2.0.0",
+    "gulp-watch": "^3.0.0"
+  },
+}

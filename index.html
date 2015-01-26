@@ -4,114 +4,149 @@
 	<meta charset="UTF-8">
 	<title>Liam Santiago Web Developer</title>
 	
-	<link href='http://fonts.googleapis.com/css?family=Istok+Web:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Expletus+Sans:400,500italic,700' rel='stylesheet' type='text/css'>
 
-	<link rel="stylesheet" href="css/glyphicon.min.css">
-	<link rel="stylesheet" href="css/pictonic.css">
+	<link rel="stylesheet" href="css/vendor/glyphicon.min.css">
+	<link rel="stylesheet" href="css/vendor/pictonic.css">
+
 	<link rel="stylesheet" href="css/style.css">
 	
 	<script src="js/jquery-1.11.2.min.js"></script>
+	<script src="js/main.js"></script>
 </head>
 <body>
 	<header>
 		<nav>
+			<figure>
+				<img src="img/profile.jpg" alt="logo">
+			</figure>
 			<p>Liam Klyneker</p>
 			<ul>
-				<li><a href="##" class="active">Inicio</a></li>
-				<li><a href="##">Quien Soy</a></li>
-				<li><a href="##">Que Hago</a></li>
-				<li><a href="##">Proyectos</a></li>
-				<li><a href="##">Contáctame :D</a></li>
+				<li><a href="#" goto="home" class="active">Inicio</a></li>
+				<li><a href="#" goto="profile">Perfil</a></li>
+				<li><a href="#" goto="what_i_do">Habilidades</a></li>
+				<li><a href="#" goto="projects">Proyectos</a></li>
+				<li><a href="#" goto="contact">Contáctame :D</a></li>
 			</ul>
 		</nav>
 	</header>
-	<section class="main">
+	<section class="main" fromto="home">
 		<article>
-			<figure>
+			<figure class="main_animated fadeIn">
 				<img src="img/profile.jpg" alt="main_photo">
 			</figure>
 
-			<h2>Hola, mi nombre es Liam</h2>
-			<p>...y soy desarrollador web, me gusta el buen diseño y lo hermoso que puede llegar a ser la Experiencia de Usuario para el cliente, tambien estoy apto a aprender nuevas tecnologias para hacer sitios web geniales... <strong>Like a Boss</strong></p>
+			<h2 class="main_animated fadeInTop">Hola, mi nombre es Liam</h2>
+			<p class="main_animated fadeInDelay">...y soy desarrollador web, me gusta el buen diseño y lo hermoso que puede llegar a ser la Experiencia de Usuario para el cliente, tambien estoy apto a aprender nuevas tecnologias para hacer sitios web geniales... <strong>Like a Boss</strong></p>
 			
-			<div>
-				<a href="##">Conoceme Mejor</a>
-				<a href="##">Charlemos</a>
+			<div class="main_animated fadeIn">
+				<a href="##" goto="profile">Conoceme Mejor</a>
+				<a href="##" goto="contact">Charlemos</a>
+			</div>|
+		</article>
+	</section>
+	<section class="else who_am_i column_right" fromto="profile">
+		<article>
+			<div class="main_info">
+				<p class="title scroll fadeInTop">PERFIL PROFESIONAL</p>
+				<p class="scroll fadeInTop">Desarrolador web a punto de terminar la carrera de Sistemas y Computación</p>
+				<article class="scroll fadeInBottomDelay">
+					<p>Soy estudiante de Sistemas y Computacion, me encanta la programación, tuve un inicio oscuro con Visual Basic, pero el desarrollo web es lo que me llamo la atencion desde que lo conoci alla por el 2010. </p>
+					<p>Al principio solo hacia Back End con Zend Framework 1, tuve proyectos colaborativos con compañeros de ese entonces, despues Front End, empeze a hacer las dos cosas, me agrado mas cuando conoci frameworks para mejorar esa experiencia y menorar las 5000 lineas de codigo que ya habia. </p>
+					<p>Actualmente estoy a cargo de un sistema educativo llamado eUndac, es un repositorio privado, bueno como siempre sigo en busca de nuevos objetivos para mi vida profesional y ahora estoy en eso. </p>
+				</article>
+			</div>
+			<div class="column">
+				<span class="glyphicon glyphicon-calendar scroll fadeInTop"></span>
+				<p class="scroll fadeInRight"><strong>2012</strong> Webing Time y Freelance</p>
+				<p class="scroll fadeInRight"><strong>2013</strong> Desarrollador en Yaros Lab</p>
+				<p class="scroll fadeInRight"><strong>2014</strong> Lider de proyecto eUndac</p>
+				<p class="scroll fadeInRight"><strong>2015</strong> Buscando nuevos horizontes</p>
 			</div>
 		</article>
 	</section>
-	<section class="else who_am_i column_right">
-		<article>
-			<div class="info">
-				<h3>¿Quien Soy?</h3>
-				<p>Actualmente estoy terminando la carrera de Sistemas, me agrado la creación de software desde un inicio asi que me especialize en la programación, de pronto el mundo de la web me envolvio para hacerme suyo y dedicar todos mis esfuerzos para ser mejor cada día. </p>
-			</div>
-			<div class="column">
-				<span class="glyphicon glyphicon-calendar"></span>
-				<p><strong>2012</strong> Webing Time y Freelance</p>
-				<p><strong>2013</strong> Desarrollador en Yaros Lab</p>
-				<p><strong>2014</strong> Lider de proyecto eUndac</p>
-				<p><strong>2015</strong> Buscando nuevos horizontes</p>
-			</div>
-		</article>
-	</section>
-	<section class="else what_i_do column_left">
+	<section class="else what_i_do column_left" fromto="what_i_do">
 		<article>
 			<div class="column">
-				<span class="glyphicon glyphicon-wrench"></span>
-				<p>Trabajo con el <span class="glyphicon glyphicon-heart"></span> con estas tecnologias...</p>
-				<p>
-					...para ser mas especifico, lo que hago es hacer de la experiencia de usuario lo mejor posible, se podria decir que mi fuerte es JavaScript, tambien tengo experiencia en Back End con Frameworks como Zend, Symfony o Laravel...
+				<span class="glyphicon glyphicon-wrench scroll fadeInTop"></span>
+				<p class="scroll fadeInTop">Trabajo con el <span class="glyphicon glyphicon-heart"></span> con estas tecnologias...</p>
+				<p class="scroll fadeInBottomDelay">
+					...se podria decir que JavaScript es mi fuerte, tambien hice BackEnd con Zend y Symfony...
 				</p>
 			</div>
 			<div class="tech">
 				<div>
 					<p>
-						<span class="icon-html5-02"></span>
-						<span class="icon-css3-02"></span>
+						<span class="icon-html5-02 scroll fadeInRight"></span>
+						<span class="icon-css3-02 scroll fadeInLeft"></span>
 					</p>
 				</div>
 				<div>
-					<span class="icon-prog-nodejs02"></span>
-					<span class="icon-prog-backbonejs"></span>
-					<span class="icon-angularjs"></span>
+					<span class="icon-prog-nodejs02 scroll fadeInRight"></span>
+					<span class="icon-prog-backbonejs scroll fadeIn"></span>
+					<span class="icon-angularjs scroll fadeInLeft"></span>
 				</div>
 				<div>
-					<span class="icon-prog-zendfrm"></span>
-					<span class="icon-prog-symfony"></span>
+					<span class="icon-prog-zendfrm scroll fadeInRight"></span>
+					<span class="icon-prog-symfony scroll fadeInLeft"></span>
 				</div>
 			</div>
 		</article>
 	</section>
-	<section class="else works column_right">
+	<section class="else works column_right" fromto="projects">
 		<article>
-			<div class="worksObO">
-				<p><span class="glyphicon glyphicon-briefcase"></span> Proyectos en proceso...</p>
-				<div class="list">
-					<article>Compra y Venta de Pasajes en Tiempo Real con BackboneJS y SocketIO</article>
-					<article>Gestion de Usuarios con Zend Framework 2 y BackboneJS</article>
-					<article>Gestion Niveles y Cursos para Institutos</article>
-					<article>Sistema Educativo Unicersitario</article>
+			<div class="main_info">
+				<p class="title scroll fadeInTop">PORTAFOLIO</p>
+				<p class="scroll fadeInTop">Algunos proyectos que hice y estoy haciendo...</p>
+				<div class="list scroll fadeInBottomDelay">
+					<article>
+						<span>
+							<span class="icon-github-01"></span>
+							Proyecto personal. Pronto en GitHub
+						</span>
+						<p>Compra y Venta de Pasajes en Tiempo Real con BackboneJS y SocketIO</p>
+					</article>
+					<article>
+						<span>
+							<span class="icon-github-01"></span>
+							Proyecto personal. Pronto en GitHub
+						</span>
+						<p>Gestion de Usuarios con Zend Framework 2 y BackboneJS</p>
+					</article>
+					<article>
+						<span>
+							<span class="icon-github-01"></span>
+							Proyecto personal. Pronto en GitHub
+						</span>
+						<p>Gestion de Niveles y Cursos para Institutos</p>
+					</article>
+					<article>
+						<span>
+							<span class="icon-vc-bitbucket-01"></span>
+							Proyecto en equipo. Repositorio Privado
+						</span>
+						<p>Sistema Educativo Universitario (Repositorio Privado)</p>
+					</article>
 				</div>
 			</div>
 			<div class="column">
-				<div>
+				<div class="scroll fadeInRight uno">
 					<span class="glyphicon glyphicon-console"></span>
 					<p><strong>4000</strong> lineas de código</p>
 				</div>
-				<div>
+				<div class="scroll fadeInRight dos">
 					<span class="glyphicon glyphicon-envelope"></span>
 					<p><strong>200</strong> emails</p>
 				</div>
-				<div>
+				<div class="scroll fadeInRight tres">
 					<span class="glyphicon glyphicon-headphones"></span>
 					<p><strong>350</strong> canciones por día</p>
 				</div>
-				<div>
+				<div class="scroll fadeInRight cuatro">
 					<span class="glyphicon glyphicon-bed"></span>
 					<p><strong>Menos</strong> horas en la cama :(</p>
 				</div>
-				<div>
+				<div class="scroll fadeInRight cinco">
 					<span class="glyphicon glyphicon-signal"></span>
 					<p><strong>...pero</strong> mas eficaz y feliz :D</p>
 				</div>
@@ -119,23 +154,29 @@
 		</article>
 	</section>
 
-	<section class="else contact_me">
+	<section class="else contact_me" fromto="contact">
 		<article>
-			
+			<p class="title scroll fadeInTop">CONTÁCTO</p>
+			<p class="scroll fadeInTop">Si te gusta mi trabajo no dudes en comunicarte...</p>
+			<div class="first_info scroll fadeInLeft">
+				<p><span>@</span> liamklyneker@gmail.com</p>
+				<p><span class="glyphicon glyphicon-earphone"></span> +51 930330540</p>
+				<p><span class="glyphicon glyphicon-map-marker"></span> Perú <img src="img/peru.png" alt="Bandera Peruana :')"></p>
+			</div>
+			<div class="social scroll fadeInRight">
+				<a href="https://pe.linkedin.com/in/liamklyneker" target="_blank"><span class="icon-linkedin"></span></a>
+				<a href="https://github.com/LiamKlyneker" target="_blank"><span class="icon-github-01"></span></a>
+				<a href="https://www.facebook.com/JKStayner" target="_blank"><span class="icon-facebook"></span></a>
+				<a href="https://twitter.com/LiamKlyneker" target="_blank"><span class="icon-twitter-3"></span></a>
+				<a href="http://instagram.com/jkstayner" target="_blank"><span class="icon-instagram"></span></a>
+			</div>
 		</article>
 	</section>
 
-	<script>
-		$(function(){
-			/*console.log('joder');
-			$(window).scroll(function(){
-				if ($(window).scrollTop() > 350) {
-					$('.scroll').fadeIn(900);
-				} else {
-					$('.scroll').fadeOut(1000);
-				};
-			});*/
-		});
-	</script>
+	<footer>
+		<p><strong>Made whit <span class="glyphicon glyphicon-heart"></span> in Perú</strong></p>
+		<p><span class="glyphicon glyphicon-copyright-mark"></span> Liam Klyneker All Rights Reserved</p>
+		<p><span class="glyphicon glyphicon-sunglasses"></span> Desing By Me</p>
+	</footer>
 </body>
 </html>

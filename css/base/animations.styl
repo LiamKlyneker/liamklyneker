@@ -1,0 +1,100 @@
+.scroll
+	position relative
+	display none
+
+.main_animated
+	position relative
+
+.main_animated.fadeIn, .scroll.fadeIn
+	animation-name fadeIn
+	animation-duration 2s
+	animation-fill-mode both
+
+.scroll.fadeIn
+	animation-duration 1s
+
+.main_animated.fadeInDelay
+	animation-name fadeIn
+	animation-delay 1s
+	animation-duration 2s
+	animation-fill-mode both
+
+.scroll.fadeInTop, .main_animated.fadeInTop
+	animation-name fadeInTop
+	animation-duration 1s
+	animation-fill-mode both
+
+.scroll.fadeInBottomDelay
+	animation-name fadeInBottom
+	animation-delay .5s
+	animation-duration 1s
+	animation-fill-mode both
+
+
+.scroll.fadeInRight
+	animation-name fadeInRight
+	animation-duration .5s
+	animation-fill-mode both
+	
+.scroll.fadeInRight.uno
+	animation-delay .8s
+
+.scroll.fadeInRight.dos
+	animation-delay 1.6s
+
+.scroll.fadeInRight.tres
+	animation-delay 2.4s
+
+.scroll.fadeInRight.cuatro
+	animation-delay 3.2s
+	
+.scroll.fadeInRight.cinco
+	animation-delay 4.0s
+
+.scroll.fadeInLeft
+	animation-name fadeInLeft
+	animation-duration 1s
+	animation-fill-mode both
+
+	
+@keyframes fadeIn
+	from
+		opacity 0
+	to
+		opacity 1
+
+@keyframes fadeInTop
+	from
+		opacity 0
+		top -50px
+	to
+		opacity 1
+		top 0
+
+@keyframes fadeInBottom
+	from
+		opacity 0
+		top 50px
+	to
+		opacity 1
+		top 0
+
+
+@keyframes fadeInRight
+	from
+		opacity 0
+		left 50px
+	to
+		opacity 1
+		left 0
+
+@keyframes fadeInLeft
+	from
+		opacity 0
+		left -50px
+	to
+		opacity 1
+		left 0
+
+
+		
