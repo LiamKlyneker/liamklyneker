@@ -33,10 +33,9 @@ $(function(){
 				$(btn).parent().parent().find('a.active').removeClass('active');
 				$(btn).addClass('active');
 				var go_to = $(btn).attr('goto');
-				$('html body').animate({
+				$('html, body').animate({
 					scrollTop : ($('section[fromto=' + go_to +']').offset().top) - 53
 				}, 500);
-				console.log(go_to);
 			});
 		}
 
@@ -55,8 +54,6 @@ $(function(){
 			$(window).scroll(function(){
 				if (once === true) {
 					if ($(window).scrollTop() > $(el).offset().top-300) {
-						console.log(once)
-
 						$(el).find('.scroll').fadeIn('fast');
 						once = false;
 					}

@@ -1,5 +1,3 @@
-@import 'nib'
-
 azul_metal = #556370
 celeste = #4ECDC4
 rosa = #FF6B6B
@@ -19,11 +17,14 @@ a:hover, a:link
 a.btn_nice
 	display block
 
+html
+	height 100%
 
 body
+	height 100%
 	font-family: 'Expletus Sans', cursive;
 	font-size 14px
-	padding-top 3em
+	// padding-top 3em
 
 header
 	background white
@@ -111,17 +112,18 @@ header.whit_photo
 
 		p
 			margin-left 2em
-	
-
-	
 
 section
 	background-color azul_metal
 	position relative
+	height 100%
+	max-height 720px
+	min-height 671px
 	
 	&>article
 		max-width 1320px
-		min-height 671px
+		height 100%
+		position relative
 		margin auto
 
 		p.title
@@ -147,17 +149,16 @@ section
 			color white
 
 section.main
-	border-top 1px transparent solid
+	border 1px transparent solid
 
 	article
-		min-height 550px
 		position relative
 		top 0
 
 		figure
 			display block
 			position relative
-			margin 7em auto 0
+			margin 12em auto 0
 			width 50%
 
 			img
@@ -248,10 +249,6 @@ section.else
 			floar left
 			padding 2em
 			width 52%
-
-			article
-				
-				
 
 		div.column
 			background celeste
@@ -357,6 +354,7 @@ section.works
 					display inline-block
 					font-size .9em
 					margin 1em
+					min-height 90px
 					position relative
 					text-align center
 					vertical-align top
@@ -379,7 +377,7 @@ section.works
 							display block
 
 					p
-						padding 2em
+						padding 2em 1em
 						margin 0
 						
 				article:hover
@@ -416,9 +414,11 @@ section.works
 					width 100%
 
 section.contact_me
+	height 78%
+	min-height 500px
 
 	article
-		min-height 500px
+		min-height 520px
 
 	div.first_info
 		margin-left 7em
