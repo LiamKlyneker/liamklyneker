@@ -2,184 +2,42 @@
 <html lang="es">
 <head>
 	<meta charset="UTF-8">
-	<title>Liam Klyneker Web Developer</title>
+	<title>Liam Klyneker Front End Developer</title>
+	
+	<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'>
 	
 	 <!--<link type="image/x-icon" href="favicon.ico" rel="icon" />-->
 	
-	<link href='http://fonts.googleapis.com/css?family=Expletus+Sans:400,500italic,700' rel='stylesheet' type='text/css'>
+	<link href="http://fonts.googleapis.com/css?family=Expletus+Sans:400,500italic,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700" rel="stylesheet">
 
-	<link rel="stylesheet" href="css/vendor/normalize.css">
-	<link rel="stylesheet" href="css/vendor/pictonic.css">
-	<link rel="stylesheet" href="css/vendor/glyphicon.min.css">
+	<!-- <link rel="stylesheet" href="css/vendor/pictonic.css">
+	<link rel="stylesheet" href="css/vendor/glyphicon.min.css"> -->
 
 	<link rel="stylesheet" href="css/style.css">
 	
-	<script src="js/jquery-1.11.2.min.js"></script>
+	<script src="js/jquery-v3.1.0.min.js"></script>
 	<script src="js/main.js"></script>
 </head>
 <body>
-	<header>
-		<nav>
-			<figure>
-				<img src="img/profile.jpg" alt="logo">
-			</figure>
-			<p>Liam Klyneker</p>
-			<ul>
-				<li><a href="#" goto="home" class="active">Inicio</a></li>
-				<li><a href="#" goto="profile">Perfil</a></li>
-				<li><a href="#" goto="what_i_do">Habilidades</a></li>
-				<li><a href="#" goto="projects">Proyectos</a></li>
-				<li><a href="#" goto="contact">Contáctame :D</a></li>
-			</ul>
-		</nav>
-	</header>
-	<section class="main" fromto="home">
-		<article>
-			<figure class="main_animated fadeIn">
-				<img src="img/profile.jpg" alt="main_photo">
-			</figure>
-
-			<h2 class="main_animated fadeInTop">Hola, mi nombre es Liam</h2>
-			<p class="main_animated fadeInDelay">...y soy desarrollador web, me gusta el buen diseño y lo hermoso que puede llegar a ser la Experiencia de Usuario para el cliente, tambien estoy apto a aprender nuevas tecnologias para hacer sitios web geniales... <strong>Like a Boss</strong></p>
-			
-			<div class="main_animated fadeIn">
-				<a href="##" goto="profile">Conoceme Mejor</a>
-				<a href="##" goto="contact">Charlemos</a>
+	<div class="full-page full-page--center">
+		<article class="main-card">
+			<div class="main-card__desc">
+				<h2>LIAM KLYNEKER</h2>
+				<h1>CREATIVE FRONT-END DEVELOPER</h1>
 			</div>
-		</article>
-	</section>
-	<section class="else who_am_i column_right" fromto="profile">
-		<article>
-			<div class="main_info">
-				<p class="title scroll fadeInTop">PERFIL PROFESIONAL</p>
-				<p class="scroll fadeInTop">Desarrolador web a punto de terminar la carrera de Sistemas y Computación</p>
-				<article class="scroll fadeInBottomDelay">
-					<p>Soy estudiante de Sistemas y Computacion, me encanta la programación, tuve un inicio oscuro con Visual Basic, pero el desarrollo web es lo que me llamo la atencion desde que lo conoci alla por el 2010. </p>
-					<p>Al principio solo hacia Back End con Zend Framework 1, tuve proyectos colaborativos con compañeros de ese entonces, despues Front End, empeze a hacer las dos cosas, me agrado mas cuando conoci frameworks para mejorar esa experiencia y menorar las 5000 lineas de codigo que ya habia. </p>
-					<p>Actualmente estoy a cargo de un sistema educativo llamado eUndac, es un repositorio privado, bueno como siempre sigo en busca de nuevos objetivos para mi vida profesional y ahora estoy en eso. </p>
+			<div class="main-card__else">
+				<article class="lines-animated">
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
 				</article>
 			</div>
-			<div class="column">
-				<span class="glyphicon glyphicon-calendar scroll fadeInTop"></span>
-				<p class="scroll fadeInRight"><strong>2012</strong> Webing Time y Freelance</p>
-				<p class="scroll fadeInRight"><strong>2013</strong> Desarrollador en Yaros Lab</p>
-				<p class="scroll fadeInRight"><strong>2014</strong> Lider de proyecto eUndac</p>
-				<p class="scroll fadeInRight"><strong>2015</strong> Buscando nuevos horizontes</p>
-			</div>
 		</article>
-	</section>
-	<section class="else what_i_do column_left" fromto="what_i_do">
-		<article>
-			<div class="column">
-				<span class="glyphicon glyphicon-wrench scroll fadeInTop"></span>
-				<p class="scroll fadeInTop">Trabajo con el <span class="glyphicon glyphicon-heart"></span> y con estas tecnologias...</p>
-				<p class="scroll fadeInBottomDelay">
-					...se podria decir que JavaScript es mi fuerte, tambien hice BackEnd con Zend y Symfony...
-				</p>
-			</div>
-			<div class="tech">
-				<div>
-					<p>
-						<span class="icon-html5-02 scroll fadeInRight"></span>
-						<span class="icon-css3-02 scroll fadeInLeft"></span>
-					</p>
-				</div>
-				<div>
-					<span class="icon-prog-nodejs02 scroll fadeInRight"></span>
-					<span class="icon-prog-backbonejs scroll fadeIn"></span>
-					<span class="icon-angularjs scroll fadeInLeft"></span>
-				</div>
-				<div>
-					<span class="icon-prog-zendfrm scroll fadeInRight"></span>
-					<span class="icon-prog-symfony scroll fadeInLeft"></span>
-				</div>
-			</div>
-		</article>
-	</section>
-	<section class="else works column_right" fromto="projects">
-		<article>
-			<div class="main_info">
-				<p class="title scroll fadeInTop">PORTAFOLIO</p>
-				<p class="scroll fadeInTop">Algunos proyectos que hice y estoy haciendo...</p>
-				<div class="list scroll fadeInBottomDelay">
-					<a href="http://liamklyneker.github.io/vohregister/" target="_blank">
-						<span>
-							<span class="icon-github-01"></span>
-							Proyecto personal
-						</span>
-						<p>Gestion de Niveles y Cursos para Institutos o Académias</p>
-					</a>
-					<article>
-						<span>
-							<span class="icon-github-01"></span>
-							Proyecto personal. Pronto en GitHub
-						</span>
-						<p>Gestion de Usuarios con Zend Framework 2 y BackboneJS</p>
-					</article>
-					<article>
-						<span>
-							<span class="icon-github-01"></span>
-							Proyecto personal. Pronto en GitHub
-						</span>
-						<p>Compra y Venta de Pasajes en Tiempo Real con BackboneJS y SocketIO</p>
-					</article>
-					<article>
-						<span>
-							<span class="icon-vc-bitbucket-01"></span>
-							Proyecto en equipo. Repositorio Privado
-						</span>
-						<p>Sistema Educativo Universitario (Repositorio Privado)</p>
-					</article>
-				</div>
-			</div>
-			<div class="column">
-				<div class="scroll fadeInRight uno">
-					<span class="glyphicon glyphicon-console"></span>
-					<p><strong>4000</strong> lineas de código</p>
-				</div>
-				<div class="scroll fadeInRight dos">
-					<span class="glyphicon glyphicon-envelope"></span>
-					<p><strong>200</strong> emails</p>
-				</div>
-				<div class="scroll fadeInRight tres">
-					<span class="glyphicon glyphicon-headphones"></span>
-					<p><strong>350</strong> canciones por día</p>
-				</div>
-				<div class="scroll fadeInRight cuatro">
-					<span class="glyphicon glyphicon-bed"></span>
-					<p><strong>Menos</strong> horas en la cama :(</p>
-				</div>
-				<div class="scroll fadeInRight cinco">
-					<span class="glyphicon glyphicon-signal"></span>
-					<p><strong>...pero</strong> mas eficaz y feliz :D</p>
-				</div>
-			</div>
-		</article>
-	</section>
-
-	<section class="else contact_me" fromto="contact">
-		<article>
-			<p class="title scroll fadeInTop">CONTÁCTO</p>
-			<p class="scroll fadeInTop">Si te gusta mi trabajo no dudes en comunicarte...</p>
-			<div class="first_info scroll fadeInLeft">
-				<p><span>@</span> liamklyneker@gmail.com</p>
-				<p><span class="glyphicon glyphicon-earphone"></span> +51 930330540</p>
-				<p><span class="glyphicon glyphicon-map-marker"></span> Perú <img src="img/peru.png" alt="Bandera Peruana :')"></p>
-			</div>
-			<div class="social scroll fadeInRight">
-				<a href="https://pe.linkedin.com/in/liamklyneker" target="_blank"><span class="icon-linkedin"></span></a>
-				<a href="https://github.com/LiamKlyneker" target="_blank"><span class="icon-github-01"></span></a>
-				<a href="https://www.facebook.com/JKStayner" target="_blank"><span class="icon-facebook"></span></a>
-				<a href="https://twitter.com/LiamKlyneker" target="_blank"><span class="icon-twitter-3"></span></a>
-				<a href="http://instagram.com/jkstayner" target="_blank"><span class="icon-instagram"></span></a>
-			</div>
-		</article>
-	</section> 
-
-	<footer>
-		<p><strong>Made whit <span class="glyphicon glyphicon-heart"></span> in Perú</strong></p>
-		<p><span class="glyphicon glyphicon-copyright-mark"></span> Liam Klyneker All Rights Reserved</p>
-		<p><span class="glyphicon glyphicon-sunglasses"></span> Desing By Me</p>
-	</footer>
+	</div>
 </body>
 </html>

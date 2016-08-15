@@ -1,15 +1,15 @@
 $(function(){
-	console.log('Main ready');
+	console.log('main.js ready');
 
-	$(window).scroll(function(){
+	/*$(window).scroll(function(){
 		if ($(window).scrollTop() > 250) {
 			$('header').addClass('whit_photo');
 		} else {
 			$('header').removeClass('whit_photo');
-		};
+		}
 	});
 
-	var scroll = scrollAnimation()
+	var scroll = scrollAnimation();
 
 	$('ul li').each(function(){
 		scroll.goTo($(this).children('a'));
@@ -69,6 +69,6 @@ $(function(){
 			animated : animated,
 			goTo     : goTo
 		}
-	}
+	}*/
 
 });

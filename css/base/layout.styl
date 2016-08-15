@@ -1,471 +1,106 @@
 azul_metal = #556370
-celeste = #4ECDC4
-rosa = #FF6B6B
+celeste    = #4ECDC4
+rosa       = #FF6B6B
 rosaOscuro = #C54D57
-verde = #C7F465
+verde      = #C7F465
 
-*
-	box-sizing border-box
-a
-	text-decoration none
-	transition all .2s ease-in
-
-a:hover, a:link 
-	text-decoration none
-	
-
-a.btn_nice
-	display block
+black_grey = #333333
 
 html
-	height 100%
-
-body
-	height 100%
-	font-family: 'Expletus Sans', cursive;
 	font-size 14px
-	// padding-top 3em
-
-header
-	background white
-	box-shadow 0 3px 3px rgba(black, .1)
-	border-bottom 4px celeste solid
-	overflow hidden
-	position fixed
-	margin auto
-	top 0
-	width 100%
-	z-index 50
-
-	nav
-		margin auto
-		max-width 1325px
-
-	figure
-		display none
-
-	p
-		color azul_metal
-		font-size 1.4em
-		font-weight bold
-		padding 1em 3em
-		margin 0
-		transition all .3s
-		top 0
-		float left
-
-	ul
-		float right
-		margin 0
-		padding 1.7em 3em 1em 0
-		vertical-align top
-
-		li
-			display inline-block
-			margin-left .5em
-
-			a, a:visited
-				color rosaOscuro
-				border-bottom 1px white solid
-				height 100px
-				padding .3em 1em
-
-			a:hover
-				color azul_metal
-
-			a.active
-				border-bottom 3px azul_metal solid
-				color azul_metal
-
-		li:last-child
-			margin-left 2em
-
-			a
-				border 2px azul_metal solid
-				border-radius 5px
-				background rosa
-				color white
-
-			a:hover
-				background rosaOscuro
-				
-			a.active
-				background azul_metal
-
-header.whit_photo
-
-	nav
-		
-		figure
-			animation fadeIn .3s
-			display block
-			height 40px
-			margin-left 3.5em
-			position absolute
-			top .8em
-			width 40px
-			
-			img
-				border 1px rosa solid
-				border-radius 50%
-				width 100%
-
-		p
-			margin-left 2em
-
-section
-	background-color azul_metal
-	position relative
-	height 100%
-	max-height 720px
-	min-height 671px
+body
+	font-family 'Noto Sans', sans-serif
 	
-	&>article
-		max-width 1320px
-		height 100%
-		position relative
+.full-page
+	min-height 100vh
+	background-color black
+.full-page--center
+	display flex
+	& > *
 		margin auto
-
-		p.title
-			color white
-			text-align center
-			font-size 3em
-			padding-bottom .2em
-			margin-bottom 1em
-			position relative
-			
-			&:before
-				content ""
-				top 100%
-				border-bottom 8px rosa solid
-				left 50%
-				margin-left -5%
-				width 10%
-				position absolute
-
-		p.title+p
-			font-size 1.2em
-			text-align center
-			color white
-
-section.main
-	border 1px transparent solid
-
-	article
-		position relative
-		top 0
-
-		figure
-			display block
-			position relative
-			margin 12em auto 0
-			width 50%
-
-			img
-				display block
-				border-radius 50%
-				border 3px rosaOscuro solid
-				height 180px
-				position relative
-				z-index 5
-
-			&:before
-				background red
-				border-bottom 2px rosaOscuro solid
-				content ""
-				left 0
-				position absolute
-				top 50%
-				width 100%
-			
+	
+// .main-card
+	
+.main-card__desc
+	padding 1.5rem
+	background-color white
+	flex 3
+	h1
+		margin 0
+		font-family 'Expletus Sans', cursive
+		font-size 2rem
+	h2
+		font-size 1.2rem
+		margin 0
+		background-color black
+		color white
+		display inline-block
+		padding .2rem 1rem
+		margin-bottom 1rem
+		letter-spacing 1px
+.main-card__else
+	margin-top 6rem
+	flex 1
+	
+@media all and (min-width 700px)
+	.main-card
+		display flex
+		align-items center
+	.main-card__desc
+		padding 4rem
+		margin-right 2rem
+		h1
+			font-size 3rem
 		h2
-			font-size 2.5em
-			color white
-			text-align center
-			margin-bottom .5em
+			font-size 1.8rem
+	.main-card__else
+		margin-top 0
+@media all and (min-width 1100px)		
+	.main-card__desc
+		h1
+			white-space nowrap
 
-		p
-			color white
-			line-height 1.5em
-			margin auto
-			width 55%
-
-			strong
-				color rgba(black, .1)
-
-		div
-			width 35%
-			margin 3em auto 0
-			
-			a
-				font-size 1.2em
-				display inline-block
-				border 2px celeste solid
-				border-radius 5px
-				color white
-				padding .5em 1em
-				text-align center
-				width 48%
-
-					
-				&:hover
-					background celeste
-			
-			a:first-child
-				position relative
-
-				&:before
-					border-top 10px solid celeste
-					border-bottom 10px solid transparent
-					border-left 10px solid transparent
-					border-right 10px solid transparent
-					content ""
-					left 50%
-					margin-left -10px
-					position absolute
-					top 100%
-			a:nth-of-type(2)
-				background celeste
-				color azul_metal
-				margin-left 1%
-
-				&:hover
-					color white
-
-section.else
-	border-top 4px celeste solid
-
-
-	&>article
-		position relative
-		padding 2em
-
-		&>div
-			display inline-block
-			
-		div.main_info
-			margin 0 0 0 4em
-			color white
-			floar left
-			padding 2em
-			width 52%
-
-		div.column
-			background celeste
-			color azul_metal
-			height 100%
-			position absolute
-			top 0
-			width 30%
-
-section.column_right
-	
-	div.column
-		right 7em
-
-section.column_left
-	
-	div.column
-		left 7em
-
-section.who_am_i
-
-	div.main_info
-
-		article
-			margin-top 2em
-			line-height 1.5em
 		
-	div.column
-		padding 12em 6.7em
+.lines-animated
+	min-height 100px
+	display flex
+	justify-content stretch
+	background-color black
+	justify-content center
+	span
+		background-color white
+		min-width 10px
+		margin-right 1rem
+	span:last-child
+		margin-right 0
+@media all and (min-width 700px)
+	.lines-animated
+		min-height 120px
 		
 
-		span
-			display block
-			text-align center
-			margin-bottom .5em
-			font-size 5em
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 		
-		p
-			font-size .9em
-			border-left 2px rosa solid
-			padding 0 0 3em 1em
-			margin 0 auto
-			position relative
-			
-			&:before
-				background rosa
-				border-radius 50%
-				content ""
-				height 12px
-				left -7px
-				position absolute
-				top 2px
-				width 12px
-
-section.what_i_do
-	
-	div.column
-		padding 12em 2em 0
-
-		&>span
-			display block
-			font-size 5em
-			text-align center
-			margin-bottom .5em			
-
-		p
-			text-align center
-			color white
-			margin-bottom 5rem
-
-			span
-				color rosa
-
-	div.tech
-		position relative
-		width 50%
-		left 45%
-
-		div
-			margin 5em 0
-			text-align center
-			
-			span
-				font-size 7em
-				color white
-				margin-left 3rem
-				text-align center
-
-section.works
-
-	article
 		
-		div.main_info
-			
-			div.list
-				margin-top 3em
-				
-				a
-					color white
-				a
-				article
-					background rosa
-					border-radius 0 0 10px 0
-					box-shadow 0 0 10px rgba(black, .3)
-					cursor pointer
-					display inline-block
-					font-size .9em
-					margin 1em
-					min-height 90px
-					position relative
-					text-align center
-					vertical-align top
-					width 45%
-					
-					&>span
-						background transparent
-						color transparent
-						border-radius 0 0 10px 0
-						height 100%
-						left 0
-						padding-top 1.5em
-						transition all .3s
-						width 100%
-						position absolute
-
-						span
-							margin-bottom .2em
-							font-size 2em
-							display block
-
-					p
-						padding 2em 1em
-						margin 0
-				
-				a:hover
-				article:hover
-
-					&>span
-						background celeste
-						color white
-					
-
-	div.column
-		padding-top 5em
 		
-		div
-			font-size 0.9em
-			padding 1em
-			text-align center
-			margin-bottom 1.3em
-
-			span
-				font-size 2em
-				color rosa
-				
-			p
-				margin .2em
-				
-				strong
-					position relative
-					
-				strong:before
-					border-bottom 2px rosa solid
-					content ""
-					top 90%
-					position absolute
-					width 100%
-
-section.contact_me
-	height 78%
-	min-height 500px
-
-	article
-		min-height 520px
-
-	div.first_info
-		margin-left 7em
-		padding 1.5em
-
-		p
-			color white
-			font-size 1.2em
-
-			img
-				height 24px
-				margin-top -4px
-				display inline
-
-			span
-				top 5px
-				color celeste			
-				font-size 1.5em
-
-	div.social
-		background celeste
-		border-radius 3px
-		box-shadow 0 0 10px rgba(black, .6)
-		padding 1em
-		float right
-		margin 5em 11em 0 0
-		text-align center
-
-		a
-			color white
-			margin-right 1.5em
-			font-size 2em
-			
-		a:hover
-			color rosa
-
-footer
-	font-size .8em
-	background rosa
-	border 1px solid transparent
-	color white
-	margin 0
-	text-align center
 
 				
 

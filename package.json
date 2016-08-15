@@ -4,9 +4,12 @@
   "private": true,
   "devDependencies": {
     "gulp": "^3.8.10",
+    "gulp-autoprefixer": "^3.1.1",
     "gulp-concat": "^2.4.3",
+    "gulp-connect": "^5.0.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-sourcemaps": "^1.6.0",
     "gulp-stylus": "^2.0.0",
-    "gulp-watch": "^3.0.0",
-    "nib": "^1.1.0"
+    "gulp-watch": "^3.0.0"
   }
 }
