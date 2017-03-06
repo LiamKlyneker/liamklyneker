@@ -1,107 +1,54 @@
-azul_metal = #556370
-celeste    = #4ECDC4
-rosa       = #FF6B6B
-rosaOscuro = #C54D57
-verde      = #C7F465
-
-black_grey = #333333
-
 html
 	font-size 14px
 body
 	font-family 'Noto Sans', sans-serif
-	
+	font-weight 400
+	color black_
+
 .full-page
 	min-height 100vh
-	background-color black
+	background-color black_
 .full-page--center
 	display flex
 	& > *
 		margin auto
-	
-// .main-card
-	
-.main-card__desc
-	padding 1.5rem
-	background-color white
-	flex 3
-	h1
-		margin 0
-		font-family 'Expletus Sans', cursive
-		font-size 2rem
-	h2
-		font-size 1.2rem
-		margin 0
-		background-color black
-		color white
-		display inline-block
-		padding .2rem 1rem
-		margin-bottom 1rem
-		letter-spacing 1px
-.main-card__else
-	margin-top 6rem
-	flex 1
-	
-@media all and (min-width 700px)
-	.main-card
-		display flex
-		align-items center
-	.main-card__desc
-		padding 4rem
-		margin-right 2rem
-		h1
-			font-size 3rem
-		h2
-			font-size 1.8rem
-	.main-card__else
-		margin-top 0
-@media all and (min-width 1100px)		
-	.main-card__desc
-		h1
-			white-space nowrap
+.full-page--with-header
+	margin-top 66px
+	min-height calc(100vh - 66px)
+.full-page--with-footer
+	min-height calc(100vh - 66px)
 
-		
-.lines-animated
-	min-height 100px
+.main-header
+	height 66px
+	background-color pink_
+	display none
+	align-items center
+	position fixed
+	width 100%
+	z-index 4
+	left 0
+	top 0
+	transition all .3s linear
+.main-header.active
+	animation showHeaderMenu .3s linear
 	display flex
-	justify-content stretch
-	background-color black
-	justify-content center
-	span
-		background-color white
-		min-width 10px
-		margin-right 1rem
-	span:last-child
-		margin-right 0
-@media all and (min-width 700px)
-	.lines-animated
-		min-height 120px
-		
+.main-header.inactive
+	animation hideHeaderMenu .3s linear
+.main-footer
+	background-color pink_
+	height 66px
+	display flex
+	align-items center
 
+.container-toggle
+	display none
+.container-toggle.active
+	display block
+	animation showPage .3s linear
+.container-toggle.inactive
+	animation hidePage .3s linear
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		
-		
-		
-
-				
-
-	
+body.active-nav
+	overflow-y hidden
+	.main-header
+		background-color black

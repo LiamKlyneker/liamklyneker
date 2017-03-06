@@ -1,6 +1,17 @@
 $(function(){
 	console.log('main.js ready');
 
+	var templates = [
+		'main',
+		'about-me',
+		'work',
+		'contact'
+	];
+
+	__callAndFillTemplates(templates);
+
+	__setContainer('home');
+
 	/*$(window).scroll(function(){
 		if ($(window).scrollTop() > 250) {
 			$('header').addClass('whit_photo');
@@ -72,3 +83,52 @@ $(function(){
 	}*/
 
 });
+
+
+// Global Clicks
+$(document).on('click', 'a[href="#"]', function(ev){
+	ev.preventDefault();
+});
+$(document).on('click', '[gl-toggle=menu-mobile]', function(){
+	$('#menu-mobile').toggleClass('active');
+	$('body').toggleClass('active-nav');
+});
+$(document).on('click', '[gl-nav] a', function(){
+	var data = $(this).data();
+
+	__setContainer(data.where);
+});
+$(document).on('click', '[gl-goto]', function(){
+	var where = $(this).attr('gl-goto');
+	__setContainer(where);
+});
+
+// Functions
+function __setContainer(container){
+	$('[container].active').addClass('inactive');
+	setTimeout(function () {
+		$('[container].active').removeClass('active inactive');
+		$('[container='+container+']').addClass('active');
+	}, 280);
+
+
+
+
+	// Control header fixed
+	if (container !== 'home') {
+		$('#main-header-nav').addClass('active');
+	} else {
+		$('#main-header-nav').addClass('inactive');
+		setTimeout(function () {
+			$('#main-header-nav').removeClass('active inactive');
+		}, 280);
+	}
+
+	// Control mobile menu
+	if ($('body').hasClass('active-nav')) {
+		$('body').removeClass('active-nav');
+		$('#menu-mobile').removeClass('active');
+	}
+	$('[gl-nav] a').removeClass('active');
+	$('[gl-nav] a[data-where='+container+']').addClass('active');
+}

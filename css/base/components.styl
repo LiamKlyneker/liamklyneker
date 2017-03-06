@@ -1,0 +1,263 @@
+.main-card
+    display flex
+    flex-direction column
+    min-height calc(100vh - 66px)
+.main-card__desc
+    padding 3rem 4rem
+    background-color white
+    flex 1
+    display flex
+    align-items center
+    h1
+        margin 0
+        font-family 'Expletus Sans', cursive
+        font-size 1.4rem
+        text-align center
+        line-height 1.9rem
+    h2
+        font-size 1.15rem
+        margin 0
+        background-color black_
+        color white
+        display inline-block
+        padding .5rem 1.1rem
+        margin-bottom 2.5rem
+        letter-spacing 1px
+.main-card__else
+    padding 3rem 2rem
+    flex 3
+    display flex
+    align-items center
+    justify-content center
+
+@media all and (min-width 700px)
+    .main-card
+        display flex
+        align-items center
+    .main-card__desc
+        padding 4rem
+        margin-right 2rem
+        h1
+            font-size 3rem
+        h2
+            font-size 1.8rem
+    .main-card__else
+        margin-top 0
+@media all and (min-width 1100px)
+    .main-card__desc
+        h1
+            white-space nowrap
+
+.lines-animated
+    min-height 164px
+    display flex
+    justify-content stretch
+    justify-content center
+    position relative
+
+    span
+        background-color white
+        min-width 8px
+        margin-right 1.1rem
+        position relative
+    span:last-child
+        margin-right 0
+    span:nth-child(odd)
+        top 10px
+    span:nth-child(even)
+        top -10px
+    span:nth-child(3)
+    span:nth-child(6)
+        background-color pink_
+
+
+@media all and (min-width 700px)
+    .lines-animated
+        min-height 164px
+
+
+.main-nav
+    flex 1
+    display flex
+    position relative
+    top 3px
+    padding 1rem 4rem
+    justify-content space-between
+    a
+        margin-right 1rem
+        font-family 'Expletus Sans', cursive
+        text-align center
+        font-weight 500
+        text-decoration none
+        color white
+        position relative
+        &:after
+            content ''
+            border-bottom 4px solid transparent
+            position absolute
+            width 40%
+            left 30%
+            top 100%
+    a:last-child
+        margin-right 0
+    a.active
+        border-bottom-color white
+
+.nav-header
+    flex 1
+    display flex
+    justify-content space-between
+    align-items center
+    padding 1rem 2.5rem
+    figure
+        margin 0
+        img
+            position relative
+            top 3px
+            max-width 130px
+
+
+.main-nav-mobile
+    & > a
+        position relative
+        height 20px
+        width 40px
+        display block
+        span
+            position absolute
+            height 2px
+            width 40px
+            left 0
+            background-color white
+            margin-bottom 1rem
+            top 0
+            transition all .3s linear
+        span:last-child
+            margin-bottom 0
+            top 100%
+.main-nav-mobile__menu
+    display none
+    position fixed
+    height calc(100% - 66px)
+    width 100%
+    background-color rgba(black, .9)
+    left 0
+    top 66px
+    z-index 5
+    flex-direction column
+    align-items center
+    justify-content center
+    a
+        font-family 'Expletus Sans', cursive
+        font-size 1.8rem
+        margin-bottom 4.5rem
+        text-decoration none
+        color white
+    a.active
+        color pink_
+    a:last-child
+        margin-bottom 0
+.main-nav-mobile.active
+    & > a
+        span
+            top 50%
+            transform rotate(-45deg)
+        span:last-child
+            transform rotate(45deg)
+    .main-nav-mobile__menu
+        animation mobileMenu .3s linear
+        display flex
+
+// BUTTONS
+.button
+    display block
+    padding 1rem
+    border 2px solid black_
+    letter-spacing 2px
+    text-align center
+    font-weight 600
+    text-decoration none
+    color black_
+
+.button--white
+    border-color white
+    color white
+
+.link
+    color black_
+
+.link-icon
+    text-decoration none
+    font-size 2rem
+    color black_
+
+
+// WRAPPERS
+.wrapper
+    padding 0 3rem
+.wrapper-small
+    padding 0 1.35rem
+
+
+// CARDS
+
+.card-about-me__picture
+    margin-top 1rem
+    padding 3rem 2rem
+    figure
+        margin auto
+        height 121px
+        width 121px
+        background-color white
+        border-radius 50%
+
+
+.card-what-can-i-do__design
+    background-color white
+    padding 4rem 3rem
+.card-what-can-i-do__developer
+    padding 4rem 3rem
+
+ .card-what-can-i-do__img
+     margin 0
+     margin-top 4rem
+     img
+         max-width 100%
+
+.card-contact__desc
+    margin-bottom 4rem
+.card-contact__networks
+    padding 3rem 2rem
+    background-color white
+
+    .button
+        width 90%
+        max-width 145px
+        margin auto
+
+    .networks__socials
+        text-align center
+        .link-icon
+            margin-right 1rem
+        .link-icon:last-child
+            margin-right 0
+
+    .networks__by
+        line-height 1.45rem
+        color rgba(black_, .7)
+        .icon-hearth
+            position relative
+            top 1px
+        .icon-flag
+            margin-left .3rem
+
+
+.card-work
+    p
+        margin-top 4rem
+        margin-bottom 6rem
+
+    .button
+        width 90%
+        max-width 145px
+        margin auto
