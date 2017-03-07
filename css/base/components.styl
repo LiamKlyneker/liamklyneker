@@ -60,15 +60,43 @@
         min-width 8px
         margin-right 1.1rem
         position relative
+        box-shadow 0 0 10px rgba(pink_, .3)
     span:last-child
         margin-right 0
-    span:nth-child(odd)
-        top 10px
-    span:nth-child(even)
-        top -10px
+    // span:nth-child(odd)
+    //     top 10px
+    // span:nth-child(even)
+    //     top -10px
     span:nth-child(3)
     span:nth-child(6)
         background-color pink_
+        box-shadow 0 0 2px rgba(black_, .3)
+        
+    span:nth-child(2)
+    span:nth-child(4)
+    span:nth-child(6)
+        animation lineMove 3s ease-out
+        // animation-timing-function cubic-bezier(.16,.66,.58,.41)
+        animation-fill-mode forwards
+        animation-delay 2s
+    span:nth-child(4)
+        animation-delay 2.3s
+    span:nth-child(6)
+        animation-delay 2.8s
+    span:nth-child(1)
+    span:nth-child(3)
+    span:nth-child(5)
+        animation lineMoveO 3.5s ease-in
+        // animation-timing-function cubic-bezier(.16,.66,.58,.41)
+        animation-fill-mode forwards
+        animation-delay 2.5s
+    span:nth-child(3)
+        animation-delay 2.7s
+    span:nth-child(5)
+        animation-delay 3s
+        
+        
+
 
 
 @media all and (min-width 700px)
