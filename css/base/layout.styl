@@ -17,6 +17,11 @@ body
 	min-height calc(100vh - 66px)
 .full-page--with-footer
 	min-height calc(100vh - 66px)
+@media all and (min-width 768px)
+	.full-page--with-header
+		min-height calc(100vh - 100px)
+	.full-page--with-footer
+		min-height calc(100vh - 100px)
 
 .main-header
 	height 66px
@@ -39,6 +44,13 @@ body
 	height 66px
 	display flex
 	align-items center
+	justify-content center
+	nav
+		max-width 500px
+		
+@media all and (min-width 768px)
+	.main-footer
+		height 100px
 
 .container-toggle
 	display none

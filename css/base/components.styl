@@ -2,12 +2,16 @@
     display flex
     flex-direction column
     min-height calc(100vh - 66px)
+@media all and (min-width 768px)
+    .main-card
+        min-height calc(100vh - 100px)
 .main-card__desc
     padding 3rem 4rem
     background-color white
     flex 1
     display flex
     align-items center
+    justify-content center
     h1
         margin 0
         font-family 'Expletus Sans', cursive
@@ -30,23 +34,16 @@
     align-items center
     justify-content center
 
-@media all and (min-width 700px)
-    .main-card
-        display flex
-        align-items center
+@media all and (min-width 768px)
     .main-card__desc
-        padding 4rem
-        margin-right 2rem
+        flex 3
         h1
-            font-size 3rem
-        h2
             font-size 1.8rem
-    .main-card__else
-        margin-top 0
-@media all and (min-width 1100px)
-    .main-card__desc
-        h1
-            white-space nowrap
+            line-height 2.8rem
+        h2
+            font-size 1.4rem
+            margin-bottom 3.5rem
+        
 
 .lines-animated
     min-height 164px
@@ -63,10 +60,6 @@
         box-shadow 0 0 10px rgba(pink_, .3)
     span:last-child
         margin-right 0
-    // span:nth-child(odd)
-    //     top 10px
-    // span:nth-child(even)
-    //     top -10px
     span:nth-child(3)
     span:nth-child(6)
         background-color pink_
@@ -94,14 +87,13 @@
         animation-delay 2.7s
     span:nth-child(5)
         animation-delay 3s
-        
-        
 
-
-
-@media all and (min-width 700px)
+@media all and (min-width 768px)
     .lines-animated
-        min-height 164px
+        min-height 250px
+        span
+            min-width 10px
+            margin-right 1.5rem
 
 
 .main-nav
@@ -130,6 +122,11 @@
         margin-right 0
     a.active
         border-bottom-color white
+
+@media all and (min-width 768px)
+    .main-nav
+        a
+            font-size 1.15rem
 
 .nav-header
     flex 1
