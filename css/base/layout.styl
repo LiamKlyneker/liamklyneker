@@ -19,6 +19,7 @@ body
 	min-height calc(100vh - 66px)
 @media all and (min-width 768px)
 	.full-page--with-header
+		margin-top 100px
 		min-height calc(100vh - 100px)
 	.full-page--with-footer
 		min-height calc(100vh - 100px)
@@ -34,6 +35,9 @@ body
 	left 0
 	top 0
 	transition all .3s linear
+@media all and (min-width 768px)
+	.main-header
+		height 100px
 .main-header.active
 	animation showHeaderMenu .3s linear
 	display flex
@@ -46,7 +50,7 @@ body
 	align-items center
 	justify-content center
 	nav
-		max-width 500px
+		max-width 550px
 		
 @media all and (min-width 768px)
 	.main-footer

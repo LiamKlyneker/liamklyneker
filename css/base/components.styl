@@ -140,7 +140,12 @@
             position relative
             top 3px
             max-width 130px
-
+            
+@media all and (min-width 768px)
+    .nav-header
+        figure
+            img
+                max-width 182px
 
 .main-nav-mobile
     & > a
@@ -192,6 +197,11 @@
     .main-nav-mobile__menu
         animation mobileMenu .3s linear
         display flex
+        
+@media all and (min-width 768px)
+    .main-nav-mobile__menu
+        height calc(100% - 100px)
+        top 100px
 
 // BUTTONS
 .button
@@ -235,19 +245,50 @@
         width 121px
         background-color white
         border-radius 50%
-
+        
+@media all and (min-width 768px)
+    .card-about-me
+        display flex
+        align-items center
+        max-width 550px
+        margin auto
+    .card-about-me__desc
+        flex 1
+        p
+            max-width 300px
+            margin-left auto
+            margin-right auto
+    .card-about-me__picture
+        flex 1
+        margin-top 0
+        figure
+            margin initial
+            margin-left auto
 
 .card-what-can-i-do__design
     background-color white
     padding 4rem 3rem
 .card-what-can-i-do__developer
     padding 4rem 3rem
-
- .card-what-can-i-do__img
+.card-what-can-i-do__img
      margin 0
      margin-top 4rem
      img
          max-width 100%
+         
+@media all and (min-width 768px)
+    .card-what-can-i-do
+        display flex
+    .card-what-can-i-do__design
+        flex 1
+    .card-what-can-i-do__developer
+        flex 1
+    .p-margin-2
+        margin-bottom 3rem
+    .card-what-can-i-do__img
+        margin-top 5rem
+        margin-bottom 2rem
+        
 
 .card-contact__desc
     margin-bottom 4rem
@@ -259,6 +300,9 @@
         width 90%
         max-width 145px
         margin auto
+    
+    .networks__made
+        margin-top 6rem
 
     .networks__socials
         text-align center
@@ -275,14 +319,50 @@
             top 1px
         .icon-flag
             margin-left .3rem
+@media all and (min-width 768px)
+    .card-contact
+        display flex
+        justify-content center
+        min-height calc(100vh - 100px - 228px)
+    .card-contact__desc
+        flex 1
+        margin-bottom 0
+        max-width 260px
+        margin-right 5rem
+        padding-top 13rem
+        p
+            margin-left auto
+            margin-right auto
+    .card-contact__networks
+        padding-top 5rem
+        flex 1
+        max-width 271px
+        display flex
+        flex-direction column
+        justify-content space-between
+        
 
 
 .card-work
     p
         margin-top 4rem
         margin-bottom 6rem
-
     .button
         width 90%
         max-width 145px
         margin auto
+@media all and (min-width 768px)
+    .card-work
+        min-height calc(100vh - 100px - 228px)
+        display flex
+        justify-content center
+        align-items center
+        flex-direction column
+        p
+            max-width 270px
+            margin initial
+            margin-top 0
+            margin-bottom 6rem
+        .button
+            margin initial
+            margin-bottom 12rem
