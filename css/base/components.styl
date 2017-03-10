@@ -2,9 +2,6 @@
     display flex
     flex-direction column
     min-height calc(100vh - 66px)
-@media all and (min-width 768px)
-    .main-card
-        min-height calc(100vh - 100px)
 .main-card__desc
     padding 3rem 4rem
     background-color white
@@ -35,6 +32,8 @@
     justify-content center
 
 @media all and (min-width 768px)
+    .main-card
+        min-height calc(100vh - 100px)
     .main-card__desc
         flex 3
         h1
@@ -43,7 +42,25 @@
         h2
             font-size 1.4rem
             margin-bottom 3.5rem
-        
+@media all and (min-width 1200px)
+    .main-card
+        flex-direction row
+        padding 4rem 7rem
+    .main-card__desc
+        margin-right 4rem
+        h1
+            font-size 2.15rem
+            line-height 3.2rem
+        h2
+            margin-bottom 4rem
+    .main-card__else
+        padding 0
+        flex 1
+@media all and (min-height 800px)
+    .main-card
+        align-items center
+    .main-card__desc
+        min-height 600px
 
 .lines-animated
     min-height 164px
@@ -118,10 +135,15 @@
             width 40%
             left 30%
             top 100%
+            transition all .2s linear
+    a:hover
+        &:after
+            border-bottom-color white
     a:last-child
         margin-right 0
     a.active
-        border-bottom-color white
+        &:after
+            border-bottom-color white
 
 @media all and (min-width 768px)
     .main-nav
