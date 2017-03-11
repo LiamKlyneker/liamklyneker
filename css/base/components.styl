@@ -60,7 +60,7 @@
     .main-card__else
         padding 0
         flex 1
-@media all and (min-height 800px)
+@media all and (min-height 800px) and (min-width 1200px)
     .main-card
         align-items center
     .main-card__desc
@@ -153,6 +153,10 @@
     .main-nav
         a
             font-size 1.15rem
+@media all and (min-width 1200px)
+    .main-nav
+        a
+            font-size 1.4rem
 
 .nav-header
     flex 1
@@ -172,6 +176,12 @@
         figure
             img
                 max-width 182px
+@media all and (min-width 768px)
+    .nav-header
+        padding 1rem 7rem
+        figure
+            img
+                max-width 198px
 
 .main-nav-mobile
     & > a
@@ -223,11 +233,46 @@
     .main-nav-mobile__menu
         animation mobileMenu .3s linear
         display flex
+.main-nav-desktop
+    display none
+    position relative
+    top 4px
+    a
+        margin-right 7rem
+        font-family 'Expletus Sans', cursive
+        text-align center
+        font-weight 500
+        text-decoration none
+        color white
+        position relative
+        font-size 1.4rem
+        &:after
+            content ''
+            border-bottom 4px solid transparent
+            position absolute
+            width 40%
+            left 30%
+            top 100%
+            transition all .2s linear
+    a:hover
+        &:after
+            border-bottom-color white
+    a:last-child
+        margin-right 0
+    a.active
+        &:after
+            border-bottom-color white
+        
         
 @media all and (min-width 768px)
     .main-nav-mobile__menu
         height calc(100% - 100px)
         top 100px
+@media all and (min-width 1200px)
+    .main-nav-mobile
+        display none
+    .main-nav-desktop
+        display flex
 
 // BUTTONS
 .button
@@ -239,10 +284,20 @@
     font-weight 600
     text-decoration none
     color black_
+    transition all .3s linear
+    &:hover
+        background-color black_
+        color white
+@media all and (min-width 1200px)
+    .button
+        font-size 1.15rem
 
 .button--white
     border-color white
     color white
+    &:hover
+        background-color white
+        color black_
 
 .link
     color black_
@@ -251,6 +306,9 @@
     text-decoration none
     font-size 2rem
     color black_
+    transition .3s all linear
+    &:hover
+        color pink_
 
 
 // WRAPPERS
@@ -290,7 +348,16 @@
         figure
             margin initial
             margin-left auto
-
+@media all and (min-width 1200px)
+    .card-about-me
+        max-width 850px
+    .card-about-me__desc
+        p
+            max-width 450px
+    .card-about-me__picture
+        figure
+            height 199px
+            width 199px
 .card-what-can-i-do__design
     background-color white
     padding 4rem 3rem
@@ -307,13 +374,33 @@
         display flex
     .card-what-can-i-do__design
         flex 1
+        .p-margin-2
+            margin-bottom 3rem
     .card-what-can-i-do__developer
         flex 1
-    .p-margin-2
-        margin-bottom 3rem
+        .p-margin-2
+            margin-bottom 3rem
     .card-what-can-i-do__img
         margin-top 5rem
         margin-bottom 2rem
+@media all and (min-width 1200px)
+    .card-what-can-i-do__design
+        padding 5rem 8rem
+        padding-right 12rem
+        div
+            max-width 400px
+            margin-left auto
+        .p-margin-2
+            margin-bottom 5rem
+    .card-what-can-i-do__developer
+        padding 5rem 8rem
+        padding-left 12rem
+        div
+            max-width 400px
+        .p-margin-2
+            margin-bottom 5rem
+    .card-what-can-i-do__img
+        margin-top 7rem
         
 
 .card-contact__desc
@@ -366,6 +453,23 @@
         display flex
         flex-direction column
         justify-content space-between
+@media all and (min-width 1200px)
+    .card-contact
+        min-height calc(100vh - 100px - 348px)
+    .card-contact__desc
+        max-width 400px
+        margin-right 15rem
+    .card-contact__networks
+        max-width 350px
+        .button
+            width 100%
+            max-width 175px
+        .networks__made
+            margin-top 9rem
+        .networks__contact
+            .p-grey
+                font-size 1.15rem
+    
         
 
 
@@ -392,3 +496,10 @@
         .button
             margin initial
             margin-bottom 12rem
+            width 100%
+            max-width 175px
+@media all and (min-width 1200px)
+    .card-work
+        min-height calc(100vh - 100px - 348px)
+        p
+            max-width 500px

@@ -31,6 +31,10 @@ p
 @media all and (min-width 768px)
     .p-desc
         line-height 2.1rem
+@media all and (min-width 1200px)
+    .p-desc
+        font-size 1.4rem
+        line-height 2.6rem
 .title
     font-size 1.4rem
     font-family 'Expletus Sans', cursive
@@ -57,15 +61,32 @@ p
     .title
         font-size 1.7rem
         padding 7rem 1rem
+@media all and (min-width 1200px)
+    .title
+        padding 11rem 1rem
+        font-size 2.15rem
 
 .title-alter
     font-family 'Expletus Sans', cursive
     font-size 1.4rem
     letter-spacing 3px
     color black_grey
+@media all and (min-width 1200px)
+    .title-alter
+        font-size 1.85rem
 
 
 hr.hr
     width 40%
     margin auto
     border-color rgba(black_, .15)
+    // position relative
+    // &:after
+    //     content ''
+    //     border-top 4px solid rgba(black_, .15)
+    //     border-left 6px solid transparent
+    //     border-right 6px solid transparent
+    //     position absolute
+    //     top calc(100% + 1px)
+    //     left calc(50% - 6px)
+        

@@ -106,7 +106,9 @@ $(document).on('click', '[gl-goto]', function(){
 // Functions
 function __setContainer(container){
 	$('[container].active').addClass('inactive');
+	$('html body').animate({scrollTop : 0 });
 	setTimeout(function () {
+		
 		$('[container].active').removeClass('active inactive');
 		$('[container='+container+']').addClass('active');
 	}, 280);
