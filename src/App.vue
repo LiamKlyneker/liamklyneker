@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import LkHeader from '@/components/Header.vue'
+import LkHeader from '@/components/Header'
 
 export default {
 	name: 'App',

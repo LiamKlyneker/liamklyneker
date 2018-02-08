@@ -1,0 +1,43 @@
+a
+	text-decoration none
+
+// a.button, button.button
+// 	border 2px solid white
+// 	height 35px
+// 	padding .3rem 1.7rem
+// 	display flex
+// 	justify-content center
+// 	align-items center
+// 	text-align center
+// 	font-size .85rem
+	
+// a.button.link, button.button.link
+// 	border 0
+	
+.button-hamburguer
+	width 32px
+	height 20px
+	position relative
+	z-index 101
+	span
+		position absolute
+		height 2px
+		width 32px
+		top 0
+		left 0
+		display block
+		background-color white
+		margin-bottom 12px
+		transition .2s all ease-in
+	span:last-child
+		top calc(100% - 2px)
+		margin-bottom 0
+.button-hamburguer.active
+	span
+		top 50%
+		left calc(50% - (32px / 2))
+	span:first-child
+		transform rotate(-45deg)
+	span:last-child
+		transform rotate(-135deg)
+		
