@@ -27,13 +27,15 @@ export default {
 }
 </script>
 
-<style lang="stylus">
+<style lang="stylus" scoped="true">
+@import '~@variables'
+
 .header-wrapper
 	display flex
 	align-items center
 	justify-content space-between
-	padding 2.5rem
-	max-width calc(1300px + 5rem)
+	padding 2.5rem 2.8rem
+	max-width "calc(%s + 5.6rem)" % $max_width
 	margin-left auto
 	margin-right auto
 	& > span
@@ -43,7 +45,7 @@ export default {
 		background-color white
 @media all and (min-width 1024px)
 	.header-wrapper
-		padding 3.5rem 2.5rem
+		padding 4rem 2.8rem
 nav
 	display none
 	flex-direction column
