@@ -7,6 +7,7 @@ main
 				p.p-main Hi, I’m Liam Klyneker and I’m a web designer / developer based on Lima Perú.
 				p.p-main I like to do greatest things by building cross platforms apps always with the user experience on mind and their satisfaction using it.
 			figure
+		button.button-more MORE
 	.divide-section
 		div
 			.section-what-can-i-do
@@ -31,9 +32,13 @@ main
 <style lang="stylus" scoped=true>
 .main-wrapper
 	margin-bottom 6rem
+@media all and (min-width 1024px)
+	.main-wrapper
+		margin-bottom 4rem
 @media all and (min-width 1300px)
 	.main-wrapper
-		margin-bottom 10rem
+		margin-bottom 0
+
 .item-about-me
 	div
 		margin-bottom 5rem
@@ -75,12 +80,41 @@ main
 			flex 1
 @media all and (min-width 1300px)
 	.divide-section
+		min-height 100vh
 		& > div:first-child
 			.section-what-can-i-do
 				margin-left auto
 		& > div:last-child
 			.section-what-can-i-do
 				margin-right auto
+@media all and (min-width 1400px)
+	.divide-section
+		& > div
+			.section-what-can-i-do
+				position relative
+		& > div:first-child
+			.section-what-can-i-do
+				&:after
+					content ''
+					border-bottom 2px solid black
+					position absolute
+					bottom 151px
+					left -50vw
+					width 50vw
+				section
+					margin-bottom 5rem
+		& > div:last-child
+			.section-what-can-i-do
+				position relative
+				&:after
+					content ''
+					border-bottom 2px solid white
+					position absolute
+					bottom 155px
+					right -50vw
+					width 50vw
+				section
+					margin-bottom 4.9rem
 
 .section-what-can-i-do
 	padding 6rem 0
@@ -89,7 +123,6 @@ main
 		padding 0 2.8rem
 	section
 		padding 0 2.8rem
-		margin-bottom 4.6rem
 	figure
 		display flex
 		justify-content center
@@ -103,8 +136,13 @@ main
 @media all and (min-width 800px)
 	.section-what-can-i-do
 		padding-bottom 10rem
+		header
+			margin-bottom 4rem
+			padding 0 4rem
 		section
 			min-height 130px
+			padding 0 4rem
+			margin-bottom 5rem
 @media all and (min-width 1300px)
 	.section-what-can-i-do
 		padding 8rem 0

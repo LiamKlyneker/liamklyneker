@@ -35,7 +35,6 @@ export default {
 	align-items center
 	justify-content space-between
 	padding 2.5rem 2.8rem
-	max-width "calc(%s + 5.6rem)" % $max_width
 	margin-left auto
 	margin-right auto
 	& > span
@@ -45,7 +44,8 @@ export default {
 		background-color white
 @media all and (min-width 1024px)
 	.header-wrapper
-		padding 4rem 2.8rem
+		padding 4rem 4rem
+		max-width "calc(%s + 8rem)" % $max_width
 nav
 	display none
 	flex-direction column
@@ -62,7 +62,7 @@ nav
 		font-family 'Expletus Sans', serif
 		font-weight 400
 		color white
-		font-size 1.1rem
+		font-size 1rem
 		margin-bottom 3rem
 	a:nth-child(2)
 		margin-bottom 2.5rem
@@ -95,7 +95,6 @@ nav.active
 			padding-top .2rem
 			margin-bottom 0
 			margin-right 5rem
-			font-size 1rem
 		a:nth-child(2)
 			margin-bottom 0
 		a:last-child
@@ -103,4 +102,9 @@ nav.active
 		a.special
 			height 52px
 			padding-top .6rem
+@media all and (min-width 1300px)
+	nav
+		a
+			margin-right 6.3rem
+			font-size 1.15rem
 </style>
