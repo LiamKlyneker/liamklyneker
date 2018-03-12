@@ -15,27 +15,30 @@
 html
 	font-family 'Oxygen', sans-serif
 	font-size 14px
+	font-weight 300
 	color white
 body
 	background-color black
 	overflow-x hidden
-	
+
 // main.normal
-	
+
 .main-wrapper
-	padding 1.5rem 2.8rem
+	padding 1.5rem 3rem
 	margin-left auto
 	margin-right auto
-	max-width "calc(%s + 5.6rem)" % $max_width
+	max-width "calc(%s + 6rem)" % $max_width
+	min-height calc(100vh - 95px)
 @media all and (min-width 1024px)
 	.main-wrapper
-		padding 1.5rem 4rem
-		padding-top 2rem
-		max-width "calc(%s + 8rem)" % $max_width
-@media all and (min-width 1300px)
-	.main-wrapper
-		min-height calc(100vh - 164px)
-	
-	
-	
-	
+		min-height calc(100vh - 142px)
+.main-wrapper.full
+	max-width 100%
+	padding 0
+.main-wrapper__content
+	padding 1.5rem 3rem
+	max-width "calc(%s + 6rem)" % $max_width
+	margin-left auto
+	margin-right auto
+.main-wrapper.white
+	background-color white

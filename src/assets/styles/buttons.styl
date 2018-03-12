@@ -10,24 +10,23 @@ a
 // 	align-items center
 // 	text-align center
 // 	font-size .85rem
-	
+
 // a.button.link, button.button.link
 // 	border 0
-	
+
 .button-hamburguer
 	width 32px
-	height 20px
+	height 17px
 	position relative
 	z-index 101
 	span
 		position absolute
-		height 2px
-		width 32px
+		height 1px
+		width 33px
 		top 0
 		left 0
 		display block
 		background-color white
-		margin-bottom 12px
 		transition .2s all ease-in
 	span:last-child
 		top calc(100% - 2px)
@@ -40,7 +39,7 @@ a
 		transform rotate(-45deg)
 	span:last-child
 		transform rotate(-135deg)
-		
+
 .button-more
 	margin-top 6rem
 	margin-left auto
@@ -52,3 +51,19 @@ a
 @media all and (min-width 700px)
 	.button-more
 		margin-top 4rem
+
+.button-send
+	font-size .9rem
+	font-weight 400
+	color $purple
+	transition .1s all
+	i
+		position relative
+		top 2px
+		margin-left .4rem
+		font-size 1.1rem
+		transition .1s all
+.button-send:hover
+	color $purple_hover
+	i
+		margin-left .6rem
