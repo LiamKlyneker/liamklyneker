@@ -14,7 +14,7 @@ export default new Router({
 			component: LkLandingPage
 		},
 		{
-			path: '/work/as-a-designer',
+			path: '/works/list',
 			name: 'Work',
 			component: LkWorkPage
 		}

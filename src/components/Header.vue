@@ -1,7 +1,7 @@
 <template lang="pug">
 header
 	.header-wrapper
-		router-link(:to="{ name: 'Landing' }") #[figure #[img(src="@/assets/svgs/logo.svg")]]
+		router-link(:to="{ name: 'Landing' }", @click.native="scrollToTop") #[figure #[img(src="@/assets/svgs/logo.svg")]]
 		button.button-hamburguer(:class="{'active': isMobileMenuOpen}", @click="toggleMobileMenu")
 			span
 			span
@@ -21,6 +21,10 @@ export default {
 	methods: {
 		toggleMobileMenu () {
 			this.isMobileMenuOpen = !this.isMobileMenuOpen
+		},
+		scrollToTop () {
+			const html = document.querySelector('html')
+			html.scrollTop = 0
 		}
 	}
 }
@@ -49,6 +53,8 @@ header
 	figure
 		padding-top 4px
 		margin 0
+		position relative
+		z-index 101
 		img
 			max-width 80px
 @media all and (min-width 1024px)
@@ -69,7 +75,7 @@ nav
 	top 0
 	width 100%
 	height 100%
-	background-color rgba(black, .5)
+	background-color rgba(black, .9)
 	z-index 100
 	a
 		font-family 'Expletus Sans', serif
@@ -77,23 +83,32 @@ nav
 		color white
 		font-size 1rem
 		margin-bottom 3rem
+		transition .1s all linear
+		position relative
+		&:after
+			content ''
+			position absolute
+			top calc(100% + 5px)
+			width 0
+			// width calc(100% + 2rem)
+			left -1rem
+			border-bottom 1px solid white
+			transition .2s all ease-out
+			opacity 0
+	a:hover
+		&:after
+			width calc(100% + 2rem)
+			opacity 1
 	a:nth-child(2)
 		margin-bottom 2.5rem
 	a:last-child
 		margin-bottom 0
-	a.special
-		height 35px
-		display flex
-		justify-content center
-		align-items center
-		text-align center
-		border 2px solid white
-		border-radius 30px
-		padding .3rem 3rem
-		padding-top .5rem
-	a.special:hover
-		background-color white
-		color black
+	a.router-link-active
+		color $purple
+		&:after
+			border-bottom-color $purple
+			opacity 1
+			width calc(100% + 2rem)
 nav.active
 	display flex
 @media all and (min-width 1024px)

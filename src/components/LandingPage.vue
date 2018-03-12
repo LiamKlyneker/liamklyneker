@@ -39,7 +39,7 @@ div
                         p.p-secondary Particularmente ahora soy un “component lover” asi que trabajo con React o Vue, siempre escribiendo código limpio y modular, con la escabilidad en mente.
                     div
                         figure #[img(src="@/assets/svgs/as-a-developer.svg")]
-    lk-contact
+    lk-contact(ref="contact")
 </template>
 
 <script>
@@ -48,7 +48,6 @@ import LkContact from '@/components/Contact'
 export default {
 	beforeRouteUpdate (to, from, next) {
 		next()
-		console.log('beforeRouteUpdate')
 		this.verifySection()
 	},
 
@@ -56,21 +55,59 @@ export default {
 		LkContact
 	},
 
+	data () {
+		return {
+			contactTop: 0
+		}
+	},
+
 	methods: {
 		verifySection () {
 			const section = this.$route.params.section
-			if (section) {
-				this.goToSection(section)
-			}
+			this.goToSection(section)
 		},
 
 		goToSection (section) {
-			console.log('goToSection', section)
+			const html = document.querySelector('html')
+			setTimeout(() => {
+				if (section) {
+					if (window.scrollY < this.contactTop - 143) {
+						html.scrollTop = this.contactTop + 143
+					}
+				}
+			}, 1)
+		},
+
+		handleScroll () {
+			// contro Contact section
+			if (window.scrollY < this.contactTop) {
+				if (this.$route.params.section) {
+					console.log('fuera de CONTACT')
+					this.$router.replace({
+						name: 'Landing'
+					})
+				}
+			} else {
+				if (!this.$route.params.section) {
+					console.log('dentro de CONTACT')
+					this.$router.replace({
+						name: 'Landing',
+						params: {section: 'contact'}
+					})
+				}
+			}
 		}
 	},
 
 	created () {
 		this.verifySection()
+
+		window.addEventListener('scroll', this.handleScroll)
+	},
+
+	mounted () {
+		const html = document.querySelector('html')
+		this.contactTop = html.scrollHeight - (this.$refs['contact'].$el.scrollHeight + 143)
 	}
 }
 
