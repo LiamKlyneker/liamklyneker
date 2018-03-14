@@ -1,7 +1,7 @@
 <template lang="pug">
 #app
-	.main-loader(v-show="isLoaderActive", :class="{'hide': activeLoaderHide}") #[figure #[img(src="@/assets/svgs/logo-to-load.svg")] #[span]]
-	.main-page(v-show="!isLoaderActive")
+	.main-loader(v-if="isLoaderActive", :class="{'hide': activeLoaderHide}") #[figure #[img(src="@/assets/svgs/logo-to-load.svg")] #[span]]
+	.main-page(v-if="!isLoaderActive")
 		lk-header
 		router-view
 </template>
@@ -24,13 +24,12 @@ export default {
 	},
 
 	mounted () {
-		console.log('mounted')
 		setTimeout(() => {
 			this.activeLoaderHide = true
 			setTimeout(() => {
 				this.isLoaderActive = false
-			}, 300)
-		}, 2000)
+			}, 600)
+		}, 3000)
 	}
 }
 </script>

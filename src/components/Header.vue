@@ -1,7 +1,7 @@
 <template lang="pug">
 header
 	.header-wrapper
-		router-link(:to="{ name: 'Landing' }", @click.native="scrollToTop") #[figure #[img(src="@/assets/svgs/logo.svg")]]
+		router-link(:to="{ name: 'Landing' }", @click.native="clickLogo") #[figure #[img(src="@/assets/svgs/logo.svg")]]
 		button.button-hamburguer(:class="{'active': isMobileMenuOpen}", @click="toggleMobileMenu")
 			span
 			span
@@ -22,6 +22,10 @@ export default {
 		toggleMobileMenu () {
 			this.isMobileMenuOpen = !this.isMobileMenuOpen
 		},
+		clickLogo () {
+			this.isMobileMenuOpen = false
+			this.scrollToTop()
+		},
 		scrollToTop () {
 			const html = document.querySelector('html')
 			html.scrollTop = 0
@@ -40,6 +44,8 @@ header
 	width 100%
 	background-color rgba(black, .9)
 	z-index 1000
+	animation 'introHeader' .3s ease-in
+
 .header-wrapper
 	display flex
 	align-items center

@@ -10,7 +10,7 @@
 	align-items center
 	justify-content center
 	figure
-		max-width 120px
+		max-width 80px
 		display flex
 		align-items flex-end
 		img
@@ -20,21 +20,15 @@
 			display inline-block
 			height 2px
 			background-color white
-			min-width 27px
-			animation 'animateLogo' 1.4s linear infinite
+			min-width 18px
+			animation 'animateLogo' 1.8s linear infinite
+
+@media all and (min-width 700px)
+	.main-loader
+		figure
+			max-width 120px
+			span
+				min-width 27px
+
 .main-loader.hide
-	animation 'hideBack' .3s ease-out
-@keyframes animateLogo
-	0%
-		opacity 1
-	50%
-		opacity 0
-	100%
-		opacity 1
-@keyframes hideBack
-	from
-		opacity 1
-		transform scale(1)
-	to
-		opacity 0
-		transform scale(1.1)
+	animation 'hideBack' .6s ease-out

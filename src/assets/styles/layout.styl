@@ -29,6 +29,14 @@ body
 	margin-right auto
 	max-width "calc(%s + 6rem)" % $max_width
 	min-height calc(100vh - 95px)
+	animation 'showSection' .3s ease-out
+@keyframes showSection
+	0%
+		transform translateY(10px)
+		opacity 0
+	100%
+		transform translateY(0)
+		opacity 1
 @media all and (min-width 1024px)
 	.main-wrapper
 		min-height calc(100vh - 142px)
