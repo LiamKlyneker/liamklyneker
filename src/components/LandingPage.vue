@@ -7,15 +7,29 @@ div
 					h1.h1 Hola, me llamo Liam Klyneker, soy Diseñador UX/UI y Front End Developer radicando en Lima Perú.
 					hr
 
-		.main-wrapper__content
+		.main-wrapper__content.fix-relative
 			.second-statement
 				p.p-main.p-grey Como #[span Desarrollador Front End] trabaje en diferentes compañias como #[b Yaroslab], #[b 199Insights], #[b The Gift Method] y actualmente en #[b Netzun], en el trasncurso use muchas tecnologias ahora particularmente estoy trabajando con #[b React] y #[b Vue].
 
 				p.p-main.p-grey Ahora quiero explotar mi #[span alma de diseñador], asi que te invito a ver algunos de mis proyectos personales.
 
-			.fancy-animations
+			.antennas
+				article.svg
+					span.circle
+					span.halo
+					span.line
+				article.svg
+					span.circle
+					span.halo
+					span.line
+				article.svg
+					span.circle
+					span.halo
+					span.line
 
-	main.main-wrapper.full.white
+		lk-animated-circles
+
+	main.main-wrapper.full.white.fix-relative
 		.main-wrapper__content
 
 			.section.white
@@ -48,6 +62,7 @@ div
 
 <script>
 import LkContact from '@/components/Contact'
+import LkAnimatedCircles from '@/components/AnimatedCircles'
 
 export default {
 	beforeRouteUpdate (to, from, next) {
@@ -56,7 +71,8 @@ export default {
 	},
 
 	components: {
-		LkContact
+		LkContact,
+		LkAnimatedCircles
 	},
 
 	data () {
@@ -75,7 +91,7 @@ export default {
 			const html = document.querySelector('html')
 			const section = this.$route.params.section
 			if (section === 'contact') {
-				html.scrollTop = this.contactTop
+				html.scrollTop = this.contactTop - 50
 			}
 		},
 
@@ -137,6 +153,8 @@ export default {
 .main-statement
 	animation 'showSection' .3s ease-out
 	margin-bottom 2.64rem
+	position relative
+	z-index 10
 	hr
 		margin-top 1.71rem
 		margin-bottom 0
@@ -227,4 +245,7 @@ export default {
 			color rgba(black, .3)
 		h4
 			color black
+.fix-relative
+	position relative
+	z-index 10
 </style>

@@ -32,3 +32,48 @@
 
 .main-loader.hide
 	animation 'hideBack' .6s ease-out
+
+.antennas
+	display none
+	position absolute
+	bottom 240px
+	right 30px
+	article.svg:nth-child(2)
+		margin-top 9rem
+	article.svg:nth-child(3)
+		margin-top 4rem
+@media all and (min-width 1200px)
+	.antennas
+		display flex
+article.svg
+	margin-right 74px
+	position relative
+	.circle
+		display block
+		height 21px
+		width 21px
+		border-radius 50%
+		background-color $purple
+	.halo
+		border 1px solid $purple
+		height 43px
+		width 43px
+		border-radius 50%
+		position absolute
+		top -11px
+		left -11px
+	.line
+		position absolute
+		width 2px
+		background-color $purple
+		height 600px
+		left 9px
+		&:after
+			content ''
+			position absolute
+			width 4px
+			height 4px
+			border-radius 50%
+			top 100%
+			left -1px
+			background-color $purple
