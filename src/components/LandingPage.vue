@@ -49,7 +49,7 @@ div
 			.section
 				header
 					h3 QUE PUEDO HACER
-					h4 COMO DISEÑADOR
+					h4 COMO DESARROLADOR
 				section
 					div
 						p.p-secondary Soy programador tambien asi que se llevar todos esos diseños a la realidad, con la ultima tencnologia disponible que se adapte al proyecto.
