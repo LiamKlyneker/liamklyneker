@@ -29,7 +29,7 @@ div
 
 		lk-animated-circles
 
-	main.main-wrapper.full.white.fix-relative
+	main.main-wrapper.full.white
 		.main-wrapper__content
 
 			.section.white
