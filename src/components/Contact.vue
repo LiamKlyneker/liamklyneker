@@ -16,12 +16,13 @@ main.main-wrapper.full
                             a.button-send(href="mailto:liamklyneker@gmail.com") ENVIAR MENSAJE #[i.icon-arrow-right]
 
                     article.by-socials
-                        p Tambien por estas redes
+                        p Tambien puedes stalkearme por estas redes
                         div
                             a(target="_blank", href="https://dribbble.com/liamklyneker") #[i.icon-dribbble]
                             a(target="_blank", href="https://www.linkedin.com/in/liamklyneker/") #[i.icon-linkedin]
                             a(target="_blank", href="https://twitter.com/liamklyneker") #[i.icon-twitter]
                             a(target="_blank", href="https://www.instagram.com/liamklyneker/") #[i.icon-instagram]
+                            a(target="_blank", href="https://medium.com/@LiamKlyneker/") #[i.icon-medium]
 
                 hr
 
@@ -95,11 +96,17 @@ article.by-email
 article.by-socials
     div
         display flex
+        align-items center
         a
-            color black
+            color $grey_icon
             font-size 1.8rem
             margin-right 2rem
             transition all .1s linear
+            display flex
+            justify-content center
+            align-items center
+            .icon-medium
+                font-size 1.6rem
         a:hover
             color $purple
 @media all and (min-width 1024px)
@@ -148,4 +155,6 @@ footer
             margin-bottom .9rem
         p:first-child
             max-width 100%
+        i.icon-flag
+            color #F30D0D
 </style>

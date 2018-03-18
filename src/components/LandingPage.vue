@@ -9,9 +9,9 @@ div
 
 		.main-wrapper__content.fix-relative
 			.second-statement
-				p.p-main.p-grey Como #[span Desarrollador Front End] trabaje en diferentes compañias como #[b Yaroslab], #[b 199Insights], #[b The Gift Method] y actualmente en #[b Netzun], en el trasncurso use muchas tecnologias ahora particularmente estoy trabajando con #[b React] y #[b Vue].
+				p.p-main.p-grey Como #[span Desarrollador Front End] trabaje en diferentes compañias como #[b Yaroslab], #[b 199Insights], #[b The Gift Method] y actualmente estoy en #[b Netzun], en el transcurso use muchas tecnologias, ahora particularmente estoy trabajando con #[b React] y #[b Vue].
 
-				p.p-main.p-grey Ahora quiero explotar mi #[span alma de diseñador], asi que te invito a ver algunos de mis proyectos personales.
+				p.p-main.p-grey Tambien mi #[span alma de diseñador] esta saliendo a brote, me involucro en el proceso de concepción del proyecto, llevarlo desde la etapa inicial hasta el producto final y ver como este evolucionara en el tiempo, asi que te invito a echarle un vistazo a algunos de mis trabajos personales.
 
 			.antennas
 				article.svg
@@ -29,7 +29,7 @@ div
 
 		lk-animated-circles
 
-	main.main-wrapper.full.white
+	main.main-wrapper.full.white.fix-relative
 		.main-wrapper__content
 
 			.section.white
@@ -38,8 +38,9 @@ div
 					h4 COMO DISEÑADOR
 				section
 					div
-						p.p-secondary.p-black Recolectar la visión, metas y lo que haga falta para realizar el proyecto, interpretar estos datos y diseñar la mejor solución posible a los problemas que nos podamos enfrentar.
-						p.p-secondary.p-black Los esfuerzos se enfocan en que mensaje se quiere enviar y en que el usuario tiene que hacer de la manera mas facil e intuitiva posible. Puedes visitar mi Dribbble para más.
+						p.p-secondary.p-black Recolectar la visión, metas y lo que haga falta para realizar el proyecto, interpretar estos datos y diseñar la mejor solución posible a los problemas que se presenten. Todo se enfóca en el usuario final, #[b que mensaje se le quiere transmitir] y en #[b que es lo que tiene que hacer] de la manera mas facil e intuitiva posible.
+						p.p-secondary.p-black Estas ideas y sensaciones tienen que ser compartias con todo el equipo para un #[b feedback constante] y para que siempre estemos en la misma página.
+						//- Puedes visitar mis #[router-link(:to="{ name: 'Work' }", @click.native="toggleMobileMenu") trabajos] para más.
 					div
 						figure #[img(src="@/assets/svgs/as-a-designer.svg")]
 
@@ -52,8 +53,8 @@ div
 					h4 COMO DESARROLADOR
 				section
 					div
-						p.p-secondary Soy programador tambien asi que se llevar todos esos diseños a la realidad, con la ultima tencnologia disponible que se adapte al proyecto.
-						p.p-secondary Particularmente ahora soy un “component lover” asi que trabajo con React o Vue, siempre escribiendo código limpio y modular, con la escabilidad en mente.
+						p.p-secondary Una vez que todo el equipo entienda el proyecto y todas sus implicancias sigue la etapa de programación, esta iteración #[b de diseño a programación] es repetitiva porque #[b nada es estatico, todo evoluciona.]
+						p.p-secondary Por el lado de skills soy un #[b component lover] asi que trabajo con #[b React, Vue], etc. A esto le sumo lo que haga falta: Automatizadores de Tareas, Promise-based HTTP Clients, Librerias etc. Siempre escribiendo código legible y escalable.
 					div
 						figure #[img(src="@/assets/svgs/as-a-developer.svg")]
 
@@ -228,7 +229,7 @@ export default {
 			display flex
 			align-items flex-end
 			figure
-				padding-bottom 3rem
+				padding-bottom 4rem
 				img
 					width 100%
 					left 0
@@ -239,6 +240,10 @@ export default {
 			& > div:first-child
 				margin-bottom 0
 				margin-right 5.71rem
+	.section.white
+		section
+			figure
+				padding-bottom 5rem
 .section.white
 	header
 		h3

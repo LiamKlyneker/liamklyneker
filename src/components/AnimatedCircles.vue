@@ -23,7 +23,7 @@ export default {
 		frankesteinLab () {
 			const animationIndex = Math.floor(Math.random() * 3)
 			const right = Math.floor(Math.random() * (window.innerWidth - (window.innerWidth * 0.2)))
-			const top = Math.floor(Math.random() * 1001)
+			const top = Math.floor(Math.random() * 1201)
 
 			let idRef = this.count
 			// if (this.$refs['circles']) { console.log() idRef = this.$refs['circles'].length }
