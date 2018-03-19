@@ -1,8 +1,8 @@
 <template lang="pug">
 main.main.main-wrapper
 	div
-		h2 TRABAJO
-		p.p-secondary Muy pronto publicare algunos de los proyectos personales en los que he estado trabajando, mantente en contácto n.n! Mientras tanto puedes visitar mi #[a(href="https://www.instagram.com/liamklyneker/", target="_blank") Instagram] donde estoy mas activo o tambien mi #[a(href="https://dribbble.com/liamklyneker/", target="_blank") Dribbble] donde estare mas activo aún.
+		h2 WORK
+		p.p-secondary I'll be publishing some of the personal projects I've been working on very soon, so do keep in touch n.n! In the meantime, come visit my #[a(href="https://www.instagram.com/liamklyneker/", target="_blank") Instagram] page, where I am quite active or my #[a(href="https://dribbble.com/liamklyneker/", target="_blank") Dribbble] page, where I am even more active!
 
 		.icon-back #[i.icon-time]
 </template>

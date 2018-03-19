@@ -5,18 +5,18 @@ main.main-wrapper.full
         .contact-card
             .contact-card__ornament
             .contact-card__content
-                header #[h2.p-purple CONTACTO]
+                header #[h2.p-purple CONTACT]
                 section
-                    p.p-secondary.p-black Si gustas puedes contactarme, aquí los canales.
+                    p.p-secondary.p-black Get in touch with me if you are interested.
 
                     article.by-email
-                        p Por email
+                        p By email
                         div
                             p liamklyneker@gmail.com
-                            a.button-send(href="mailto:liamklyneker@gmail.com") ENVIAR MENSAJE #[i.icon-arrow-right]
+                            a.button-send(href="mailto:liamklyneker@gmail.com") SEND MESSAGE #[i.icon-arrow-right]
 
                     article.by-socials
-                        p Tambien puedes stalkearme por estas redes
+                        p And why not, come stalk me on my social media channels
                         div
                             a(target="_blank", href="https://dribbble.com/liamklyneker") #[i.icon-dribbble]
                             a(target="_blank", href="https://www.linkedin.com/in/liamklyneker/") #[i.icon-linkedin]
@@ -27,8 +27,8 @@ main.main-wrapper.full
                 hr
 
                 footer
-                    p Este portafolio fue diseñado y programado por mi con #[i.icon-heart] en Perú #[i.icon-flag]
-                    p © 2018 Liam Klyneker - Todos los derechos reservados
+                    p This portfolio was made and design it by me with #[i.icon-heart] in Perú #[i.icon-flag]
+                    p © 2018 Liam Klyneker - All right reserved
 </template>
 
 <style lang="stylus" scoped>

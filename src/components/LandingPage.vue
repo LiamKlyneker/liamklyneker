@@ -4,14 +4,14 @@ div
 		.main-statement
 			div
 				div
-					h1.h1 Hola, me llamo Liam Klyneker, soy Diseñador UX/UI y Front End Developer radicando en Lima Perú.
+					h1.h1 Hi, my name is Liam Klyneker, I'm a UX/UI Designer and Front End Developer based in Lima Perú.
 					hr
 
 		.main-wrapper__content.fix-relative
 			.second-statement
-				p.p-main.p-grey Como #[span Desarrollador Front End] trabaje en diferentes compañias como #[b Yaroslab], #[b 199Insights], #[b The Gift Method] y actualmente estoy en #[b Netzun], en el transcurso use muchas tecnologias, ahora particularmente estoy trabajando con #[b React] y #[b Vue].
+				p.p-main.p-grey As a #[span Front End Developer] I've worked with differents companies such as #[b Yaroslab], #[b 199Insights], #[b The Gift Method] and I'm currently working at #[b Netzun], during this time I have used various technology and now, in particular I'm working with #[b React] y #[b Vue].
 
-				p.p-main.p-grey Tambien mi #[span alma de diseñador] esta saliendo a brote, me involucro en el proceso de concepción del proyecto, llevarlo desde la etapa inicial hasta el producto final y ver como este evolucionara en el tiempo, asi que te invito a echarle un vistazo a algunos de mis trabajos personales.
+				p.p-main.p-grey I found #[span passion and skill in design], I'm involved in the design process from the conception to the end product and I get to see how it evolves over time. Now, I'd love it if you could check out some of my personal projects.
 
 			.antennas
 				article.svg
@@ -34,12 +34,12 @@ div
 
 			.section.white
 				header
-					h3 QUE PUEDO HACER
-					h4 COMO DISEÑADOR
+					h3 WHAT I CAN DO
+					h4 AS A DESIGNER
 				section
 					div
-						p.p-secondary.p-black Recolectar la visión, metas y lo que haga falta para realizar el proyecto, interpretar estos datos y diseñar la mejor solución posible a los problemas que se presenten. Todo se enfóca en el usuario final, #[b que mensaje se le quiere transmitir] y en #[b que es lo que tiene que hacer] de la manera mas facil e intuitiva posible.
-						p.p-secondary.p-black Estas ideas y sensaciones tienen que ser compartias con todo el equipo para un #[b feedback constante] y para que siempre estemos en la misma página.
+						p.p-secondary.p-black Collect the vision, goals and what it takes to carry out the project, interpret the data and design the best possible solution for the product. Everything is focused on the end user, #[b what message we want to convey] and #[b what the users need to do] in the easiest and most intuite way possible.
+						p.p-secondary.p-black These ideas have to be shared with the whole team for #[b constant feedback] and so that we are always on the same page.
 						//- Puedes visitar mis #[router-link(:to="{ name: 'Work' }", @click.native="toggleMobileMenu") trabajos] para más.
 					div
 						figure #[img(src="@/assets/svgs/as-a-designer.svg")]
@@ -49,12 +49,12 @@ div
 
 			.section
 				header
-					h3 QUE PUEDO HACER
-					h4 COMO DESARROLADOR
+					h3 WHAT I CAN DO
+					h4 AS A DEVELOPER
 				section
 					div
-						p.p-secondary Una vez que todo el equipo entienda el proyecto y todas sus implicancias sigue la etapa de programación, esta iteración #[b de diseño a programación] es repetitiva porque #[b nada es estatico, todo evoluciona.]
-						p.p-secondary Por el lado de skills soy un #[b component lover] asi que trabajo con #[b React, Vue], etc. A esto le sumo lo que haga falta: Automatizadores de Tareas, Promise-based HTTP Clients, Librerias etc. Siempre escribiendo código legible y escalable.
+						p.p-secondary Once the whole team understands the project and all its implications, it is followed by programming phase, this process #[b from design to programming] is always iterative because #[b nothing is static, each end product is changing and evolving.]
+						p.p-secondary When it comes to skills I see all in a #[b progressive way] so I now work with #[b React, Vue], etc. To this, I add what is needed such as Task Automation, Promise-based HTTP Clients, libraries and so on, always aiming to write readable and scalable code.
 					div
 						figure #[img(src="@/assets/svgs/as-a-developer.svg")]
 
