@@ -87,6 +87,7 @@ article.by-socials
         margin 0
         margin-bottom 1.05rem
         color $grey_text
+        line-height 1.6rem
 article.by-email
     div
         & > p
@@ -145,6 +146,8 @@ footer
         max-width 240px
     p:last-child
         margin-bottom 0
+    i.icon-flag
+        color #F30D0D
 @media all and (min-width 1024px)
     section
         margin-bottom 9rem
@@ -155,6 +158,4 @@ footer
             margin-bottom .9rem
         p:first-child
             max-width 100%
-        i.icon-flag
-            color #F30D0D
 </style>

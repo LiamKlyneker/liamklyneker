@@ -83,12 +83,13 @@ nav
 	height 100%
 	background-color rgba(black, .9)
 	z-index 100
+	animation 'navIn' .2s ease-out
 	a
 		font-family 'Expletus Sans', serif
 		font-weight 300
 		color white
 		font-size 1rem
-		margin-bottom 3rem
+		margin-bottom 4rem
 		transition .1s all linear
 		position relative
 		&:after
@@ -105,8 +106,6 @@ nav
 		&:after
 			width calc(100% + 2rem)
 			opacity 1
-	a:nth-child(2)
-		margin-bottom 2.5rem
 	a:last-child
 		margin-bottom 0
 	a.router-link-active
@@ -128,6 +127,7 @@ nav.active
 		justify-content flex-end
 		flex-direction row
 		background-color transparent
+		animation none
 		a
 			padding-top .2rem
 			margin-bottom 0
