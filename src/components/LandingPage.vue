@@ -90,19 +90,24 @@ export default {
 
 		verifyIntialSection () {
 			const html = document.querySelector('html')
+			const body = document.querySelector('body')
 			const section = this.$route.params.section
 			if (section === 'contact') {
 				html.scrollTop = this.contactTop - 50
+				body.scrollTop = this.contactTop - 50
 			}
 		},
 
 		goToSection (section) {
+			console.log('goToSection', section)
 			const html = document.querySelector('html')
+			const body = document.querySelector('body')
 			setTimeout(() => {
 				if (section) {
 					// console.log(window.scrollY, this.contactTop)
 					if (window.scrollY < this.contactTop - 200) {
 						html.scrollTop = this.contactTop
+						body.scrollTop = this.contactTop
 					}
 				}
 			}, 1)
@@ -135,7 +140,11 @@ export default {
 		setTimeout(() => {
 			this.contactTop = this.$refs['contact'].$el.offsetTop
 			this.verifyIntialSection()
-		}, 1)
+		}, 50)
+	},
+
+	destroyed () {
+		window.removeEventListener('scroll', this.handleScroll)
 	}
 }
 

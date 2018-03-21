@@ -28,7 +28,9 @@ export default {
 		},
 		scrollToTop () {
 			const html = document.querySelector('html')
+			const body = document.querySelector('body')
 			html.scrollTop = 0
+			setTimeout(() => { body.scrollTop = 0 }, 50)
 		}
 	}
 }
