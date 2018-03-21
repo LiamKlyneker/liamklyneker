@@ -53,7 +53,7 @@ div
 					h4 AS A DEVELOPER
 				section
 					div
-						p.p-secondary Once the whole team understands the project and all its implications, it is followed by programming phase, this process #[b from design to programming] is always iterative because #[b nothing is static, each end product is changing and evolving.]
+						p.p-secondary Once the whole team understands the project and all its implications, it is followed by programming phase, this process #[b from design to programming] is always iterative because #[b nothing is static, each product is changing and evolving.]
 						p.p-secondary When it comes to skills I see all in a #[b progressive way] so I now work with #[b React, Vue], etc. To this, I add what is needed such as Task Automation, Promise-based HTTP Clients, libraries and so on, always aiming to write readable and scalable code.
 					div
 						figure #[img(src="@/assets/svgs/as-a-developer.svg")]

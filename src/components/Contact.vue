@@ -27,8 +27,8 @@ main.main-wrapper.full
                 hr
 
                 footer
-                    p This portfolio was made and design it by me with #[i.icon-heart] in Perú #[i.icon-flag]
-                    p © 2018 Liam Klyneker - All right reserved
+                    p This portfolio was design and code by me with #[i.icon-heart] in Perú #[i.icon-flag]
+                    p © 2018 Liam Klyneker - All rights reserved
 </template>
 
 <style lang="stylus" scoped>
