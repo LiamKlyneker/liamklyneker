@@ -1,64 +1,30 @@
 <template lang="pug">
 div
-	main.main-wrapper.main-landing.full
+	main
 		.main-statement
-			div
+			h1 Hi, my name is #[span Liam Klyneker]
+			p I'm a UX/UI Designer and a Creative Front End Developer based in Lima Perú and here I show you some of my work.
+
+		div
+			article.item-work
 				div
-					h1.h1 Hi, my name is Liam Klyneker, I'm a UX/UI Designer and Front End Developer based in Lima Perú.
-					hr
-
-		.main-wrapper__content.fix-relative
-			.second-statement
-				p.p-main.p-grey As a #[span Front End Developer] I've worked with differents companies such as #[b Yaroslab], #[b 199Insights], #[b The Gift Method] and I'm currently working at #[b Netzun], during this time I have used various technology and now, in particular I'm working with #[b React] y #[b Vue].
-
-				p.p-main.p-grey I found #[span passion and skill in design], I'm involved in the design process from the conception to the end product and I get to see how it evolves over time. Now, I'd love it if you could check out some of my personal projects.
-
-			.antennas
-				article.svg
-					span.circle
-					span.halo
-					span.line
-				article.svg
-					span.circle
-					span.halo
-					span.line
-				article.svg
-					span.circle
-					span.halo
-					span.line
-
-		lk-animated-circles
-
-	main.main-wrapper.full.white.fix-relative
-		.main-wrapper__content
-
-			.section.white
-				header
-					h3 WHAT I CAN DO
-					h4 AS A DESIGNER
-				section
+					figure #[img(src="@/assets/images/donar-online-tile.jpg")]
 					div
-						p.p-secondary.p-black Collect the vision, goals and what it takes to carry out the project, interpret the data and design the best possible solution for the product. Everything is focused on the end user, #[b what message we want to convey] and #[b what the users need to do] in the easiest and most intuite way possible.
-						p.p-secondary.p-black These ideas have to be shared with the whole team for #[b constant feedback] and so that we are always on the same page.
-						//- Puedes visitar mis #[router-link(:to="{ name: 'Work' }", @click.native="toggleMobileMenu") trabajos] para más.
-					div
-						figure #[img(src="@/assets/svgs/as-a-designer.svg")]
+						p.item-work__title Donar Online
+						p.item-work__role UX/UI Designer
+						p.item-work__description DonarOnline is a platform where people can donate the amount they want through debit / credit cards to non-profit organizations, foundations, etc. The process is supposed to be or should be simple, but we will see that the main issue is just that, which is anything but simple, I try to improve it.
+						a(href="https://medium.com/@LiamKlyneker/formularios-menos-intimidantes-58bfed0e396e" class="link-external" target="_blank") See process #[i.icon-arrow-right]
 
-	main.main-wrapper.full
-		.main-wrapper__content
-
-			.section
-				header
-					h3 WHAT I CAN DO
-					h4 AS A DEVELOPER
-				section
+			article.item-work
+				div
+					figure #[img(src="@/assets/images/netzun-jobs-tile.jpg")]
 					div
-						p.p-secondary Once the whole team understands the project and all its implications, it is followed by programming phase, this process #[b from design to programming] is always iterative because #[b nothing is static, each product is changing and evolving.]
-						p.p-secondary When it comes to skills I see all in a #[b progressive way] so I now work with #[b React, Vue], etc. To this, I add what is needed such as Task Automation, Promise-based HTTP Clients, libraries and so on, always aiming to write readable and scalable code.
-					div
-						figure #[img(src="@/assets/svgs/as-a-developer.svg")]
+						p.item-work__title Netzun Jobs
+						p.item-work__role UX Designer & Front End Developer
+						p.item-work__description Netzun Jobs is a platform to find work (job bank). If you are looking for a job you can match the ideal job, you can find out which stage of the selection process you are in and many more benefits. If you are a company you can find the ideal candidate for the position you are looking for, for this it offers an administrator of job offers and candidates, very useful.
+						a(href="https://jobs.netzun.com/" class="link-external" target="_blank") Go to the site #[i.icon-arrow-right]
 
-	lk-contact(ref="contact")
+	//- lk-contact(ref="contact")
 </template>
 
 <script>
@@ -98,37 +64,37 @@ export default {
 			}
 		},
 
-		goToSection (section) {
-			console.log('goToSection', section)
-			const html = document.querySelector('html')
-			const body = document.querySelector('body')
-			setTimeout(() => {
-				if (section) {
-					// console.log(window.scrollY, this.contactTop)
-					if (window.scrollY < this.contactTop - 200) {
-						html.scrollTop = this.contactTop
-						body.scrollTop = this.contactTop
-					}
-				}
-			}, 1)
-		},
+		// goToSection (section) {
+		// 	console.log('goToSection', section)
+		// 	const html = document.querySelector('html')
+		// 	const body = document.querySelector('body')
+		// 	setTimeout(() => {
+		// 		if (section) {
+		// 			// console.log(window.scrollY, this.contactTop)
+		// 			if (window.scrollY < this.contactTop - 200) {
+		// 				html.scrollTop = this.contactTop
+		// 				body.scrollTop = this.contactTop
+		// 			}
+		// 		}
+		// 	}, 1)
+		// },
 
 		handleScroll () {
 			// control Contact section
-			if (window.scrollY < this.contactTop - 200) {
-				if (this.$route.params.section) {
-					this.$router.replace({
-						name: 'Landing'
-					})
-				}
-			} else {
-				if (!this.$route.params.section) {
-					this.$router.replace({
-						name: 'Landing',
-						params: {section: 'contact'}
-					})
-				}
-			}
+			// if (window.scrollY < this.contactTop - 200) {
+			// 	if (this.$route.params.section) {
+			// 		this.$router.replace({
+			// 			name: 'Landing'
+			// 		})
+			// 	}
+			// } else {
+			// 	if (!this.$route.params.section) {
+			// 		this.$router.replace({
+			// 			name: 'Landing',
+			// 			params: {section: 'contact'}
+			// 		})
+			// 	}
+			// }
 		}
 	},
 
@@ -138,8 +104,8 @@ export default {
 
 	mounted () {
 		setTimeout(() => {
-			this.contactTop = this.$refs['contact'].$el.offsetTop
-			this.verifyIntialSection()
+			// this.contactTop = this.$refs['contact'].$el.offsetTop
+			// this.verifyIntialSection()
 		}, 50)
 	},
 
@@ -152,114 +118,78 @@ export default {
 
 <style lang="stylus" scoped>
 @import '~@variables'
-.main-landing
-	padding-top 10rem
-	padding-bottom 6.5rem
-@media all and (min-width 1024px)
-	.main-landing
-		padding-top 18rem
-		padding-bottom 11.71rem
 
 .main-statement
-	animation 'showSection' .3s ease-out
-	margin-bottom 2.64rem
+	padding 2rem 1.9rem
+	padding-top 115px
+	padding-bottom 3.5rem
 	position relative
-	z-index 10
-	hr
-		margin-top 1.71rem
-		margin-bottom 0
-	& > div
-		max-width "calc(%s + 6rem)" % $max_width
+	margin-bottom 4rem
+	&:after
+		content ''
+		position absolute
+		bottom 0
+		width 24%
+		left 38%
+		border-bottom 1px solid $grey_text
+	h1
+		text-align center
+		max-width 250px
 		margin-left auto
 		margin-right auto
-		& > div
-			width calc(100% - 3rem)
-			padding 2rem 3rem
-			background-color $purple
-			max-width 862px
-			padding-bottom 2.85rem
-@media all and (min-width 1024px)
-	.main-statement
-		position relative
-		margin-bottom 5rem
-		&:before
-			content ''
-			position absolute
-			left 0
-			top 0
-			background-color $purple
-			width 50%
-			height 100%
-		hr
-			margin-top 2.5rem
-		& > div
+		margin-bottom 2.5rem
+		span
 			position relative
-			z-index 2
-			& > div
-				padding-top 3.5rem
-				padding-right 8.42rem
-				padding-bottom 4.21rem
-
-.second-statement
-	max-width 779px
-.section
-	padding 5.28rem 0
-	padding-bottom 7.07rem
-	header
-		margin-bottom 2.57rem
-		position relative
-		&:before
-			content ''
-			position absolute
-			left -16px
-			top -3px
-			border-left 2px solid $purple
-			height 100%
-
-		h3
-			color rgba(white, .3)
-	section
-		figure
-			margin 0
-			img
-				width calc(100% + 2rem)
-				position relative
-				left -1rem
-		& > div:first-child
-			margin-bottom 5.57rem
-@media all and (min-width 1024px)
-	.section
-		padding 11.07rem 0
-		header
-			margin-bottom 5rem
-			&:before
-				left -22px
-		section
-			display flex
-			align-items flex-end
-			figure
-				padding-bottom 4rem
-				img
-					width 100%
-					left 0
-			div
-				flex 1
-				div:first-child
-					max-width 486px
-			& > div:first-child
-				margin-bottom 0
-				margin-right 5.71rem
-	.section.white
-		section
-			figure
-				padding-bottom 5rem
-.section.white
-	header
-		h3
-			color rgba(black, .3)
-		h4
-			color black
-.fix-relative
-	position relative
-	z-index 10
+			padding-bottom 6px
+			&:after
+				content ''
+				position absolute
+				top 100%
+				left 0
+				border-bottom 4px solid $purple
+				width 0
+				animation nameLine 1.5s cubic-bezier(.28,.56,.61,.43) .5s
+				animation-fill-mode forwards
+	p
+		margin 0
+		color $grey_text
+		text-align center
+		line-height 1.8
+		font-weight 300
+		font-size .9rem
+@keyframes nameLine
+	0%
+		opacity 0
+		width 0
+	40%
+		opacity 1
+	100%
+		width 100%
+@media all and (min-width 700px)
+	.main-statement
+		padding-top 145px
+		h1
+			max-width 100%
+		p
+			font-size 1rem
+			max-width 550px
+			margin-left auto
+			margin-right auto
+		&:after
+			width 18%
+			left 41%
+@media all and (min-width 1200px)
+	.main-statement
+		padding-top 252px
+		padding-bottom 4.5rem
+		margin-bottom 10rem
+		h1
+			margin-bottom 3rem
+			span
+				padding-bottom 8px
+				&:after
+					border-bottom 8px solid $purple
+		p
+			font-size 1.43rem
+			max-width 770px
 </style>

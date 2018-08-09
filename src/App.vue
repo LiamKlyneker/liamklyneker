@@ -4,16 +4,19 @@
 	.main-page(v-if="!isLoaderActive")
 		lk-header
 		router-view
+		lk-footer
 </template>
 
 <script>
 import LkHeader from '@/components/Header'
+import LkFooter from '@/components/Footer'
 
 export default {
 	name: 'App',
 
 	components: {
-		LkHeader
+		LkHeader,
+		LkFooter
 	},
 
 	data () {

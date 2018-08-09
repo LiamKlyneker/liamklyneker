@@ -77,3 +77,77 @@ article.svg
 			top 100%
 			left -1px
 			background-color $purple
+
+.item-work
+	background-color white
+	padding 3rem 2rem
+	padding-bottom 5rem
+	margin-bottom 4rem
+	figure
+		margin 0
+		margin-bottom 2.5rem
+		img
+			width 100%
+.item-work__title
+	color $black_text
+	font-size 1.43rem
+	font-weight 700
+	margin 0
+	margin-bottom 1rem
+.item-work__role
+	color $grey_text_alter
+	margin 0
+	font-weight 300
+	margin-bottom 1.5rem
+	&:before
+		content ''
+		width 20px
+		border-bottom 2px solid $grey_text_alter
+		display inline-block
+		position relative
+		top -4px
+		margin-right .4rem
+.item-work__description
+	margin 0
+	color $black_text
+	font-size .9rem
+	line-height 1.9
+	margin-bottom 2.5rem
+
+@media all and (min-width 700px)
+	.item-work
+		padding 5rem 3rem
+		padding-bottom 6rem
+		& > div
+			align-items center
+			display flex
+			// max-width "calc(%s + 6rem)" % $max_width
+			max-width $max_width
+			margin-left auto
+			margin-right auto
+		figure
+			margin-right 2rem
+			margin-bottom 0
+			img
+				width 340px
+	.item-work__description
+		max-width 367px
+@media all and (min-width 1200px)
+	.item-work
+		figure
+			margin-right 6.25rem
+			img
+				width 532px
+	.item-work__title
+		font-size 2rem
+	.item-work__role
+		font-size 1.43rem
+		margin-bottom 2rem
+		&:before
+			top -7px
+			width 30px
+		
+	.item-work__description
+		font-size 1rem
+		line-height 2
+		margin-bottom 5rem

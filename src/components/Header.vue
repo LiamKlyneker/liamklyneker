@@ -6,8 +6,9 @@ header
 			span
 			span
 		nav(:class="{'active': isMobileMenuOpen}")
-			router-link(:to="{ name: 'Work' }", @click.native="toggleMobileMenu") WORK
-			router-link(:to="{ name: 'Landing', params: {section: 'contact'}}" @click.native="toggleMobileMenu") CONTACT
+			router-link(:to="{ name: 'Landing' }", @click.native="toggleMobileMenu") WORK
+			router-link(:to="{ name: 'About' }", @click.native="toggleMobileMenu") ABOUT
+			//- router-link(:to="{ name: 'Landing', params: {section: 'contact'}}" @click.native="toggleMobileMenu") CONTACT
 </template>
 
 <script>
@@ -52,7 +53,7 @@ header
 	display flex
 	align-items center
 	justify-content space-between
-	padding 2.5rem 3rem
+	padding 2.5rem 2rem
 	margin-left auto
 	margin-right auto
 	& > div
@@ -94,6 +95,9 @@ nav
 		margin-bottom 4rem
 		transition .1s all linear
 		position relative
+		padding .2rem .7rem
+		padding-top .4rem
+		background-color transparent
 		&:after
 			content ''
 			position absolute
@@ -110,15 +114,16 @@ nav
 			opacity 1
 	a:last-child
 		margin-bottom 0
-	a.router-link-active
-		color $purple
+	a.router-link-exact-active
+		color white
+		background-color $purple
 		&:after
 			border-bottom-color $purple
 			opacity 1
 			width calc(100% + 2rem)
 nav.active
 	display flex
-@media all and (min-width 1024px)
+@media all and (min-width 1200px)
 	button.button-hamburguer
 		display none !important
 	nav
@@ -131,7 +136,7 @@ nav.active
 		background-color transparent
 		animation none
 		a
-			padding-top .2rem
+			font-size .9rem
 			margin-bottom 0
 			margin-right 6rem
 		a:nth-child(2)
