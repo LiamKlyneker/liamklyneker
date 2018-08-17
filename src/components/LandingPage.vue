@@ -1,34 +1,34 @@
 <template lang="pug">
 div
-	main
-		.main-statement
-			h1 Hi, my name is #[span Liam Klyneker]
-			p I'm a UX/UI Designer and a Creative Front End Developer based in Lima Perú and here I show you some of my work.
-
+	main.main-wrapper
 		div
-			article.item-work
+			.main-statement
 				div
-					figure #[img(src="@/assets/images/donar-online-tile.jpg")]
-					div
-						p.item-work__title Donar Online
-						p.item-work__role UX/UI Designer
-						p.item-work__description DonarOnline is a platform where people can donate the amount they want through debit / credit cards to non-profit organizations, foundations, etc. The process is supposed to be or should be simple, but we will see that the main issue is just that, which is anything but simple, I try to improve it.
-						a(href="https://medium.com/@LiamKlyneker/formularios-menos-intimidantes-58bfed0e396e" class="link-external" target="_blank") See process #[i.icon-arrow-right]
+					h1.h1-oxygen Hi, my name is #[span Liam Klyneker]
+					p I'm a UX/UI Designer and a Creative Front End Developer based in Lima Perú and here I show you some of my work.
 
-			article.item-work
-				div
-					figure #[img(src="@/assets/images/netzun-jobs-tile.jpg")]
+			.work-list
+				article.item-work
 					div
-						p.item-work__title Netzun Jobs
-						p.item-work__role UX Designer & Front End Developer
-						p.item-work__description Netzun Jobs is a platform to find work (job bank). If you are looking for a job you can match the ideal job, you can find out which stage of the selection process you are in and many more benefits. If you are a company you can find the ideal candidate for the position you are looking for, for this it offers an administrator of job offers and candidates, very useful.
-						a(href="https://jobs.netzun.com/" class="link-external" target="_blank") Go to the site #[i.icon-arrow-right]
+						figure #[img(src="@/assets/images/donar-online-tile.jpg")]
+						div
+							p.item-work__title Donar Online
+							p.item-work__role UX/UI Designer
+							p.item-work__description DonarOnline is a platform where people can donate the amount they want through debit / credit cards to non-profit organizations, foundations, etc. The process is supposed to be or should be simple, but we will see that the main issue is just that, which is anything but simple, I try to improve it.
+							a(href="https://medium.com/@LiamKlyneker/formularios-menos-intimidantes-58bfed0e396e" class="link-external" target="_blank") See process #[i.icon-arrow-right]
 
-	//- lk-contact(ref="contact")
+				article.item-work
+					div
+						figure #[img(src="@/assets/images/netzun-jobs-tile.jpg")]
+						div
+							p.item-work__title Netzun Jobs
+							p.item-work__role UX Designer & Front End Developer
+							p.item-work__description Netzun Jobs is a platform to find work (job bank). If you are looking for a job you can match the ideal job, you can find out which stage of the selection process you are in and many more benefits. If you are a company you can find the ideal candidate for the position you are looking for, for this it offers an administrator of job offers and candidates, very useful.
+							a(href="https://jobs.netzun.com/" class="link-external" target="_blank") Go to the site #[i.icon-arrow-right]
+
 </template>
 
 <script>
-import LkContact from '@/components/Contact'
 import LkAnimatedCircles from '@/components/AnimatedCircles'
 
 export default {
@@ -38,7 +38,6 @@ export default {
 	},
 
 	components: {
-		LkContact,
 		LkAnimatedCircles
 	},
 
@@ -120,23 +119,24 @@ export default {
 @import '~@variables'
 
 .main-statement
-	padding 2rem 1.9rem
-	padding-top 115px
-	padding-bottom 3.5rem
-	position relative
+	padding 2rem 0
+	padding-top 2rem
+	padding-left 20%
 	margin-bottom 4rem
-	&:after
-		content ''
-		position absolute
-		bottom 0
-		width 24%
-		left 38%
-		border-bottom 1px solid $grey_text
-	h1
-		text-align center
-		max-width 250px
+	div
+		padding-bottom 3.5rem
+		position relative
+		max-width 820px
 		margin-left auto
-		margin-right auto
+		&:after
+			content ''
+			position absolute
+			bottom 0
+			width 24%
+			left 0
+			border-bottom 1px solid $grey_text
+	h1
+		max-width 250px
 		margin-bottom 2.5rem
 		span
 			position relative
@@ -153,7 +153,6 @@ export default {
 	p
 		margin 0
 		color $grey_text
-		text-align center
 		line-height 1.8
 		font-weight 300
 		font-size .9rem
@@ -167,20 +166,20 @@ export default {
 		width 100%
 @media all and (min-width 700px)
 	.main-statement
-		padding-top 145px
 		h1
 			max-width 100%
 		p
 			font-size 1rem
-			max-width 550px
-			margin-left auto
-			margin-right auto
-		&:after
-			width 18%
-			left 41%
+			// max-width 550px
+			// margin-left auto
+			// margin-right auto
+		div
+			&:after
+				width 18%
+				left 0
 @media all and (min-width 1200px)
 	.main-statement
-		padding-top 252px
+		padding-top 10rem
 		padding-bottom 4.5rem
 		margin-bottom 10rem
 		h1
@@ -192,4 +191,19 @@ export default {
 		p
 			font-size 1.43rem
 			max-width 770px
+.work-list
+	.item-work
+		margin-bottom 4rem
+	.item-work:last-child
+		margin-bottom 0
+@media all and (min-width 1024px)
+	.work-list
+		.item-work:nth-child(odd)
+			margin-right 6.25rem
+		.item-work:nth-child(even)
+			margin-left 6.25rem
+@media all and (min-width 1200px)
+	.work-list
+		.item-work
+			margin-bottom 8rem
 </style>

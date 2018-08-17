@@ -22,19 +22,35 @@ body
 
 // main.normal
 main
-	padding-bottom 4rem
 	animation showSection .3s ease-out
-@media all and (min-width 1200px)
-	main
-		padding-bottom 6rem
+	// padding-bottom 4rem
+// @media all and (min-width 1200px)
+// 	main
+// 		padding-bottom 6rem
 .main-wrapper
-	padding 1.5rem 3rem
-	margin-left auto
-	margin-right auto
-	// margin-bottom 4rem
-	max-width "calc(%s + 6rem)" % $max_width
-	min-height calc(100vh - 95px)
-	animation showSection .3s ease-out
+	margin-top 105px
+	position relative
+	& > div
+		padding 1.5rem 2rem
+		padding-bottom 4rem
+		margin-left auto
+		margin-right auto
+		// margin-bottom 4rem
+		max-width "calc(%s + 10rem)" % $max_width
+		min-height calc(100vh - 105px)
+		animation showSection .3s ease-out
+	&:before
+		content ''
+		position absolute
+		z-index 1
+		left 0
+		top 0
+		height 100%
+		width 70%
+		background-color $black_text
+	& > div
+		position relative
+		z-index 2
 @keyframes showSection
 	0%
 		transform translateY(10px)
@@ -44,7 +60,13 @@ main
 		opacity 1
 @media all and (min-width 1024px)
 	.main-wrapper
-		min-height calc(100vh - 142px)
+		margin-top 158px
+		& > div
+			min-height calc(100vh - 158px)
+			padding 4rem 5rem
+			padding-bottom 12rem
+		&:before
+			width 53%
 .main-wrapper.normal
 	min-height auto
 .main-wrapper.full

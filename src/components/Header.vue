@@ -7,6 +7,7 @@ header
 			span
 		nav(:class="{'active': isMobileMenuOpen}")
 			router-link(:to="{ name: 'Landing' }", @click.native="toggleMobileMenu") WORK
+			router-link(:to="{ name: 'ResumeAndSkills' }", @click.native="toggleMobileMenu") RESUME & SKILLS
 			router-link(:to="{ name: 'About' }", @click.native="toggleMobileMenu") ABOUT
 			//- router-link(:to="{ name: 'Landing', params: {section: 'contact'}}" @click.native="toggleMobileMenu") CONTACT
 </template>
@@ -48,6 +49,18 @@ header
 	background-color rgba(black, .9)
 	z-index 1000
 	animation 'introHeader' .3s ease-in
+	&:before
+		content ''
+		position absolute
+		z-index 1
+		left 0
+		top 0
+		height 100%
+		width 70%
+		background-color $black_text
+	& > div
+		position relative
+		z-index 2
 
 .header-wrapper
 	display flex
@@ -56,6 +69,7 @@ header
 	padding 2.5rem 2rem
 	margin-left auto
 	margin-right auto
+	height 105px
 	& > div
 		margin-left auto
 		margin-right auto
@@ -67,9 +81,13 @@ header
 		img
 			max-width 80px
 @media all and (min-width 1024px)
+	header
+		&:before
+			width 53%
 	.header-wrapper
-		padding 4rem 3rem
-		max-width "calc(%s + 6rem)" % $max_width
+		padding 4rem 5rem
+		max-width "calc(%s + 10rem)" % $max_width
+		height 158px
 		figure
 			padding-top 2px
 			img
@@ -138,7 +156,7 @@ nav.active
 		a
 			font-size .9rem
 			margin-bottom 0
-			margin-right 6rem
+			margin-right 4.5rem
 		a:nth-child(2)
 			margin-bottom 0
 		a:last-child
