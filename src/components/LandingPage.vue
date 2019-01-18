@@ -10,6 +10,15 @@ div
 			.work-list
 				article.item-work
 					div
+						figure #[img(src="@/assets/images/luar-tile.jpg")]
+						div
+							p.item-work__title LUAR
+							p.item-work__role UX/UI Designer
+							p.item-work__description The goal in this project is to ensure that users do not get saturated with many options when searching for a room or a roomie, and that by continuing to search their feed, they do not see the same thing again and again. What is proposed is to SAVE the options that you consider convenient and DISMISS with which you think you could not do MATCH.
+							a(href="https://www.behance.net/gallery/72673721/LUAR" class="link-external" target="_blank") See process #[i.icon-arrow-right]
+
+				article.item-work
+					div
 						figure #[img(src="@/assets/images/donar-online-tile.jpg")]
 						div
 							p.item-work__title Donar Online
