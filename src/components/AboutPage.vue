@@ -4,7 +4,7 @@ main.main.main-wrapper
 		h1.h1-expletus ABOUT
 
 		section
-			p.p-alter Shh! I still working on this! In the meantime, come visit my #[a(href="https://www.instagram.com/liamklyneker/", target="_blank") Instagram] page, where I am quite active or my #[a(href="https://dribbble.com/liamklyneker/", target="_blank") Dribbble] page, where I am even more active!
+			p.p-alter Shh! I still working on this :) In the meantime, come visit my #[a(href="https://www.instagram.com/liamklyneker/", target="_blank") Instagram] page, where I am quite active or my #[a(href="https://dribbble.com/liamklyneker/", target="_blank") Dribbble] page, where I am even more active!
 
 		.icon-back #[i.icon-time]
 </template>
