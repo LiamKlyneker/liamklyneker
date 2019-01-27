@@ -9,6 +9,11 @@ main.main.main-wrapper
 		.jobs-list
 			article
 				div
+					h3 Keller Williams Realty #[b 2018 - Present]
+					h4 Front End Engineer
+					p Is an American technology and international real estate franchise with headquarters in Austin, Texas. It is the number one franchise in the United States by sales volume, ranking number one in agents and units sold in 2017. It is also the largest real estate franchise by agent count in the world, and one of the largest privately held global residential real estate brokerages. Currently I'm working in apps and tools for our associates in all over the planet, the tech that we use is ReactJS, NextJS, etc. I'm learning a lot of what is to develop global apps and pretty good knowledge to polish my skills 🙌.
+			article
+				div
 					h3 Netzun #[b 2016 - 2018]
 					h4 UX Designer & Creative Front End Developer
 					p It is a company that is dedicated to the job market and online education, I was involved in several projects, such as NetzunJobs, an application that initially helped to find work only to students of the last semesters and recent graduates, then moved to be available to all types of users (in Front use VueJS). The other project was NetzunPlus, an application that allows you to take short and concise online classes, its MVP version lasted a long time and since it was already growing and having several features that were not in the initial plans, it became unscalable, then the experience and know what the application needs we had to redo everything from the research to our current and potential users, through the wireframes/designs and ending with the programming part (also used VueJS in Front), thus reaching a super improved version of NetzunPlus, you can visit it if you wish and why not, take a course.
