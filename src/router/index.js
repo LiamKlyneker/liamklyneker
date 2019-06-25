@@ -1,32 +1,32 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import LkLandingPage from '@/components/LandingPage'
-import LkResumeAndSkillsPage from '@/components/ResumeAndSkillsPage'
-import LkAboutPage from '@/components/AboutPage'
+import HomePage from '@pages/Home'
+import ResumePage from '@pages/Resume'
+import WorkDetailPage from '@pages/WorkDetail'
 
 Vue.use(Router)
 
 export default new Router({
-	routes: [
-		{
-			path: '/',
-			name: 'Landing',
-			component: LkLandingPage
-		},
-		{
-			path: '/resume-skills',
-			name: 'ResumeAndSkills',
-			component: LkResumeAndSkillsPage
-		},
-		{
-			path: '/about',
-			name: 'About',
-			component: LkAboutPage
-		}
-	],
-	mode: 'history',
-	scrollBehavior (to, from, savedPosition) {
-		return { x: 0, y: 0 }
-	}
+  routes: [
+    {
+      path: '/',
+      name: 'Home',
+      component: HomePage
+    },
+    {
+      path: '/resume',
+      name: 'Resume',
+      component: ResumePage
+    },
+    {
+      path: '/work-detail/:id',
+      name: 'WorkDetail',
+      component: WorkDetailPage
+    }
+  ],
+  mode: 'history',
+  scrollBehavior () {
+    return { x: 0, y: 0 }
+  }
 })

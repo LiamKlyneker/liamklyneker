@@ -1,0 +1,58 @@
+@import '~@styles-variables'
+
+footer
+  background-color $grey_background
+  & > div
+    padding 3rem
+    margin-left auto
+    margin-right auto
+    max-width $max_width
+  
+.my-name-and-email
+  margin-bottom 3rem
+.my-name
+  margin-bottom 1rem
+  h5
+    font-size 20px
+    font-weight 400
+    margin 0
+  p
+    margin 0
+    font-size 14px
+    color $grey_text_light
+.my-email
+  margin 0
+    
+.where-to-find-me
+  display flex
+  flex-wrap wrap
+  a
+    font-size 14px
+    text-decoration none
+    color $black_text_light
+    margin-right 1rem
+    margin-bottom 1rem
+    display block
+  a:hover
+    color $main_color
+  
+@media all and (min-width 768px)
+  footer
+    & > div
+      padding 6rem 3rem
+  section
+    display flex
+    align-items flex-end
+    justify-content space-between
+  .my-name-and-email
+    margin-bottom 0
+  .my-name
+    margin-bottom 3rem
+  .my-email
+    font-size 16px
+  .where-to-find-me
+    padding-bottom .5rem
+    a
+      font-size 16px
+      margin-right 1.5rem
+      margin-bottom 0

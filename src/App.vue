@@ -1,39 +1,21 @@
-<template lang="pug">
-#app
-	.main-loader(v-if="isLoaderActive", :class="{'hide': activeLoaderHide}") #[figure #[img(src="@/assets/svgs/logo-to-load.svg")] #[span]]
-	.main-page(v-if="!isLoaderActive")
-		lk-header
-		router-view
-		lk-footer
+<template>
+  <div id="app">
+    <MainHeader />
+    <router-view />
+    <MainFooter />
+  </div>
 </template>
 
 <script>
-import LkHeader from '@/components/Header'
-import LkFooter from '@/components/Footer'
+import MainHeader from '@components/MainHeader'
+import MainFooter from '@components/MainFooter'
 
 export default {
-	name: 'App',
-
-	components: {
-		LkHeader,
-		LkFooter
-	},
-
-	data () {
-		return {
-			isLoaderActive: true,
-			activeLoaderHide: false
-		}
-	},
-
-	mounted () {
-		setTimeout(() => {
-			this.activeLoaderHide = true
-			setTimeout(() => {
-				this.isLoaderActive = false
-			}, 600)
-		}, 3000)
-	}
+  name: 'app',
+  components: {
+    MainHeader,
+    MainFooter,
+  }
 }
 </script>
 

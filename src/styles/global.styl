@@ -1,0 +1,25 @@
+@import '~@styles-variables'
+
+html
+  font-size 16px
+body
+  font-family 'Roboto Mono', sans-serif;
+  
+.main-body
+  padding 0 3rem
+  max-width $max_width
+  margin-left auto
+  margin-right auto
+  margin-bottom 5rem
+  animation showMainBody .3s linear
+@media all and (min-width 768px)
+  .main-body
+    padding-top 9rem
+
+@keyframes showMainBody
+  from
+    transform translateY(7px)
+    opacity 0
+  to
+    transform translateY(0)
+    opacity 1
