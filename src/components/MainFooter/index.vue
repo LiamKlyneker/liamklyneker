@@ -5,7 +5,7 @@
         <div class="my-name-and-email">
           <article class="my-name">
             <h5>Liam Klyneker</h5>
-            <p>Product Designer</p>
+            <p>Creative Alchemist</p>
           </article>
           <p class="my-email">liamklyneker@gmail.com</p>
         </div>

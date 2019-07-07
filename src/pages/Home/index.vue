@@ -2,7 +2,7 @@
   <main class="main-body">
     <div class="i-am-who-i-am">
       <h1>Liam <br>Klyneker</h1>
-      <h3>Product Designer</h3>
+      <h3>UX/UI Designer</h3>
       <h3>Front End Engineer</h3>
       <h3>Creative Alchemist</h3>
     </div>
