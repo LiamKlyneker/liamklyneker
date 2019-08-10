@@ -16,7 +16,8 @@ export default {
   methods: {
     goToWorkDetail() {
       const { itemData, $router } = this;
-      $router.push(`/work-detail/${itemData.id}`)
+      if (itemData.outside_link) window.open(itemData.outside_link);
+      else if (!itemData.outside_link) $router.push(`/work-detail/${itemData.id}`)
     }
   },
 }

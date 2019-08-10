@@ -1,6 +1,15 @@
 export default [
   {
+    id: 'genius',
+    type: 'work',
+    name: 'Genius',
+    main_color: '#FFFF64',
+    shoot_image: require('@assets/genius/shoot.png'),
+    outside_link: 'https://www.behance.net/gallery/83970697/Genius-Redesing',
+  },
+  {
     id: 'luar',
+    type: 'work',
     name: 'Luar',
     main_color: '#0922AA',
     shoot_image: require('@assets/luar/shoot.png'),
@@ -26,6 +35,7 @@ export default [
   },
   {
     id: 'checkout',
+    type: 'experiment',
     name: 'Checkout',
     main_color: '#8CD9D2',
     shoot_image: require('@assets/checkout/shoot.png'),
@@ -40,6 +50,7 @@ export default [
   },
   {
     id: 'onboarding',
+    type: 'experiment',
     name: 'Onboarding',
     main_color: '#4232BC',
     shoot_image: require('@assets/onboarding/shoot.png'),

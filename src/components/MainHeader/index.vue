@@ -8,6 +8,7 @@
       </div>
       <div :class="`navigation ${showMobileMenu && 'active'}`">
         <router-link to="/"><span>Work</span></router-link>
+        <router-link to="/experiments"><span>Experiments</span></router-link>
         <router-link to="/resume"><span>Resume</span></router-link>
         <a href="mailto:liamklyneker@gmail.com" target="_blank">Contact</a>
       </div>

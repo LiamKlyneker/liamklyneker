@@ -1,14 +1,9 @@
 <template>
   <main class="main-body">
-    <div class="i-am-who-i-am">
-      <h1>Liam <br>Klyneker</h1>
-      <h3>UX/UI Designer</h3>
-      <h3>Front End Engineer</h3>
-      <h3>Creative Alchemist</h3>
-    </div>
+    <p class="main-statement">Some of the experiments that I've been exploring.</p>
     <div>
       <article class="item-wrapper" v-for="work in featuredWorks" :key="work.name">
-        <ItemWork v-if="work.type === 'work'" :itemData="work" />
+        <ItemWork v-if="work.type === 'experiment'" :itemData="work" />
       </article>
     </div>
   </main>

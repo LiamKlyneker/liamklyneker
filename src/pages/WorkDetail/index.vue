@@ -3,7 +3,7 @@
     <header class="project-header">
       <div>
         <div>
-          <router-link to="/" @click.native="showHeader"><i class="icon-arrow-left" /></router-link>
+          <router-link :to="this.featuredWorkData.type === 'experiment' ? '/experiments' : '/'" @click.native="showHeader"><i class="icon-arrow-left" /></router-link>
         </div>
         <figure>
           <img :src="featuredWorkData.logo" alt="project-logo">

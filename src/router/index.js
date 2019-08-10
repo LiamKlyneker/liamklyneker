@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 import HomePage from '@pages/Home'
+import ExperimentsPage from '@pages/Experiments'
 import ResumePage from '@pages/Resume'
 import WorkDetailPage from '@pages/WorkDetail'
 
@@ -13,6 +14,11 @@ export default new Router({
       path: '/',
       name: 'Home',
       component: HomePage
+    },
+    {
+      path: '/experiments',
+      name: 'Experiments',
+      component: ExperimentsPage
     },
     {
       path: '/resume',
