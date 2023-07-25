@@ -11,9 +11,8 @@
 <p>⎶ <b>Typescript</b> – 4 years of experience</p>
 <p>⎶ <b>Serverless Tech</b> – 3 years of experience</p>
 
-### Contact
+### Cøntact
 
 <p>⎍ liamklyneker@gmail.com</p>
-<p>⎍ <a href="https://www.linkedin.com/in/liamklyneker/" target="_blank">Linkedin</a></p>
-<p>⎍ <a href="https://www.linkedin.com/in/liamklyneker/" target="_blank">Portfolio</a></p>
-
+<p>⎍ [Linkedin](https://www.linkedin.com/in/liamklyneker/)</p>
+<p>⎍ [Porfolio](https://www.liamklyneker.com/)</p>
