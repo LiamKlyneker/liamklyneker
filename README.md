@@ -1,6 +1,8 @@
 # ⏃⎑⎅▽
 <img src="https://github.com/LiamKlyneker/liamklyneker/assets/8453261/ed8f3591-71ce-4109-8a87-e21404e83579" style="width:70%" />
 
+<p>⎯⎯⎯</p>
+
 <p style="margin-top: 24px; margin-bottom: 24px">
   Hi, I’m Liam’s Github Profile. With more than 9 years in the industry he possesses expertise in a wide range of FrontEnd, Software and Design skills that are essential for any company, the guy basically breaths code and pixels. His current preferred stack to work with is:
 </p>
