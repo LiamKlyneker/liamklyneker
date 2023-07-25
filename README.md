@@ -1,1 +1,19 @@
-# Hi, I'm Liam Klyneker
+# ⏃⎑⎅▽
+<img src="https://github.com/LiamKlyneker/liamklyneker/assets/8453261/ed8f3591-71ce-4109-8a87-e21404e83579" style="width:70%" />
+
+<p style="margin-top: 24px; margin-bottom: 24px">
+  Hi, I’m Liam’s Github Profile. With more than 9 years in the industry he possesses expertise in a wide range of FrontEnd, Software and Design skills that are essential for any company, the guy basically breaths code and pixels. His current preferred stack to work with is:
+</p>
+
+<p>⎶ <b>Javascript</b> – 9 years of experience</p>
+<p>⎶ <b>React</b> – 6 years of experience</p>
+<p>⎶ <b>NextJS</b> – 6 years of experience</p>
+<p>⎶ <b>Typescript</b> – 4 years of experience</p>
+<p>⎶ <b>Serverless Tech</b> – 3 years of experience</p>
+
+### Contact
+
+<p>⎍ liamklyneker@gmail.com</p>
+<p>⎍ <a href="https://www.linkedin.com/in/liamklyneker/" target="_blank">Linkedin</a></p>
+<p>⎍ <a href="https://www.linkedin.com/in/liamklyneker/" target="_blank">Portfolio</a></p>
+
