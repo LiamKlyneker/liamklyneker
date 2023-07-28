@@ -27,7 +27,7 @@ To learn more about his skills, checkout these deployed repos:
 - [what-did-i-watch](https://github.com/LiamKlyneker/what-did-i-watch): Get all the lore of the movies and tv series that you just watched ⎯ **NextJS**, **Typescript**, **Tailwind**, **RadixUI**.
 - [reddit-dg](https://github.com/LiamKlyneker/reddit-dg): Reddit prototype ⎯ **NextJS**, **Redux**.
 
-But nothing compare with the following Highlighted Project 🔥.
+But nothing compares to the following Highlighted Project 🔥.
 
 <br />
 
