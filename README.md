@@ -44,13 +44,15 @@ This innovative approach makes it easy for users to create beautiful and profess
 Role: **UX/UI Designer** and **FullStack Developer**
 
 Stack:
-- NextJS
+- NextJS 13
+- Typescript
 - Tailwind
 - RadixUI
 - FaunaDB (GraphQL client)
 - Apollo React
 - Auth0
 - Vercel
+- Postmark Email Integration
 
 Prod URL: https://neon.place/
 
