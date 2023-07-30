@@ -54,10 +54,9 @@ Stack:
 - Vercel
 - Postmark Email Integration
 
-Prod URL: https://neon.place/
+Live URL: https://neon.place/
 
-<p>Visit the repo for more: https://github.com/creativeghosts/luar <br />
-*<small><i>(luar was the previous name, couldn't find a proper domain, had to changed it 😅)</i></small></p>
+_Full project showcase soon on his portfolio._
 
 **A note from him** –
 _The back-end part of this project was challenging, as I don't consider myself a full-stack developer or at least this was the first project where I perform that role. However, I am a fast learner, and if I don't know something, I am willing to figure out a way to solve a problem. In this case, I spent my time learning FQL, which is the language used by FaunaDB to fine-tune my GraphQL queries. This allowed me to fetch items inside specific map coordinates, add filters, order data, and more. Also, do the integration with Auth0 to handle users and with Postmark to control emails give me the full picture on how all gears of an app work together, simply amazing. **When things are difficult in life and stuff, I feel encouraged by the fact that I managed to figure out the back-end challenges of this project and make it to work properly.** 🙌."_
