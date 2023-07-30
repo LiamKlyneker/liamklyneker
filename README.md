@@ -20,7 +20,7 @@
 <p>⎍ [Porfolio](https://www.liamklyneker.com/)</p>
 
 ### Skiłłs
-To learn more about his skills, checkout these deployed repos:
+To learn more about his skills, checkout these repos, all of them with live urls:
 
 - [mweeter](https://github.com/LiamKlyneker/mweeter): A nice Twitter (now X) prototype ⎯ **NextJS 13 (App folder)**, **Typescript**, **Supabase**, **Tailwind**, **Clerk (For Authentication)**.
 - [k-football](https://github.com/LiamKlyneker/k-football): Navigate through Premier League Teams ⎯ **NextJS**, **Tailwind**.
@@ -41,7 +41,7 @@ One thing that sets Neon.Place apart is the way in which users can create their 
 
 This innovative approach makes it easy for users to create beautiful and professional-looking listings, without having any coding experience. It also allows users to be more creative with their listings, and to add unique features that would not be possible with a regular form.
 
-Role: **UX/UI Designer** and **FullStack Developer**
+Role: **UX/UI Designer** and **Full Stack Developer**
 
 Stack:
 - NextJS 13
@@ -60,6 +60,6 @@ Prod URL: https://neon.place/
 *<small><i>(luar was the previous name, couldn't find a proper domain, had to changed it 😅)</i></small></p>
 
 **A note from him** –
-*The back-end part of this project was challenging, as I don't consider myself a full-stack developer. However, I am a fast learner, and if I don't know something, I am willing to figure out a way to solve a problem. In this case, I spent my time learning FQL, which is the language used by FaunaDB to fine-tune my GraphQL queries. This allowed me to fetch items inside specific map coordinates, add filters, order data, and more. When things got difficult, I felt encouraged by the fact that I managed to figure out the back-end stuff to work properly 🙌."*
+_The back-end part of this project was challenging, as I don't consider myself a full-stack developer or at least this was the first project where I perform that role. However, I am a fast learner, and if I don't know something, I am willing to figure out a way to solve a problem. In this case, I spent my time learning FQL, which is the language used by FaunaDB to fine-tune my GraphQL queries. This allowed me to fetch items inside specific map coordinates, add filters, order data, and more. Also, do the integration with Auth0 to handle users and with Postmark to control emails give me the full picture on how all gears of an app work together, simply amazing. **When things are difficult in life and stuff, I feel encouraged by the fact that I managed to figure out the back-end challenges of this project and make it to work properly.** 🙌."_
 
 
