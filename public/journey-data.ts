@@ -1,0 +1,51 @@
+export const journeyList = [
+  {
+    id: 7,
+    title: "Front End Engineer",
+    company: "Schmiede.one",
+    location: "Düsseldorf, Germany",
+    date: "JAN 2022 - PRESENT",
+  },
+  {
+    id: 6,
+    title: "Front End Engineer",
+    company: "Amazon",
+    location: "Seattle, WA, USA",
+    date: "JAN 2021 - DEC 2021",
+  },
+  {
+    id: 5,
+    title: "Front End Engineer",
+    company: "Bejamas",
+    location: "Wrocław, Poland",
+    date: "SEP 2019 - AUG 2021",
+  },
+  {
+    id: 4,
+    title: "Front End Engineer",
+    company: "Keller Williams",
+    location: "Austin, TX, USA",
+    date: "JUN 2017 - AUG 2019",
+  },
+  {
+    id: 3,
+    title: "Front End Developer & UX/UI Designer",
+    company: "Netzun",
+    location: "Lima, Peru",
+    date: "MAY 2015 - MAY 2017",
+  },
+  {
+    id: 2,
+    title: "Front End Developer & iOS Developer",
+    company: "The Gift Method",
+    location: "California, USA",
+    date: "MAY 2014 - APR 2015",
+  },
+  {
+    id: 1,
+    title: "Solo Developer",
+    company: "Freelance",
+    location: "Cerro de Pasco, Peru",
+    date: "MAY 2013 - APR 2014",
+  },
+];
