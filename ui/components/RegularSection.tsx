@@ -25,11 +25,11 @@ export function RegularSection(props: RegularSectionProps) {
     >
       <span
         className={cx(
-          "absolute top-0 bottom-0 right-12 lg:right-40 w-1 lg:w-3 h-full",
+          "absolute top-0 bottom-0 right-12 md:right-24 lg:right-28 xl:right-52 w-1 md:w-2 lg:w-3 h-full",
           lineColor
         )}
       />
-      <div className="w-full max-w-screen-xl mx-auto pl-4 lg:pl-8 pr-20 lg:pr-40 pb-20 pt-32">
+      <div className="w-full max-w-screen-xl mx-auto pl-4 lg:pl-8 pr-20 md:pr-32 lg:pr-40 pb-20 pt-32">
         {children}
       </div>
     </section>

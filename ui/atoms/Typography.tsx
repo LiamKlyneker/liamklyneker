@@ -33,14 +33,14 @@ export function Typography(props: TypographyProps) {
 const typographyStyles = cva("[text-wrap:balance]", {
   variants: {
     variant: {
-      p: "text-slate-400 text-3xl lg:text-7xl font-normal -tracking-wide",
-      "p-sm": "text-black text-2xl font-normal -tracking-wide leading-tight",
-      "p-xs": "text-slate-400 text-base font-normal -tracking-wide",
-      h1: "text-7xl lg:text-[148px] font-normal -tracking-wider lg:leading-[132px]",
-      h2: "text-2xl lg:text-6xl font-bold -tracking-wide text-black",
+      p: "text-3xl md:text-5xl xl:text-7xl font-normal -tracking-wide text-slate-400",
+      "p-sm": "text-2xl font-normal -tracking-wide leading-tight text-black",
+      "p-xs": "text-base font-normal -tracking-wide text-slate-400",
+      h1: "text-7xl md:text-8xl lg:text-[7rem] lg:leading-[6.8rem] xl:text-[132px] font-normal -tracking-wider xl:leading-[124px]",
+      h2: "text-2xl md:text-4xl xl:text-6xl font-bold -tracking-wide text-black",
       h5: "text-xl lg:text-3xl font-bold -tracking-wide text-black",
       h6: "text-sm font-semibold tracking-wider text-slate-400",
-      link: "text-lg lg:text-3xl -tracking-wide text-black hover:underline hover:bg-lk-turquoise [&>svg]:hover:scale-[1.05] w-fit",
+      link: "text-lg md:text-2xl xl:text-3xl -tracking-wide text-black hover:underline hover:bg-lk-turquoise [&>svg]:hover:scale-[1.05] w-fit",
       small: "text-slate-400 text-lg lg:text-4xl font-normal",
     },
   },

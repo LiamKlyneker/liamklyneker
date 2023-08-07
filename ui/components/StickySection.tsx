@@ -10,9 +10,9 @@ export function StickySection(props: SectionProps) {
 
   return (
     <section className="min-h-screen p-4 lg:p-8 flex flex-col sticky top-0">
-      <span className="absolute top-0 bottom-0 right-12 lg:right-40 w-1 lg:w-3 h-full bg-lk-pink" />
+      <span className="absolute top-0 bottom-0 right-12 md:right-24 lg:right-28 xl:right-52 w-1 md:w-2 lg:w-3 h-full bg-lk-pink" />
       <div className={cx("flex-1 rounded-xl bg-white", className)}>
-        <div className="w-full max-w-screen-xl mx-auto pr-10 lg:pr-24 pl-4 lg:pl-8 pt-16 lg:pt-24 pb-32">
+        <div className="w-full max-w-screen-xl mx-auto pr-10 md:pr-28 lg:pr-40 pl-4 lg:pl-8 pt-16 lg:pt-32 pb-32">
           {children}
         </div>
       </div>

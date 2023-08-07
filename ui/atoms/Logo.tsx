@@ -4,7 +4,7 @@ export function Logo() {
   return (
     <Link href="/">
       <figure>
-        <p className="line-through text-2xl lg:text-3xl">[⏃⎑⎅▽]</p>
+        <p className="line-through text-2xl md:text-3xl">[⏃⎑⎅▽]</p>
       </figure>
     </Link>
   );

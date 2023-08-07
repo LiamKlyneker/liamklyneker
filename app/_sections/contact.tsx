@@ -11,7 +11,9 @@ export default function Contact() {
       </Typography>
 
       <Typography className="break-words !text-black mb-8">
-        liamklyneker@gmail.com
+        liamklyneker
+        <br className="sm:hidden" />
+        @gmail.com
       </Typography>
       <div className="flex gap-2 mb-2">
         <Link href="https://linkedin.com/in/liamklyneker" target="_blank">

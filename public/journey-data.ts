@@ -43,8 +43,8 @@ export const journeyList = [
   },
   {
     id: 1,
-    title: "Solo Developer",
-    company: "Freelance",
+    title: "Full Stack Developer",
+    company: "UNDAC",
     location: "Cerro de Pasco, Peru",
     date: "MAY 2013 - APR 2014",
   },

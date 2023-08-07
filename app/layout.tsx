@@ -10,9 +10,9 @@ const sora = Sora({
 });
 
 export const metadata: Metadata = {
-  title: "Liam Klyneker",
+  title: "Liam Klyneker [⏃⎑⎅▽]",
   description:
-    "Liam is a Front End Engineer with Full Stack and Design skills with more than 8 years of experience in the industry, currently based in Lima, Peru.",
+    "Liam is a Front End Engineer with Full Stack and Design skills with more than 8 years of experience in the industry.",
 };
 
 export default function RootLayout(props: PropsWithChildren) {

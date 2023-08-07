@@ -10,9 +10,9 @@ export function Footer() {
           alt="hieroglyphs"
           width={224}
           height={80}
-          className="max-w-[75px] lg:max-w-[100px] mb-2 lg:mb-4"
+          className="max-w-[75px] md:max-w-[90px] lg:max-w-[100px] mb-2 lg:mb-4"
         />
-        <p className="text-base lg:text-xl text-black -tracking-wide">
+        <p className="text-base md:text-lg xl:text-xl text-black -tracking-wide">
           Pørtfolio designed and coded by me with a lot of{" "}
           <span className="relative -top-1">
             <IconFavorite size="sm" />

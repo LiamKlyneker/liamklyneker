@@ -12,7 +12,7 @@ export default function HighlightedProject() {
         <div className="py-40 lg:py-60 mb-16">
           <Typography
             variant="h1"
-            className="!text-white break-words lg:whitespace-nowrap"
+            className="!text-white break-words md:break-normal xl:whitespace-nowrap"
           >
             Highlighted Prøject
           </Typography>

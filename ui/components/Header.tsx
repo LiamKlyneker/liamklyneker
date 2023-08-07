@@ -23,7 +23,7 @@ export function Header() {
       className="fixed top-0 left-0 right-0 z-10 data-[active=true]:bg-black"
       data-active={isMobileMenuOpen}
     >
-      <div className="max-w-screen-xl mx-auto flex justify-between items-center px-4 lg:px-10 pr-6 py-8 lg:py-12">
+      <div className="max-w-screen-xl mx-auto flex justify-between items-center px-4 md:px-8 lg:px-10 pr-6 py-8 lg:py-12">
         <Logo />
         <button
           className="p-4 flex flex-col gap-3 [&>span]:hover:bg-lk-pink active:scale-95"
@@ -44,11 +44,11 @@ export function Header() {
         className="hidden data-[active=true]:block"
         data-active={isMobileMenuOpen}
       >
-        <ul className="flex flex-col gap-5 lg:gap-12 justify-center items-end h-[calc(100vh-114px)] pb-32 pr-8 lg:pr-16 max-w-screen-xl mx-auto">
+        <ul className="flex flex-col gap-5 md:gap-7 xl:gap-12 justify-center items-end h-[calc(100vh-114px)] pb-32 pr-8 lg:pr-16 max-w-screen-xl mx-auto">
           <li>
             <Link
               href="/#projects"
-              className="font-light text-4xl lg:text-7xl pl-10 hover:underline hover:bg-lk-pink"
+              className="font-light text-4xl md:text-5xl xl:text-7xl pl-10 hover:underline hover:bg-lk-pink"
               onClickCapture={onMobileMenuClick}
             >
               _prøjects
@@ -57,7 +57,7 @@ export function Header() {
           <li>
             <Link
               href="/#contact"
-              className="font-light text-4xl lg:text-7xl pl-10 hover:underline hover:bg-lk-pink"
+              className="font-light text-4xl md:text-5xl xl:text-7xl pl-10 hover:underline hover:bg-lk-pink"
               onClickCapture={onMobileMenuClick}
             >
               _cøntact
@@ -69,7 +69,7 @@ export function Header() {
               target="_blank"
               rel="noreferrer"
               type="application/pdf"
-              className="font-light text-4xl lg:text-7xl pl-10 hover:underline hover:bg-lk-pink"
+              className="font-light text-4xl md:text-5xl xl:text-7xl pl-10 hover:underline hover:bg-lk-pink"
             >
               _resume//cv
             </Link>
