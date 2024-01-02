@@ -32,7 +32,7 @@ export default function FirstThingsFirst() {
   }, [containerRef.current]);
 
   return (
-    <div ref={containerRef}>
+    <div ref={containerRef} className="relative z-20">
       <StickySection className="flex flex-col justify-end">
         <div className="lg:w-[75%] max-w-[700px]">
           <Typography className="mb-8">

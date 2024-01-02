@@ -20,7 +20,7 @@ export function Header() {
 
   return (
     <header
-      className="fixed top-0 left-0 right-0 z-10 opacity-0 data-[active=true]:opacity-100 transition-all duration-300 ease-in-out"
+      className="fixed top-0 left-0 right-0 z-50 opacity-0 data-[active=true]:opacity-100 transition-all duration-300 ease-in-out"
       data-active={showHeader}
     >
       <div className="max-w-screen-xl mx-auto flex justify-between items-center px-8 py-8 lg:py-16 font-light">
