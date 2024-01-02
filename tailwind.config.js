@@ -18,6 +18,7 @@ module.exports = {
         "lk-pink": "#FF034F",
         "lk-turquoise": "#00F9F9",
         "lk-blue": "#060CFF",
+        "lk-text-secondary": "#475460",
       },
     },
   },

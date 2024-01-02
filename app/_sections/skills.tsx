@@ -1,11 +1,11 @@
 import { Typography } from "@/ui/atoms";
 import { IconOpenInNew } from "@/ui/atoms/icons";
-import { StickySection } from "@/ui/components";
+import { RegularSection, StickySection } from "@/ui/components";
 import Link from "next/link";
 
 export default function Skills() {
   return (
-    <StickySection className="!bg-lk-green pt-16">
+    <RegularSection bgColor="bg-lk-green">
       <Typography variant="h2" className="mb-10 lg:mb-24">
         Skiłłs
       </Typography>
@@ -62,6 +62,6 @@ export default function Skills() {
         But, his <span className="text-black">best work</span> till today is the
         following <span className="text-black">Highlighted Project</span>.
       </Typography>
-    </StickySection>
+    </RegularSection>
   );
 }

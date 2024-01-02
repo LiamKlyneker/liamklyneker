@@ -17,15 +17,12 @@ export function RegularSection(props: RegularSectionProps) {
 
   return (
     <section
-      className={cx(
-        "relative min-h-[95vh] flex flex-col justify-center",
-        bgColor
-      )}
+      className={cx("relative flex flex-col justify-center", bgColor)}
       id={id}
     >
       <span
         className={cx(
-          "absolute top-0 bottom-0 right-12 md:right-24 lg:right-28 xl:right-52 w-1 md:w-2 lg:w-3 h-full",
+          "absolute top-0 bottom-0 right-12 md:right-24 lg:right-28 xl:right-52 w-1 h-full",
           lineColor
         )}
       />

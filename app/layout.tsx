@@ -6,7 +6,7 @@ import { Footer, Header } from "@/ui/components";
 
 const sora = Sora({
   subsets: ["latin"],
-  weight: ["300", "400", "600", "700"],
+  weight: ["200", "300", "400", "600", "700"],
 });
 
 export const metadata: Metadata = {

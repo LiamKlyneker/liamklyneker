@@ -69,3 +69,32 @@ export const featuresList: {
     imageSrc: "/projects/neon-place/feature-13.png",
   },
 ];
+
+export const casesList: {
+  id: string;
+  imageSrc: string;
+  name?: string;
+  type: string;
+  url: string;
+}[] = [
+  {
+    id: "case-002",
+    imageSrc: "/projects/neon-place/feature-01.png",
+    name: "GENIUS | SONGS LYRICS AND KNOWLEDGE ",
+    type: "REDESIGN",
+    url: "https://www.behance.net/gallery/83970697/Genius-Redesing",
+  },
+  {
+    id: "case-003",
+    imageSrc: "/projects/neon-place/feature-01.png",
+    name: "LUAR | ROOMMATES AND ROOMS",
+    type: "DESIGN",
+    url: "https://www.behance.net/gallery/72673721/LUAR",
+  },
+  {
+    id: "case-004",
+    imageSrc: "/projects/neon-place/feature-01.png",
+    type: "EXPERIMENTS",
+    url: "https://dribbble.com/liamklyneker",
+  },
+];

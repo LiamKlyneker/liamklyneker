@@ -10,7 +10,7 @@ export function IconFavorite(props: IconProps) {
       height="40"
       viewBox="0 0 40 40"
       className={cx("inline-block", {
-        "mx-1 w-6 h-6 lg:w-6 lg:h-6": size === "sm",
+        "mx-1 w-5 h-5 lg:w-5 lg:h-5": size === "sm",
         "mx-2 w-8 h-8 lg:w-10 lg:h-10": size === "md",
       })}
     >
