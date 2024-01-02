@@ -15,7 +15,7 @@ export default function MoreCases() {
       </div>
       <CasesCarousel items={casesList} />
       <RegularSection>
-        <div className="max-w-[800px] mb-12">
+        <div className="max-w-[800px] mb-12 pb-32">
           <Typography>
             Also, on my <span className="!text-white">GitHub profile</span>, you
             can learn more about my{" "}
@@ -23,13 +23,13 @@ export default function MoreCases() {
             my pinned repositories, all of which have{" "}
             <span className="!text-white">live URLs</span>.
           </Typography>
+          <Link href="https://github.com/LiamKlyneker" target="_blank">
+            <Typography variant="link">
+              Go to Liam&apos;s Github
+              <IconOpenInNew />
+            </Typography>
+          </Link>
         </div>
-        <Link href="https://github.com/LiamKlyneker" target="_blank">
-          <Typography variant="link">
-            Go to Liam&apos;s Github
-            <IconOpenInNew />
-          </Typography>
-        </Link>
       </RegularSection>
     </>
   );

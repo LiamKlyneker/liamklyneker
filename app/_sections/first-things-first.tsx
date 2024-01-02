@@ -12,7 +12,10 @@ export default function FirstThingsFirst() {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         window.document.body.style.backgroundColor = "#FF034F";
-      } else if (window.scrollY < 200) {
+      } else if (
+        window.scrollY < 200 ||
+        window.scrollY > window.innerHeight + 200
+      ) {
         window.document.body.style.backgroundColor = "";
       }
     });
