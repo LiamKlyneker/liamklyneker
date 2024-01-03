@@ -11,7 +11,7 @@ export function RegularSection(props: RegularSectionProps) {
   const {
     children,
     bgColor = "bg-black",
-    lineColor = "bg-lk-pink",
+    lineColor = "to-lk-pink",
     id,
   } = props;
 
@@ -22,7 +22,13 @@ export function RegularSection(props: RegularSectionProps) {
     >
       <span
         className={cx(
-          "absolute top-0 bottom-0 right-12 md:right-24 lg:right-28 xl:right-52 w-1 h-full",
+          "absolute top-0 right-12 md:right-24 lg:right-28 xl:right-52 w-0.5 lg:w-1 h-1/2 bg-gradient-to-b from-transparent",
+          lineColor
+        )}
+      />
+      <span
+        className={cx(
+          "absolute bottom-0 right-12 md:right-24 lg:right-28 xl:right-52 w-0.5 lg:w-1 h-1/2 bg-gradient-to-t from-transparent",
           lineColor
         )}
       />

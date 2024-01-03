@@ -29,7 +29,7 @@ export function CasesCarousel(props: CasesCarouselProps) {
           key={item.id}
           className="snap-center"
         >
-          <article className="bg-black h-[220px] min-w-[300px] md:h-[400px] md:min-w-[500px] lg:h-[600px] lg:min-w-[900px] snap-start rounded-lg overflow-hidden relative border border-lk-green grid place-items-center">
+          <article className="bg-black h-[220px] min-w-[300px] md:h-[400px] md:min-w-[500px] lg:h-[600px] lg:min-w-[900px] snap-start rounded-lg overflow-hidden relative border border-lk-green grid place-items-center hover:bg-lk-green transition-all group">
             {/* <picture>
             <Image
               src={item.imageSrc}
@@ -40,16 +40,28 @@ export function CasesCarousel(props: CasesCarouselProps) {
               className="w-full h-full object-contain hidden"
             />
           </picture> */}
-            <div className="text-center grid gap-4">
+            <div className="text-center grid gap-4 p-4 group-hover:scale-105 transition-all">
               {item.name && (
-                <Typography variant="h6" className="!text-white">
+                <Typography
+                  variant="h6"
+                  className="!text-white group-hover:!text-black"
+                >
                   {item.name}
                 </Typography>
               )}
-              <Typography variant="h6" className="!text-white">
+              <Typography
+                variant="h6"
+                className="!text-white group-hover:!text-black"
+              >
                 {item.type}
               </Typography>
             </div>
+            <Typography
+              variant="h6"
+              className="!text-black absolute w-full bottom-8 text-center"
+            >
+              ⎶ SEE FULL CASE ▶︎
+            </Typography>
           </article>
         </Link>
       ))}

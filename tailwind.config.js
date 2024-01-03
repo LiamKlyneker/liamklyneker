@@ -16,7 +16,7 @@ module.exports = {
       colors: {
         "lk-green": "#50F900",
         "lk-pink": "#FF034F",
-        "lk-turquoise": "#00F9F9",
+        "lk-turquoise": "#12E5E5",
         "lk-blue": "#060CFF",
         "lk-text-secondary": "#475460",
       },

@@ -1,35 +1,34 @@
 import { Typography } from "@/ui/atoms";
 import { RegularSection } from "@/ui/components";
+import { GlitchTitle } from "@/ui/components/GlitchTitle";
 import Link from "next/link";
 
 export default function Contact() {
   return (
     <>
       <div id="contact" className="pt-40 text-right flex justify-end">
-        <h2 className="text-white -tracking-wider break-words md:break-normal whitespace-nowrap w-fit text-[12vw] lg:text-[9vw]">
-          make_cøntact
-        </h2>
+        <GlitchTitle title="make_cøntact" />
       </div>
-      <RegularSection lineColor="bg-black">
-        <Typography variant="h6" className="mb-2 lg:mb-6">
+      <RegularSection lineColor="to-black">
+        <Typography variant="h6" className="mb-2 lg:mb-8">
           SEND ME AN EMAIL TO
         </Typography>
-        <Typography className="!text-white mb-8 lg:mb-16 !text-2xl lg:!text-5xl">
+        <Typography className="!text-white mb-8 lg:mb-20 !text-2xl lg:!text-6xl">
           liamklyneker@gmail.com
         </Typography>
 
-        <Typography variant="h6" className="mb-2 lg:mb-4">
+        <Typography variant="h6" className="mb-2 lg:mb-6">
           ALSO FIND ME ON
         </Typography>
         <div className="flex gap-2 mb-2">
           <Link href="https://linkedin.com/in/liamklyneker" target="_blank">
-            <Typography className="!text-white hover:underline hover:bg-lk-turquoise">
+            <Typography className="!text-white underline hover:bg-lk-turquoise">
               LinkedIn
             </Typography>
           </Link>
           <Typography className="!text-white">{" / "}</Typography>
           <Link href="https://github.com/liamklyneker" target="_blank">
-            <Typography className="!text-white hover:underline hover:bg-lk-turquoise">
+            <Typography className="!text-white underline hover:bg-lk-turquoise">
               Github
             </Typography>
           </Link>

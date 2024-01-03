@@ -4,31 +4,30 @@ import { Typography } from "@/ui/atoms";
 import { IconOpenInNew } from "@/ui/atoms/icons";
 import { RegularSection } from "@/ui/components";
 import { CasesCarousel } from "@/ui/components/CasesCarousel";
+import { GlitchTitle } from "@/ui/components/GlitchTitle";
 
 export default function MoreCases() {
   return (
     <>
-      <div className="text-right flex justify-end">
-        <h2 className="text-white -tracking-wider break-words md:break-normal whitespace-nowrap w-fit text-[12vw] lg:text-[9vw]">
-          more_cases
-        </h2>
+      <div className="text-right flex justify-end pt-32">
+        <GlitchTitle title="more_cases" />
       </div>
       <CasesCarousel items={casesList} />
-      <RegularSection>
-        <div className="max-w-[800px] mb-12 pb-32">
-          <Typography>
+      <RegularSection lineColor="to-black">
+        <div className="max-w-[800px] mb-12 pt-16 pb-32">
+          <Typography className="mb-12">
             Also, on my <span className="!text-white">GitHub profile</span>, you
             can learn more about my{" "}
             <span className="!text-white">coding skills</span> through some of
             my pinned repositories, all of which have{" "}
             <span className="!text-white">live URLs</span>.
           </Typography>
-          <Link href="https://github.com/LiamKlyneker" target="_blank">
-            <Typography variant="link">
-              Go to Liam&apos;s Github
+          <Typography variant="link">
+            <Link href="https://github.com/LiamKlyneker" target="_blank">
+              Go to my Github Profile
               <IconOpenInNew />
-            </Typography>
-          </Link>
+            </Link>
+          </Typography>
         </div>
       </RegularSection>
     </>

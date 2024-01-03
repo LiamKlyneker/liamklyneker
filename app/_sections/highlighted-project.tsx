@@ -30,12 +30,12 @@ export default function HighlightedProject() {
           </Typography>
         </div>
 
-        <Link href={NEON_PLACE_URL} target="_blank">
-          <Typography variant="link" className="text-white">
+        <Typography variant="link" className="text-white">
+          <Link href={NEON_PLACE_URL} target="_blank">
             View site live
             <IconOpenInNew />
-          </Typography>
-        </Link>
+          </Link>
+        </Typography>
       </RegularSection>
 
       <ImagesCarousel items={featuresList} />
@@ -88,7 +88,7 @@ export default function HighlightedProject() {
         <Typography variant="h2" className="!text-white mb-4">
           Some Features
         </Typography>
-        <ul className="flex flex-col gap-2">
+        <ul className="flex flex-col gap-2 mb-40">
           <li>
             <Typography>⎔ Live mode listings creator.</Typography>
           </li>
@@ -117,36 +117,8 @@ export default function HighlightedProject() {
             <Typography>⎔ And more...</Typography>
           </li>
         </ul>
-      </RegularSection>
 
-      <RegularSection>
-        {/* <div className="py-6 lg:py-24 border-lk-blue border-t-4 lg:border-t-8 border-b-4 lg:border-b-8 mb-8 lg:mb-16">
-          <Typography
-            variant="h2"
-            className="!text-white opacity-50 mb-3 lg:mb-16"
-          >
-            From Liam
-          </Typography>
-          <p className="text-lg lg:text-5xl font-light text-slate-400 opacity-50 lg:leading-snug -tracking-wide">
-            The back-end part of this project was really challenging as I
-            don&#39;t consider myself a full-stack developer or at least this
-            was the first project where I perform that role. However, I am a
-            fast learner and I am willing to figure out a way to solve a problem
-            if I don&#39;t know something. For this project I spent my time
-            learning FQL, FaunaDB&#39;s language for fine-tuning my GraphQL
-            queries. This allowed me to fetch items inside specific map
-            coordinates and also allowed me to add filters, order data, and
-            more. On top of that, the integration with Auth0 and Postmark gave
-            me a full picture of how all the gears of an app work together. It
-            was amazing!.
-            <br />
-            <br /> When things are difficult in life and stuff, I feel
-            encouraged by the fact that I managed to figure out the back-end
-            challenges of this project and make it to work properly.
-          </p>
-        </div> */}
-
-        <div className="pb-32 lg:pb-60">
+        <div className="pb-32 lg:pb-60 max-w-[75%]">
           <Typography>
             Full <span className="text-white">project showcase</span> with all
             the <span className="text-white">details</span> of its creation{" "}

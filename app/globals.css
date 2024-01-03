@@ -44,3 +44,72 @@ body {
 .carousel.carousel--green::-webkit-scrollbar-thumb {
   background-color: #50f900;
 }
+
+.glitch-logo {
+  position: relative;
+  animation: glitch 5s infinite;
+  transition: none;
+}
+
+.glitch {
+  position: relative;
+  font-weight: bold;
+  letter-spacing: 3px;
+  z-index: 1;
+}
+
+.glitch:before,
+.glitch:after {
+  display: block;
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.8;
+}
+
+.glitch:before {
+  animation: glitch-it 7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+  color: #ff034f;
+  z-index: -1;
+}
+
+.glitch:after {
+  animation: glitch-it 7s cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both
+    infinite;
+  color: #060cff;
+  z-index: -2;
+}
+
+.glitch.glitch-small:before,
+.glitch.glitch-small:after {
+  animation-name: glitch-it;
+  color: #828b9475;
+}
+
+@keyframes glitch-it {
+  0% {
+    transform: translate(0);
+  }
+  50% {
+    transform: translate(0);
+  }
+  51% {
+    transform: translate(-3px, 3px);
+  }
+  52% {
+    transform: translate(-3px, -3px);
+  }
+  53% {
+    transform: translate(3px, 3px);
+  }
+  54% {
+    transform: translate(3px, -3px);
+  }
+  55% {
+    transform: translate(0);
+  }
+  to {
+    transform: translate(0);
+  }
+}
