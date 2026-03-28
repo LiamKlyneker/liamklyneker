@@ -9,10 +9,8 @@ export function Logo(props: LogoProps) {
 
   return (
     <Link href="/">
-      <figure>
-        <p className={cx("glitch", sizes[size])} data-text="⏃⎑⎅▽">
-          ⏃⎑⎅▽
-        </p>
+      <figure className={cx("glitch", sizes[size])} data-text="⏃⎑⎅▽">
+        ⏃⎑⎅▽
       </figure>
     </Link>
   );

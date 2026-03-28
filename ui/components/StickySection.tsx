@@ -9,7 +9,7 @@ export function StickySection(props: SectionProps) {
   const { children, className } = props;
 
   return (
-    <section className="min-h-screen p-4 lg:p-6 flex flex-col sticky top-0">
+    <section className="min-h-screen p-4 lg:p-6 flex flex-col">
       <div
         className={cx(
           "flex-1 rounded-xl border-t-2 border-lk-text-secondary bg-black",

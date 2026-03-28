@@ -14,10 +14,7 @@ export function ImagesCarousel(props: ImagesCarouselProps) {
   const { items } = props;
 
   return (
-    <section
-      className="flex py-8 px-4 lg:px-16 gap-6 overflow-x-scroll w-screen relative snap-x snap-mandatory scroll-pl-4 lg:scroll-pl-8 xl:scroll-pl-16 carousel"
-      dir="ltr"
-    >
+    <section className="flex py-8 px-4 lg:px-16 gap-6 overflow-x-scroll w-screen relative snap-x snap-mandatory scroll-pl-4 lg:scroll-pl-8 xl:scroll-pl-16 carousel">
       {items.map((item) => (
         <article
           key={item.id}

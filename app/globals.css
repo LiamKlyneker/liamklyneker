@@ -45,12 +45,6 @@ body {
   background-color: #50f900;
 }
 
-.glitch-logo {
-  position: relative;
-  animation: glitch 5s infinite;
-  transition: none;
-}
-
 .glitch {
   position: relative;
   font-weight: bold;

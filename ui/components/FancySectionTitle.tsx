@@ -47,7 +47,7 @@ export function FancySectionTitle(props: FancySectionTitleProps) {
     >
       <div className="sticky top-[50vh] transform -translate-y-1/2 w-screen flex justify-end">
         <h2
-          className="text-white -tracking-wider break-words md:break-normal whitespace-nowrap w-fit"
+          className="text-white -tracking-wider whitespace-nowrap w-fit"
           style={{
             fontSize: `${fontSizeCalc >= 9 ? fontSizeCalc : 9}vw`,
           }}

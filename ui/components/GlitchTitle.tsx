@@ -10,7 +10,7 @@ export function GlitchTitle(props: GlitchTitleProps) {
   const [titleToGlitch, setTitleToGlitch] = useState(title);
 
   useEffect(() => {
-    const interval = setInterval(() => {
+    const timeout = setTimeout(() => {
       const randomIndex = Math.floor(Math.random() * title.length);
       const randomCharacter = title[randomIndex];
       const newTitle = title.replace(
@@ -19,7 +19,7 @@ export function GlitchTitle(props: GlitchTitleProps) {
       );
       setTitleToGlitch(newTitle);
     }, 900);
-    return () => clearInterval(interval);
+    return () => clearTimeout(timeout);
   }, [titleToGlitch]);
 
   return (
