@@ -2,7 +2,7 @@
 
 Single home for every project-specific fact the skills need. Workflow skills (`work-on-prd`, `to-issues`, `next-prd-issue`, `work-on-issue`) and `grill-me` reference this file and never hardcode these values.
 
-**Canonical source:** skill *logic* is canonical in `LiamKlyneker/skills` and reaches this repo by **copy, not symlink** — an improvement made here is drift until it's back-ported there. The project facts below live only in this file.
+**Canonical source:** skill *logic* is canonical in `LiamKlyneker/skills`. Each skill directory in `.claude/skills/` is a **symlink** into that repo, so editing "a skill file here" edits the canonical repo — intended for logic fixes, never something to do by accident (see *Repo discipline* below). `_shared/` is the exception: a **real directory holding copies**, so an improvement to a shared file made here is drift until it's back-ported. The project facts below live only in this file, and skills must resolve it as `<project-root>/.claude/skills/_shared/project-adapter.md` from the repo root — a relative `../_shared/...` from a symlinked skill directory lands on the canonical repo's unfilled template instead.
 
 ## Repo
 
