@@ -34,7 +34,7 @@ Two things in one repo (repo name matches the GitHub username):
 
 ## Architecture
 
-Single scrolling page. `app/layout.tsx` loads the Sora font and wraps everything in `Header` + `Footer`; `app/page.tsx` composes the sections in order: `Intro` + `FirstThingsFirst` (inside a shared wrapper div), `HighlightedProject`, `MoreCases`, `Contact`.
+Single scrolling page. `app/layout.tsx` loads the Sora font and wraps everything in `Header` + `Footer`; `app/page.tsx` composes the sections in order: `Intro`, `HighlightedProject`, `MoreCases`, `Contact`. `Home` is a plain (non-`async`) server component that reads no `searchParams`, so `/` is statically prerendered.
 
 - **`app/_sections/`** — page sections. The `_` prefix keeps the folder out of routing. Sections are server components unless they need scroll/state, in which case they carry `"use client"`.
 - **`ui/atoms/`** — primitives (`Typography`, `Button`, `ButtonIcon`, `Logo`) plus `ui/atoms/icons/`.
@@ -43,27 +43,38 @@ Single scrolling page. `app/layout.tsx` loads the Sora font and wraps everything
 
 Barrel files (`ui/atoms/index.ts`, `ui/components/index.ts`) export most things, but `FancySectionTitle`, `CasesCarousel`, and `GlitchTitle` are **not** in the components barrel and are imported by full path. Adding a component means also adding it to the barrel if you want the short import.
 
-`app/_sections/skills.tsx` exists but is not rendered by `page.tsx` — it's currently unused.
+`app/_sections/skills.tsx` and `app/_sections/journey-modal.tsx` exist but are not rendered by `page.tsx` — they're currently unused. `journey-modal.tsx` (and the `SideModal` it uses) is kept on disk on purpose: journey content is deferred to a future subpage phase.
 
 ### Content data
 
 Copy and lists live as TypeScript modules under `public/`, next to the images they reference: `public/journey-data.ts` (the journey timeline) and `public/projects/neon-place/features-list.ts` (exports both `featuresList` for the image carousel and `casesList` for the cases carousel). Editing site content usually means editing these files or the JSX in `_sections/`, not a CMS.
 
-### The journey modal (URL-driven)
+### The journey modal (URL-driven, currently unrendered)
 
-There is no modal state. `first-things-first.tsx` links to `?modal=journey` with `scroll={false}`; `page.tsx` awaits `props.searchParams` (async since Next 15) and renders `JourneyModal`. `SideModal` renders through `createPortal` into `document.body`, locks `body` overflow, listens for Escape, and closes with `router.back()` — so closing depends on the modal having been reached via a history push, not a direct visit.
+**Nothing renders this today** — `page.tsx` no longer reads `searchParams` and no link points at `?modal=journey`. The machinery is kept for a future journey subpage, so here is how it was wired, in case it comes back.
 
-`SideModal` returns `null` until `useSyncExternalStore` reports it's hydrated. That guard is load-bearing, not defensive: `"use client"` components are still server-rendered, and `createPortal(..., document.body)` throws `ReferenceError: document is not defined` during SSR without it. (`useSyncExternalStore` rather than a `useState` + `useEffect` pair because `react-hooks/set-state-in-effect` rejects the latter.) Reading `searchParams` also makes `/` a dynamic route, so the page is server-rendered on demand rather than prerendered.
+There was no modal state: a link to `?modal=journey` with `scroll={false}`, and `page.tsx` awaiting `props.searchParams` (async since Next 15) to render `JourneyModal`. `SideModal` renders through `createPortal` into `document.body`, locks `body` overflow, listens for Escape, and closes with `router.back()` — so closing depends on the modal having been reached via a history push, not a direct visit.
+
+`SideModal` returns `null` until `useSyncExternalStore` reports it's hydrated. That guard is load-bearing, not defensive: `"use client"` components are still server-rendered, and `createPortal(..., document.body)` throws `ReferenceError: document is not defined` during SSR without it. (`useSyncExternalStore` rather than a `useState` + `useEffect` pair because `react-hooks/set-state-in-effect` rejects the latter.) Note that re-introducing a `searchParams` read would also make `/` a dynamic route again, so the page would be server-rendered on demand rather than prerendered.
 
 ### Scroll-driven background color (the fragile part)
 
-`document.body.style.backgroundColor` is mutated imperatively from more than one place, and they interact:
+`document.body.style.backgroundColor` is mutated imperatively, and there is now exactly **one** writer: `ui/components/FancySectionTitle.tsx`.
 
-- `first-things-first.tsx` uses an `IntersectionObserver` to set `#FF034F` (and add a `pink-background` body class), clearing it only when `scrollY < 500` or `scrollY > innerHeight * 3`.
-- `FancySectionTitle` (a 300vh scroll-scrubbed title used by `HighlightedProject`) recomputes its own background alpha on every scroll event and also sets/clears the same body background at the 50% mark.
-- `animations.css` reacts to the body class: `.pink-background .show-intro { transform: scale(0.96) }`.
+`FancySectionTitle` is a 300vh scroll-scrubbed title (`h-[300vh] pt-[100vh]`, used once by `HighlightedProject`). On every `scroll` event, while `scrollY` is inside its own `offsetTop → offsetTop + offsetHeight` band, it:
 
-Those scroll-position thresholds are hand-tuned to the current section order and heights. Reordering sections, changing section heights, or adding a new full-height section will break the background transitions and the sticky/z-index stacking (`StickySection` is `sticky top-0`; `FirstThingsFirst` sits in a `z-20` wrapper). Recent commit history is mostly fixes in exactly this area — verify scroll behavior visually after touching layout.
+- recomputes `percentScrolled` and paints its **own** element background `rgba(255, 3, 79, 1 - percentScrolled)` (pink fading out) and shrinks the title font size;
+- sets `document.body.style.backgroundColor = "#FF034F"` below the 50% mark and clears it (`""`, back to the `globals.css` black) above it.
+
+**Outside the band it clears the body background.** That `else` branch is load-bearing, not defensive: without it, scrolling back up and leaving the band above `offsetTop` leaves the body stuck at `#FF034F` under the hero, and the hero's grey-on-black copy becomes grey-on-pink. Being the only writer means this component also owns the reset — there is no observer elsewhere cleaning up after it any more.
+
+Other things worth knowing before touching this:
+
+- The handler runs on `scroll` only, never on mount, so first paint is always black — no pink flash on load.
+- Because the band starts exactly at the hero's bottom edge, the hero is off-screen the instant the body turns pink. If a section is ever inserted between them, that coincidence is gone.
+- `Intro` is a plain block (**not** `sticky`). It was `sticky top-0` while `FirstThingsFirst` scrolled over it inside a shared wrapper `div`; with that wrapper gone the sticky containing block became `<main>`, which pinned the hero over the whole page and let it paint on top of the non-positioned section backgrounds. The sticky was removed rather than re-wrapped.
+
+The band is derived from live `offsetTop`/`offsetHeight`, so it survives section reordering — but the *look* of the transition is tuned to `HighlightedProject` following a single full-height hero. Adding a full-height section between `Intro` and `HighlightedProject`, or a second `FancySectionTitle`, changes when pink appears and needs a visual scroll pass (desktop **and** narrow) in both directions to confirm. Lint and build cannot catch a regression here.
 
 ### Styling
 

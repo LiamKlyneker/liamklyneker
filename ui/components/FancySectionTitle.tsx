@@ -13,9 +13,9 @@ export function FancySectionTitle(props: FancySectionTitleProps) {
   const handleAnimationOnScroll = () => {
     const offsetTop = containerRef.current?.offsetTop;
     const offsetHeight = containerRef.current?.offsetHeight;
+    if (!offsetTop || !offsetHeight) return;
+
     if (
-      offsetTop &&
-      offsetHeight &&
       window.scrollY > offsetTop &&
       window.scrollY < offsetTop + offsetHeight
     ) {
@@ -27,6 +27,11 @@ export function FancySectionTitle(props: FancySectionTitleProps) {
       } else {
         window.document.body.style.backgroundColor = "#FF034F";
       }
+    } else {
+      // This is the only writer of the body background, so it also owns
+      // clearing it. Without this branch, scrolling back up out of the band
+      // above `offsetTop` leaves the body stuck at #FF034F under the hero.
+      window.document.body.style.backgroundColor = "";
     }
   };
 
