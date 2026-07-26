@@ -11,6 +11,13 @@
     "start": "next start",
     "lint": "eslint ."
   },
+  "pnpm": {
+    "comment": "Read by pnpm 9 (Vercel) only; pnpm 11 reads the same overrides from pnpm-workspace.yaml. Keep the two blocks identical or installs fail with ERR_PNPM_LOCKFILE_CONFIG_MISMATCH.",
+    "overrides": {
+      "postcss": "8.5.23",
+      "sharp": "0.35.3"
+    }
+  },
   "dependencies": {
     "@types/node": "26.1.1",
     "@types/react": "19.2.17",

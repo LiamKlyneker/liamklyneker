@@ -10,6 +10,24 @@ allowBuilds:
   sharp: true
   unrs-resolver: true
 
+# Security overrides. These MUST be kept byte-identical with the
+# `pnpm.overrides` block in package.json: pnpm 11 (local) reads overrides from
+# here and ignores package.json, while pnpm 9 (Vercel) does the exact reverse.
+# If the two disagree, the `overrides` block recorded in pnpm-lock.yaml won't
+# match what the installing pnpm computes and the build dies with
+# ERR_PNPM_LOCKFILE_CONFIG_MISMATCH. Change one, change the other.
+#
+# postcss: next@16.2.12 depends on an exact 8.4.31, which is vulnerable to
+#   GHSA-qx2v-qp2m-jg93 / GHSA-6g55-p6wh-862q / GHSA-r28c-9q8g-f849. Pinning to
+#   the same version as our direct dep collapses the tree to a single copy.
+# sharp: next@16.2.12 declares ^0.34.5, but the libvips CVEs
+#   (GHSA-f88m-g3jw-g9cj) are only fixed in >=0.35.0, outside that range. Next
+#   itself has already moved to ^0.35.3 on the 16.3 line, so this override is
+#   tracking upstream rather than diverging from it — drop it once 16.3 ships.
+overrides:
+  postcss: 8.5.23
+  sharp: 0.35.3
+
 minimumReleaseAgeExclude:
   - '@next/env@16.2.12'
   - '@next/eslint-plugin-next@16.2.12'
