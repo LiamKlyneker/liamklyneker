@@ -65,4 +65,4 @@ Every command a worker or the orchestrator runs. Keep the **Purpose** column sta
 
 ## One-time repo preconditions (human)
 
-- GitHub Settings → General → "Auto-close issues with merged linked pull requests" must be **on** (not API-queryable — check in the web UI once). If off, `Closes #N` silently does nothing.
+- GitHub Settings → General → "Auto-close issues with merged linked pull requests" must be **on**. If off, `Closes #N` silently does nothing. **✅ Verified on 2026-07-26** — don't re-check unless someone reports a merged PR that left its issues open. Genuinely not API-queryable: it appears in neither the REST repo object nor the GraphQL `Repository` type (`autoMergeAllowed` is a different setting), so the web UI is the only place to read it.
