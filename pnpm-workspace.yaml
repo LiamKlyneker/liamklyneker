@@ -1,6 +1,15 @@
+# pnpm 10+ reads project settings from this file; the `pnpm` field in
+# package.json is no longer honoured. The `packages` entry is here so pnpm 9
+# — which treats this strictly as a workspace manifest and fails with
+# "packages field missing or empty" — can still install. Vercel pins pnpm 9
+# for projects of this vintage.
+packages:
+  - .
+
 allowBuilds:
   sharp: true
   unrs-resolver: true
+
 minimumReleaseAgeExclude:
   - '@next/env@16.2.12'
   - '@next/eslint-plugin-next@16.2.12'
@@ -14,6 +23,3 @@ minimumReleaseAgeExclude:
   - '@next/swc-win32-x64-msvc@16.2.12'
   - eslint-config-next@16.2.12
   - next@16.2.12
-overrides:
-  '@types/react': 19.2.17
-  '@types/react-dom': 19.2.3
