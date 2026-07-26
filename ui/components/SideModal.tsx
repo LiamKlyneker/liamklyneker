@@ -1,5 +1,5 @@
 "use client";
-import { PropsWithChildren, useEffect } from "react";
+import { PropsWithChildren, useEffect, useSyncExternalStore } from "react";
 import { createPortal } from "react-dom";
 import { ButtonIcon, Typography } from "../atoms";
 import { useRouter } from "next/navigation";
@@ -9,9 +9,20 @@ type SideModalProps = PropsWithChildren<{
   title: string;
 }>;
 
+// `false` while server-rendering, `true` once hydrated. Nothing ever changes,
+// so the subscribe callback is a no-op.
+const noopSubscribe = () => () => {};
+
 export function SideModal(props: SideModalProps) {
   const { children, title } = props;
   const router = useRouter();
+  // createPortal needs document.body, which doesn't exist while this client
+  // component is server-rendered — only portal once we're on the client.
+  const mounted = useSyncExternalStore(
+    noopSubscribe,
+    () => true,
+    () => false
+  );
 
   const onClose = () => {
     router.back();
@@ -30,6 +41,8 @@ export function SideModal(props: SideModalProps) {
       document.removeEventListener("keydown", escListener);
     };
   }, []);
+
+  if (!mounted) return null;
 
   return createPortal(
     <div className="fixed inset-0 bg-black bg-opacity-50 z-50 overflow-scroll p-4 lg:p-6 backdrop-blur-sm showModalBg">

@@ -1,7 +1,6 @@
 import { Logo, Typography } from "@/ui/atoms";
 import Link from "next/link";
 import "./animations.css";
-import { useState } from "react";
 import { DynamicTitle } from "./dynamic-title";
 
 export default function Intro() {

@@ -33,8 +33,8 @@ export default function FirstThingsFirst() {
     return () => {
       observer.disconnect();
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [containerRef.current]);
+    // Refs are attached before effects run, so an empty dep array is enough here.
+  }, []);
 
   return (
     <div ref={containerRef} className="relative z-20 showFirstThingsFirst">
