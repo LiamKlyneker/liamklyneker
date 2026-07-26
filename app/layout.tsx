@@ -1,6 +1,7 @@
 import { PropsWithChildren } from "react";
 import type { Metadata } from "next";
 import { Sora } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { Footer, Header } from "@/ui/components";
 
@@ -24,6 +25,7 @@ export default function RootLayout(props: PropsWithChildren) {
         <Header />
         {children}
         <Footer />
+        <Analytics />
       </body>
     </html>
   );
