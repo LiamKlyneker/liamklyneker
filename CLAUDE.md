@@ -34,11 +34,11 @@ Two things in one repo (repo name matches the GitHub username):
 
 ## Architecture
 
-Single scrolling page. `app/layout.tsx` loads the Sora font and wraps everything in `Header` + `Footer`; `app/page.tsx` composes the sections in order: `Intro`, `HighlightedProject`, `MoreCases`, `Contact`. `Home` is a plain (non-`async`) server component that reads no `searchParams`, so `/` is statically prerendered.
+Single scrolling page. `app/layout.tsx` loads the Sora font and wraps everything in `Header` + `Footer`; `app/page.tsx` composes the sections in order: `Intro`, `HighlightedProject`, `MoreCases`, `Thoughts`, `Contact`. `Home` is a plain (non-`async`) server component that reads no `searchParams`, so `/` is statically prerendered.
 
 - **`app/_sections/`** — page sections. The `_` prefix keeps the folder out of routing. Sections are server components unless they need scroll/state, in which case they carry `"use client"`.
 - **`ui/atoms/`** — primitives (`Typography`, `Button`, `ButtonIcon`, `Logo`) plus `ui/atoms/icons/`.
-- **`ui/components/`** — composed pieces (`Header`, `Footer`, `StickySection`, `RegularSection`, `ImagesCarousel`, `ProjectCard`, `SideModal`).
+- **`ui/components/`** — composed pieces (`Header`, `Footer`, `StickySection`, `RegularSection`, `ImagesCarousel`, `ProjectCard`, `ThoughtRow`, `SideModal`).
 - Path alias `@/*` maps to the repo root, so imports look like `@/ui/atoms`, `@/public/journey-data`.
 
 Barrel files (`ui/atoms/index.ts`, `ui/components/index.ts`) export most things, but `FancySectionTitle`, `CasesCarousel`, and `GlitchTitle` are **not** in the components barrel and are imported by full path. Adding a component means also adding it to the barrel if you want the short import.
@@ -59,7 +59,7 @@ Two things are load-bearing:
 
 ### Content data
 
-Copy and lists live as TypeScript modules under `public/`, next to the images they reference: `public/craft-list.ts` (the crāft grid), `public/journey-data.ts` (the journey timeline) and `public/projects/neon-place/features-list.ts` (exports `featuresList` and `casesList`). Editing site content usually means editing these files or the JSX in `_sections/`, not a CMS.
+Copy and lists live as TypeScript modules under `public/`, next to the images they reference: `public/craft-list.ts` (the crāft grid), `public/thoughts-list.ts` (the thøughts shelf, plus the `allThoughtsUrl` escape hatch), `public/journey-data.ts` (the journey timeline) and `public/projects/neon-place/features-list.ts` (exports `featuresList` and `casesList`). Editing site content usually means editing these files or the JSX in `_sections/`, not a CMS.
 
 `featuresList` and `ImagesCarousel` are **currently orphaned** — the crāft grid replaced the carousel of 13 generic feature images. Both are kept on disk; `casesList` from the same module is still consumed by `more-cases.tsx`. `public/neon-place-logo.svg` is likewise unreferenced now that the section header block is gone.
 
@@ -70,6 +70,14 @@ Copy and lists live as TypeScript modules under `public/`, next to the images th
 `ProjectCard` takes `size: "featured" | "compact"` (featured is image-led and gets `lg:col-span-2` from the grid; compact sits in the flow), a title, a one-liner, an optional `image`, and a **two-field href rule**: `url` is the real thing's live URL and is always present; `detailPath` is an optional internal detail route that wins when set. The card resolves `detailPath ?? url` and then decides `target="_blank" rel="noopener noreferrer"` by testing whether the **resolved** href is absolute — not by which field it came from, so no entry ever special-cases the fallback. Detail routes don't exist yet, so every entry currently falls through to `url`.
 
 Copy in `craft-list.ts` is placeholder and marked `TODO(#28)`.
+
+### The thøughts shelf
+
+`app/_sections/thoughts.tsx` maps `thoughtsList` onto `ThoughtRow`, one `<li>` per entry, under an ordinary `GlitchTitle` heading — **not** a second `FancySectionTitle`, which would fight the first one over `document.body.style.backgroundColor`.
+
+`ThoughtRow` is title + one-liner + external href, and nothing else: no date, no read-time, no stat badge. That is the point — the shelf has to look the same whether it holds one entry or three, and it ships with one. The section carries its weight in the framing block above the list rather than in row count, the `<ul>` draws a top hairline while each row draws its own bottom one (so both edges close at any length), and the "see all on Medium" escape hatch below states that this is a curated subset. Every href here is off-site, so `ThoughtRow` is unconditionally `target="_blank" rel="noopener noreferrer"` — there is no `detailPath`-style internal-route branch as in `ProjectCard`.
+
+Copy in `thoughts-list.ts` and the section's framing block is placeholder and marked `TODO(#28)`; more articles land in #30.
 
 ### The journey modal (URL-driven, currently unrendered)
 
