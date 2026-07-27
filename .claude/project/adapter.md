@@ -1,8 +1,8 @@
 # Project Adapter — liamklyneker (portfolio site)
 
-Single home for every project-specific fact the skills need. Workflow skills (`work-on-prd`, `to-issues`, `next-prd-issue`, `work-on-issue`) and `grill-me` reference this file and never hardcode these values.
+Single home for every project-specific fact the skills need. Workflow skills (`work-on-prd`, `to-issues`, `next-prd-issue`, `work-on-issue`) and `deep-grill` reference this file and never hardcode these values. (`grill-me` deliberately does **not** — it is the lightweight inline grill and reads nothing from here.)
 
-**Canonical source:** skill *logic* is canonical in `LiamKlyneker/skills`. Each skill directory in `.claude/skills/` is a **symlink** into that repo, so editing "a skill file here" edits the canonical repo — intended for logic fixes, never something to do by accident (see *Repo discipline* below). `_shared/` is the exception: a **real directory holding copies**, so an improvement to a shared file made here is drift until it's back-ported. The project facts below live only in this file, and skills must resolve it as `<project-root>/.claude/skills/_shared/project-adapter.md` from the repo root — a relative `../_shared/...` from a symlinked skill directory lands on the canonical repo's unfilled template instead.
+**Canonical source:** skill *logic* is canonical in `LiamKlyneker/skills`. Each skill directory in `.claude/skills/` is a **symlink** into that repo, so editing "a skill file here" edits the canonical repo — intended for logic fixes, never something to do by accident (see *Repo discipline* below). Project facts live here instead, in `.claude/project/`, which is real and committed — skills resolve this file as `<repo-root>/.claude/project/adapter.md`. **This repo owns no `_shared/`**, so a relative `../_shared/…` from a symlinked skill resolves past the symlink into the canonical repo, which is exactly where those global-reference files belong.
 
 ## Repo
 
@@ -46,12 +46,18 @@ Every command a worker or the orchestrator runs. Keep the **Purpose** column sta
 - Per issue: what shipped · how to test in the running app (from the issue's `## QA notes`, refined by the worker) · edge cases the worker flagged.
 - The human runs it start-to-finish before merging the PR. For anything that touched layout, the run must include a full-page scroll on both desktop and a narrow viewport.
 
-## Sources of truth (`grill-me` recon + hard gates)
+## Sources of truth (`deep-grill` recon + hard gates)
 
 - **Project explorer agent**: `Explore` — read-only, one section/area per spawn. There is no repo-specific explorer.
 - **Contract-boundary explorer agent**: **None** — no API, no service boundary. This is a static-rendered marketing site.
-- **Design / token map**: `tailwind.config.js` is the token source — brand colors `lk-green` `#50F900`, `lk-pink` `#FF034F`, `lk-turquoise` `#12E5E5`, `lk-blue` `#060CFF`, `lk-text-secondary` `#475460`. **Trap:** several of those hexes are also written *literally* in `app/globals.css` (carousel scrollbar, glitch pseudo-elements) — changing a brand color means changing both. Conventions live in `CLAUDE.md`, not in a ui-profile skill. **There is no Figma file and no Figma → code map** — `grill-me`'s Token Manifest resolves against `tailwind.config.js` alone, and a value with no Tailwind equivalent is a finding to surface, not a license to drop in a raw palette class.
+- **Design / token map**: `tailwind.config.js` is the token source — brand colors `lk-green` `#50F900`, `lk-pink` `#FF034F`, `lk-turquoise` `#12E5E5`, `lk-blue` `#060CFF`, `lk-text-secondary` `#475460`. **Trap:** several of those hexes are also written *literally* in `app/globals.css` (carousel scrollbar, glitch pseudo-elements) — changing a brand color means changing both. Conventions live in `CLAUDE.md`, not in a ui-profile skill. **There is no Figma file and no Figma → code map** — any Token Manifest resolves against `tailwind.config.js` alone, and a value with no Tailwind equivalent is a finding to surface, not a license to drop in a raw palette class.
 - **Access-policy source**: **None** — static site, no data layer, no auth, no user-scoped rows.
+
+## Project gates
+
+**None — no gates beyond the ones the skills carry.** Nothing here has a silent-failure class that needs one: no API contract to drift from, no data layer, no store to check per-operation. The one thing that *does* fail silently — the scroll-driven body background — is caught by the L3/L5 visual pass in the verify ladder above, not by a manifest.
+
+The scroll-background trap is exactly the shape a gate would take if this repo ever grew one, so if a second class of invisible breakage shows up, add `./`-sibling gate files here rather than fattening this adapter — `work-on-prd` pastes this whole file into every worker prompt.
 
 ## Repo discipline
 
@@ -60,7 +66,7 @@ Every command a worker or the orchestrator runs. Keep the **Purpose** column sta
 - **Barrel files are partial on purpose.** `ui/atoms/index.ts` and `ui/components/index.ts` export most things, but `FancySectionTitle`, `CasesCarousel`, and `GlitchTitle` are **not** in the components barrel and are imported by full path. Match the convention of the file you're editing; adding a component means also adding it to the barrel only if you want the short import.
 - **CONTEXT.md**: this repo has **no scoped `CONTEXT.md` files**. `CLAUDE.md` at the repo root is the single architecture doc — read it before touching `app/_sections/` or `ui/`, and update it when documented architecture changes (especially the scroll-background section).
 - `README.md` is Liam's **GitHub profile README** — public-facing personal content, not project documentation. Never rewrite it as a setup guide.
-- **Where skills live**: `.claude/skills/`. **Every skill directory there is a symlink** into `/Users/klyneker/liam-klyneker/skills/` (the canonical `LiamKlyneker/skills` repo). Writing a new file "into" `.claude/skills/<skill>/` therefore writes into the canonical repo — **never create or edit skill files through those symlinks**. This `_shared/` directory is the exception: it is a **real directory** holding **copies**, per the copy-not-symlink rule above.
+- **Where skills live**: `.claude/skills/`. **Every entry there is a symlink** into `/Users/klyneker/liam-klyneker/skills/` (the canonical `LiamKlyneker/skills` repo) — no exceptions, no real directories. Writing a new file "into" `.claude/skills/<skill>/` therefore writes into the canonical repo — **never create or edit skill files through those symlinks**. Anything this project owns goes in `.claude/project/` instead. Only the project-scoped workflow skills are linked here; globally-available ones (`deep-grill`, `grill-me`, `pinpoint`, …) come from `~/.claude/skills/` and must not be re-linked per project.
 - **Git workflow**: solo repo, `main` is the working branch — routine work commits and pushes straight to `main`, no PR ceremony. **`work-on-prd` is the exception**: it maintains one PRD branch and one PR targeting `main`, because `Closes #N` only fires against the default branch. Follow whichever mode the task is actually in; don't push a PRD branch's commits to `main` directly.
 
 ## One-time repo preconditions (human)
