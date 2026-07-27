@@ -15,6 +15,13 @@ type ProjectCardProps = {
   url: string;
   /** Optional internal detail route (#36). Wins over `url` when present. */
   detailPath?: string;
+  /**
+   * Optional affordance label, overriding the externality-derived default.
+   * The default reads right for a live product and wrong for everything that
+   * is external but not "live" — a repo folder, a 2019 case study — so those
+   * entries pass their own wording rather than the card growing a taxonomy.
+   */
+  cta?: string;
   /** Optional — skill cards carry no imagery. */
   image?: {
     src: string;
@@ -23,7 +30,8 @@ type ProjectCardProps = {
 };
 
 export function ProjectCard(props: ProjectCardProps) {
-  const { size = "compact", title, oneLiner, url, detailPath, image } = props;
+  const { size = "compact", title, oneLiner, url, detailPath, cta, image } =
+    props;
   const isFeatured = size === "featured";
 
   // One optional field, no special cases: the detail route wins when it exists,
@@ -97,7 +105,7 @@ export function ProjectCard(props: ProjectCardProps) {
               isFeatured && "lg:mt-10"
             )}
           >
-            {isExternal ? "⌿ VIEW IT LIVE ▶︎" : "⌿ SEE THE CASE ▶︎"}
+            {cta ?? (isExternal ? "⌿ VIEW IT LIVE ▶︎" : "⌿ SEE THE CASE ▶︎")}
           </Typography>
         </div>
       </article>

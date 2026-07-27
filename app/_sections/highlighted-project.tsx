@@ -8,13 +8,17 @@ export default function HighlightedProject() {
       {/* TODO(#28): placeholder section title. */}
       <FancySectionTitle title="crāft" />
       <RegularSection id="projects">
-        <ul className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 pb-32 lg:pb-60">
-          {craftList.map((entry) => (
+        <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-10 pb-32 lg:pb-60">
+          {craftList.map(({ id, columnSpan, ...card }) => (
             <li
-              key={entry.id}
-              className={entry.size === "featured" ? "lg:col-span-2" : ""}
+              key={id}
+              // `columnSpan` is layout and stops here; the card only ever sees
+              // its own anatomy props.
+              className={
+                columnSpan === "full" ? "md:col-span-2 lg:col-span-3" : ""
+              }
             >
-              <ProjectCard {...entry} />
+              <ProjectCard {...card} />
             </li>
           ))}
         </ul>

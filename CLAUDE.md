@@ -34,14 +34,14 @@ Two things in one repo (repo name matches the GitHub username):
 
 ## Architecture
 
-Single scrolling page. `app/layout.tsx` loads the Sora font and wraps everything in `Header` + `Footer`; `app/page.tsx` composes the sections in order: `Intro`, `HighlightedProject`, `MoreCases`, `Thoughts`, `Contact`. `Home` is a plain (non-`async`) server component that reads no `searchParams`, so `/` is statically prerendered.
+Single scrolling page. `app/layout.tsx` loads the Sora font and wraps everything in `Header` + `Footer`; `app/page.tsx` composes the sections in order: `Intro`, `HighlightedProject`, `Thoughts`, `Contact`. `Home` is a plain (non-`async`) server component that reads no `searchParams`, so `/` is statically prerendered.
 
 - **`app/_sections/`** — page sections. The `_` prefix keeps the folder out of routing. Sections are server components unless they need scroll/state, in which case they carry `"use client"`.
 - **`ui/atoms/`** — primitives (`Typography`, `Button`, `ButtonIcon`, `Logo`) plus `ui/atoms/icons/`.
 - **`ui/components/`** — composed pieces (`Header`, `Footer`, `StickySection`, `RegularSection`, `ImagesCarousel`, `ProjectCard`, `ThoughtRow`, `SideModal`).
 - Path alias `@/*` maps to the repo root, so imports look like `@/ui/atoms`, `@/public/journey-data`.
 
-Barrel files (`ui/atoms/index.ts`, `ui/components/index.ts`) export most things, but `FancySectionTitle`, `CasesCarousel`, and `GlitchTitle` are **not** in the components barrel and are imported by full path. Adding a component means also adding it to the barrel if you want the short import.
+Barrel files (`ui/atoms/index.ts`, `ui/components/index.ts`) export most things, but `FancySectionTitle` and `GlitchTitle` are **not** in the components barrel and are imported by full path. Adding a component means also adding it to the barrel if you want the short import.
 
 `app/_sections/skills.tsx` and `app/_sections/journey-modal.tsx` exist but are not rendered by `page.tsx` — they're currently unused. `journey-modal.tsx` (and the `SideModal` it uses) is kept on disk on purpose: journey content is deferred to a future subpage phase.
 
@@ -59,17 +59,23 @@ Two things are load-bearing:
 
 ### Content data
 
-Copy and lists live as TypeScript modules under `public/`, next to the images they reference: `public/craft-list.ts` (the crāft grid), `public/thoughts-list.ts` (the thøughts shelf, plus the `allThoughtsUrl` escape hatch), `public/journey-data.ts` (the journey timeline) and `public/projects/neon-place/features-list.ts` (exports `featuresList` and `casesList`). Editing site content usually means editing these files or the JSX in `_sections/`, not a CMS.
+Copy and lists live as TypeScript modules under `public/`, next to the images they reference: `public/craft-list.ts` (the crāft grid), `public/thoughts-list.ts` (the thøughts shelf, plus the `allThoughtsUrl` escape hatch), `public/journey-data.ts` (the journey timeline) and `public/projects/neon-place/features-list.ts` (exports `featuresList`). Editing site content usually means editing these files or the JSX in `_sections/`, not a CMS.
 
-`featuresList` and `ImagesCarousel` are **currently orphaned** — the crāft grid replaced the carousel of 13 generic feature images. Both are kept on disk; `casesList` from the same module is still consumed by `more-cases.tsx`. `public/neon-place-logo.svg` is likewise unreferenced now that the section header block is gone.
+`featuresList` and `ImagesCarousel` are **orphaned** — the crāft grid replaced the carousel of 13 generic feature images, of which only `feature-01.png` is still used (by the featured card). Both are kept on disk. `public/neon-place-logo.svg` is likewise unreferenced now that the section header block is gone. `casesList` and the `CasesCarousel` that rendered it were deleted with `more-cases.tsx`; the two 2019 cases it held live in `craft-list.ts` now.
 
 ### The crāft grid
 
-`app/_sections/highlighted-project.tsx` maps `craftList` onto `ProjectCard`, one `<li>` per entry, under the scroll-scrubbed `FancySectionTitle`.
+`app/_sections/highlighted-project.tsx` maps `craftList` onto `ProjectCard`, one `<li>` per entry, under the scroll-scrubbed `FancySectionTitle`. It holds all eight destinations: the Neøn.Plāce featured build, Reeckon, the three flagship skills, the two 2019 Behance cases, and the trailing index row linking the whole public skills repo. This section is the *only* project/case surface on the page — `more-cases.tsx` and its green-bordered `CasesCarousel` were dissolved into it.
 
-`ProjectCard` takes `size: "featured" | "compact"` (featured is image-led and gets `lg:col-span-2` from the grid; compact sits in the flow), a title, a one-liner, an optional `image`, and a **two-field href rule**: `url` is the real thing's live URL and is always present; `detailPath` is an optional internal detail route that wins when set. The card resolves `detailPath ?? url` and then decides `target="_blank" rel="noopener noreferrer"` by testing whether the **resolved** href is absolute — not by which field it came from, so no entry ever special-cases the fallback. Detail routes don't exist yet, so every entry currently falls through to `url`.
+`CraftEntry` splits three concerns that used to be one, on purpose:
 
-Copy in `craft-list.ts` is placeholder and marked `TODO(#28)`.
+- **`size: "featured" | "compact"`** is card *anatomy* only — featured is image-led with oversized type.
+- **`columnSpan?: "full"`** is *layout*, read by the section and never passed to the card. The grid is `grid-cols-1 md:grid-cols-2 lg:grid-cols-3`; a full-span entry gets `md:col-span-2 lg:col-span-3`. Two entries use it — the featured card at the top and the index row at the bottom — which leaves exactly six compact cards filling whole rows at both breakpoints. Adding or removing a compact card leaves a ragged last row, so re-check the count when editing the list.
+- **the href rule** is two fields: `url` is the real thing's URL and is always present; `detailPath` is an optional internal detail route (#36) that wins when set. The card resolves `detailPath ?? url` and then decides `target="_blank" rel="noopener noreferrer"` by testing whether the **resolved** href is absolute — not by which field it came from, so no entry ever special-cases the fallback. Detail routes don't exist yet, so every entry currently falls through to `url`.
+
+The affordance label defaults from that same externality test (`⌿ VIEW IT LIVE ▶︎` / `⌿ SEE THE CASE ▶︎`), which reads right for a live product and wrong for things that are external but not "live". Those entries pass an explicit `cta` (`⌿ READ THE SKILL ▶︎`, `⌿ SEE THE 2019 CASE ▶︎`, `⌿ BROWSE THE REPO ▶︎`) rather than the card growing a link taxonomy.
+
+Copy in `craft-list.ts` is placeholder and marked `TODO(#28)`. Two constraints are recorded in the file's comments and are not free to reword: `how-i-write`'s framing is voice-as-spec (the assist is in the finishing; the creativity and message stay Liam's), and GENIUS/LUAR are billed as 2019 work in their own one-liners.
 
 ### The thøughts shelf
 
