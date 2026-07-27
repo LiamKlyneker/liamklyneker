@@ -1,47 +1,23 @@
-"use client";
-import { Typography } from "@/ui/atoms";
-import { useEffect, useState } from "react";
+import { GlitchTitle, type GlitchCycleTitle } from "@/ui/components/GlitchTitle";
 
 export function DynamicTitle() {
-  const [title, setTitle] = useState("Design Engineer");
-
-  useEffect(() => {
-    const loop = () => {
-      const randomIndex = Math.floor(Math.random() * titles.length);
-      const delay = Math.floor(Math.random() * 2000) + 3000;
-      setTitle(titles[randomIndex]);
-      if (delay > 4100) {
-        setTitle(cryptic);
-        setTimeout(() => setTitle(titles[randomIndex]), 100);
-        setTimeout(() => setTitle(cryptic), 200);
-        setTimeout(() => setTitle(titles[randomIndex]), 350);
-      }
-      setTimeout(loop, delay);
-    };
-    setTimeout(loop, 1500);
-  }, []);
-
   return (
-    <Typography
+    <GlitchTitle
+      title={restingTitle}
+      titles={cycledTitles}
+      restingDwell={5200}
       variant="h1"
       className="!text-white -ml-2 max-w-[450px] lg:!text-[120px] showTitle"
-    >
-      {title}
-    </Typography>
+    />
   );
 }
 
-const titles = [
-  "Design Engineer",
-  "UX/UI Designer",
-  "Frontend Engineer",
-  "Software Engineer",
-  "Creative Ghost",
-  "Design Engineer",
-  "UX/UI Designer",
-  "Frontend Engineer",
-  "Software Engineer",
-  "Creative Ghost",
-  "scroll_to know_more",
+/** Paints first, holds the longest, and the cycle always comes back to it. */
+const restingTitle = "Design Engineer";
+
+// TODO(#28): placeholder wording — the final role list is #28's call.
+const cycledTitles: readonly GlitchCycleTitle[] = [
+  { text: "Frontend Engineer", dwell: 2200 },
+  { text: "UX/UI Designer", dwell: 2200 },
+  { text: "Creative Ghost", dwell: 2200 },
 ];
-const cryptic = "⎍⎎⎒⌭ ⌿⎎⌿⍅⍆⎎⌿⌶";

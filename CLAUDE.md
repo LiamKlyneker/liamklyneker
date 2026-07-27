@@ -45,6 +45,18 @@ Barrel files (`ui/atoms/index.ts`, `ui/components/index.ts`) export most things,
 
 `app/_sections/skills.tsx` and `app/_sections/journey-modal.tsx` exist but are not rendered by `page.tsx` — they're currently unused. `journey-modal.tsx` (and the `SideModal` it uses) is kept on disk on purpose: journey content is deferred to a future subpage phase.
 
+### GlitchTitle (two modes)
+
+`ui/components/GlitchTitle.tsx` is imported by full path and has two modes, picked by whether `titles` is passed:
+
+- **Single-title** (`title` only) — the section headings `make_cøntact` and `more_cases`. One character is swapped for a cryptic glyph every 900ms.
+- **Word-cycle** (`title` + `titles` + `restingDwell`) — the hero role label, via `app/_sections/dynamic-title.tsx`. `title` is the *resting* title: it paints first (so SSR and first paint are stable), holds `restingDwell`, and the cycle returns to it between every entry in `titles` — `title → titles[0] → title → titles[1] → …` — with a brief cryptic flash on each swap.
+
+Two things are load-bearing:
+
+- **`aria-label={title}` is the accessible name in both modes**, and the churning text sits in an `aria-hidden` span. Naming from contents would read cryptic glyphs to a screen reader. `Typography` accepts `aria-label` purely so the word-cycle path can set it.
+- **`prefers-reduced-motion: reduce` freezes both modes on `title` and schedules no timers.** It is read through `useSyncExternalStore` (server snapshot `false`, since SSR has no `matchMedia`), and the frozen text is derived at render (`prefersReducedMotion ? title : glitchedTitle`) rather than written back to state — `react-hooks/set-state-in-effect` rejects the latter.
+
 ### Content data
 
 Copy and lists live as TypeScript modules under `public/`, next to the images they reference: `public/journey-data.ts` (the journey timeline) and `public/projects/neon-place/features-list.ts` (exports both `featuresList` for the image carousel and `casesList` for the cases carousel). Editing site content usually means editing these files or the JSX in `_sections/`, not a CMS.
