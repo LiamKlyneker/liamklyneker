@@ -1,3 +1,12 @@
+/**
+ * `casesList` used to live here too — the two 2019 Behance cases and a Dribbble
+ * experiments link, rendered by the retired `CasesCarousel`. GENIUS and LUAR
+ * moved into `public/craft-list.ts` (#40); the Dribbble entry was dropped.
+ *
+ * `featuresList` below has no consumer either, since the crāft grid replaced
+ * `ImagesCarousel`. Left in place rather than deleted on a hunch — see #40's
+ * orphan report.
+ */
 export const featuresList: {
   id: string;
   imageSrc: string;
@@ -67,35 +76,5 @@ export const featuresList: {
     id: "fi-0013",
     label: "Feature 13",
     imageSrc: "/projects/neon-place/feature-13.png",
-  },
-];
-
-export const casesList: {
-  id: string;
-  imageSrc: string;
-  name?: string;
-  type: string;
-  url: string;
-}[] = [
-  {
-    id: "case-002",
-    imageSrc: "/projects/neon-place/feature-01.png",
-    name: "GENIUS | SONGS LYRICS AND KNOWLEDGE ",
-    type: "⌿ UX & UI REDESIGN ⍀",
-    url: "https://www.behance.net/gallery/83970697/Genius-Redesing",
-  },
-  {
-    id: "case-003",
-    imageSrc: "/projects/neon-place/feature-01.png",
-    name: "LUAR | ROOMMATES AND ROOMS",
-    type: "⌿ UX RESEARCH & UI DESIGN ⍀",
-    url: "https://www.behance.net/gallery/72673721/LUAR",
-  },
-  {
-    id: "case-004",
-    imageSrc: "/projects/neon-place/feature-01.png",
-    name: "⎍⎎⎒⌭ ⌿⎎⌿⍅⍆⎎⌿⌶",
-    type: "⌿ EXPERIMENTS ⍀",
-    url: "https://dribbble.com/liamklyneker",
   },
 ];

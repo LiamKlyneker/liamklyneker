@@ -14,20 +14,24 @@ type TypographyProps = PropsWithChildren &
       | "link"
       | "small";
     className?: string;
+    /** Overrides the accessible name when the rendered text is decorative. */
+    "aria-label"?: string;
   };
 
 export function Typography(props: TypographyProps) {
   const { variant = "p", children, className } = props;
-  const classNames = typographyStyles({ variant, class: className });
+  const attributes = {
+    className: typographyStyles({ variant, class: className }),
+    "aria-label": props["aria-label"],
+  };
 
-  if (variant === "h1") return <h1 className={classNames}>{children}</h1>;
-  if (variant === "h2") return <h2 className={classNames}>{children}</h2>;
-  if (variant === "h5") return <h5 className={classNames}>{children}</h5>;
-  if (variant === "h6") return <h6 className={classNames}>{children}</h6>;
-  if (variant === "small")
-    return <small className={classNames}>{children}</small>;
+  if (variant === "h1") return <h1 {...attributes}>{children}</h1>;
+  if (variant === "h2") return <h2 {...attributes}>{children}</h2>;
+  if (variant === "h5") return <h5 {...attributes}>{children}</h5>;
+  if (variant === "h6") return <h6 {...attributes}>{children}</h6>;
+  if (variant === "small") return <small {...attributes}>{children}</small>;
 
-  return <p className={classNames}>{children}</p>;
+  return <p {...attributes}>{children}</p>;
 }
 
 const typographyStyles = cva("[text-wrap:balance]", {

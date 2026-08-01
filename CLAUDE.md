@@ -34,36 +34,83 @@ Two things in one repo (repo name matches the GitHub username):
 
 ## Architecture
 
-Single scrolling page. `app/layout.tsx` loads the Sora font and wraps everything in `Header` + `Footer`; `app/page.tsx` composes the sections in order: `Intro` + `FirstThingsFirst` (inside a shared wrapper div), `HighlightedProject`, `MoreCases`, `Contact`.
+Single scrolling page. `app/layout.tsx` loads the Sora font and wraps everything in `Header` + `Footer`; `app/page.tsx` composes the sections in order: `Intro`, `HighlightedProject`, `Thoughts`, `Contact`. `Home` is a plain (non-`async`) server component that reads no `searchParams`, so `/` is statically prerendered.
 
 - **`app/_sections/`** — page sections. The `_` prefix keeps the folder out of routing. Sections are server components unless they need scroll/state, in which case they carry `"use client"`.
 - **`ui/atoms/`** — primitives (`Typography`, `Button`, `ButtonIcon`, `Logo`) plus `ui/atoms/icons/`.
-- **`ui/components/`** — composed pieces (`Header`, `Footer`, `StickySection`, `RegularSection`, `ImagesCarousel`, `SideModal`).
+- **`ui/components/`** — composed pieces (`Header`, `Footer`, `StickySection`, `RegularSection`, `ImagesCarousel`, `ProjectCard`, `ThoughtRow`, `SideModal`).
 - Path alias `@/*` maps to the repo root, so imports look like `@/ui/atoms`, `@/public/journey-data`.
 
-Barrel files (`ui/atoms/index.ts`, `ui/components/index.ts`) export most things, but `FancySectionTitle`, `CasesCarousel`, and `GlitchTitle` are **not** in the components barrel and are imported by full path. Adding a component means also adding it to the barrel if you want the short import.
+Barrel files (`ui/atoms/index.ts`, `ui/components/index.ts`) export most things, but `FancySectionTitle` and `GlitchTitle` are **not** in the components barrel and are imported by full path. Adding a component means also adding it to the barrel if you want the short import.
 
-`app/_sections/skills.tsx` exists but is not rendered by `page.tsx` — it's currently unused.
+`app/_sections/skills.tsx` and `app/_sections/journey-modal.tsx` exist but are not rendered by `page.tsx` — they're currently unused. `journey-modal.tsx` (and the `SideModal` it uses) is kept on disk on purpose: journey content is deferred to a future subpage phase.
+
+### GlitchTitle (two modes)
+
+`ui/components/GlitchTitle.tsx` is imported by full path and has two modes, picked by whether `titles` is passed:
+
+- **Single-title** (`title` only) — the section headings `make_cøntact` and `more_cases`. One character is swapped for a cryptic glyph every 900ms.
+- **Word-cycle** (`title` + `titles` + `restingDwell`) — the hero role label, via `app/_sections/dynamic-title.tsx`. `title` is the *resting* title: it paints first (so SSR and first paint are stable), holds `restingDwell`, and the cycle returns to it between every entry in `titles` — `title → titles[0] → title → titles[1] → …` — with a brief cryptic flash on each swap.
+
+Two things are load-bearing:
+
+- **`aria-label={title}` is the accessible name in both modes**, and the churning text sits in an `aria-hidden` span. Naming from contents would read cryptic glyphs to a screen reader. `Typography` accepts `aria-label` purely so the word-cycle path can set it.
+- **`prefers-reduced-motion: reduce` freezes both modes on `title` and schedules no timers.** It is read through `useSyncExternalStore` (server snapshot `false`, since SSR has no `matchMedia`), and the frozen text is derived at render (`prefersReducedMotion ? title : glitchedTitle`) rather than written back to state — `react-hooks/set-state-in-effect` rejects the latter.
 
 ### Content data
 
-Copy and lists live as TypeScript modules under `public/`, next to the images they reference: `public/journey-data.ts` (the journey timeline) and `public/projects/neon-place/features-list.ts` (exports both `featuresList` for the image carousel and `casesList` for the cases carousel). Editing site content usually means editing these files or the JSX in `_sections/`, not a CMS.
+Copy and lists live as TypeScript modules under `public/`, next to the images they reference: `public/craft-list.ts` (the crāft grid), `public/thoughts-list.ts` (the thøughts shelf, plus the `allThoughtsUrl` escape hatch), `public/journey-data.ts` (the journey timeline) and `public/projects/neon-place/features-list.ts` (exports `featuresList`). Editing site content usually means editing these files or the JSX in `_sections/`, not a CMS.
 
-### The journey modal (URL-driven)
+`featuresList` and `ImagesCarousel` are **orphaned** — the crāft grid replaced the carousel of 13 generic feature images, of which only `feature-01.png` is still used (by the featured card). Both are kept on disk. `public/neon-place-logo.svg` is likewise unreferenced now that the section header block is gone. `casesList` and the `CasesCarousel` that rendered it were deleted with `more-cases.tsx`; the two 2019 cases it held live in `craft-list.ts` now.
 
-There is no modal state. `first-things-first.tsx` links to `?modal=journey` with `scroll={false}`; `page.tsx` awaits `props.searchParams` (async since Next 15) and renders `JourneyModal`. `SideModal` renders through `createPortal` into `document.body`, locks `body` overflow, listens for Escape, and closes with `router.back()` — so closing depends on the modal having been reached via a history push, not a direct visit.
+### The crāft grid
 
-`SideModal` returns `null` until `useSyncExternalStore` reports it's hydrated. That guard is load-bearing, not defensive: `"use client"` components are still server-rendered, and `createPortal(..., document.body)` throws `ReferenceError: document is not defined` during SSR without it. (`useSyncExternalStore` rather than a `useState` + `useEffect` pair because `react-hooks/set-state-in-effect` rejects the latter.) Reading `searchParams` also makes `/` a dynamic route, so the page is server-rendered on demand rather than prerendered.
+`app/_sections/highlighted-project.tsx` maps `craftList` onto `ProjectCard`, one `<li>` per entry, under the scroll-scrubbed `FancySectionTitle`. It holds all eight destinations: the Neøn.Plāce featured build, Reeckon, the three flagship skills, the two 2019 Behance cases, and the trailing index row linking the whole public skills repo. This section is the *only* project/case surface on the page — `more-cases.tsx` and its green-bordered `CasesCarousel` were dissolved into it.
+
+`CraftEntry` splits three concerns that used to be one, on purpose:
+
+- **`size: "featured" | "compact"`** is card *anatomy* only — featured is image-led with oversized type.
+- **`columnSpan?: "full"`** is *layout*, read by the section and never passed to the card. The grid is `grid-cols-1 md:grid-cols-2 lg:grid-cols-3`; a full-span entry gets `md:col-span-2 lg:col-span-3`. Two entries use it — the featured card at the top and the index row at the bottom — which leaves exactly six compact cards filling whole rows at both breakpoints. Adding or removing a compact card leaves a ragged last row, so re-check the count when editing the list.
+- **the href rule** is two fields: `url` is the real thing's URL and is always present; `detailPath` is an optional internal detail route (#36) that wins when set. The card resolves `detailPath ?? url` and then decides `target="_blank" rel="noopener noreferrer"` by testing whether the **resolved** href is absolute — not by which field it came from, so no entry ever special-cases the fallback. Detail routes don't exist yet, so every entry currently falls through to `url`.
+
+The affordance label defaults from that same externality test (`⌿ VIEW IT LIVE ▶︎` / `⌿ SEE THE CASE ▶︎`), which reads right for a live product and wrong for things that are external but not "live". Those entries pass an explicit `cta` (`⌿ READ THE SKILL ▶︎`, `⌿ SEE THE 2019 CASE ▶︎`, `⌿ BROWSE THE REPO ▶︎`) rather than the card growing a link taxonomy.
+
+Copy in `craft-list.ts` is placeholder and marked `TODO(#28)`. Two constraints are recorded in the file's comments and are not free to reword: `how-i-write`'s framing is voice-as-spec (the assist is in the finishing; the creativity and message stay Liam's), and GENIUS/LUAR are billed as 2019 work in their own one-liners.
+
+### The thøughts shelf
+
+`app/_sections/thoughts.tsx` maps `thoughtsList` onto `ThoughtRow`, one `<li>` per entry, under an ordinary `GlitchTitle` heading — **not** a second `FancySectionTitle`, which would fight the first one over `document.body.style.backgroundColor`.
+
+`ThoughtRow` is title + one-liner + external href, and nothing else: no date, no read-time, no stat badge. That is the point — the shelf has to look the same whether it holds one entry or three, and it ships with one. The section carries its weight in the framing block above the list rather than in row count, the `<ul>` draws a top hairline while each row draws its own bottom one (so both edges close at any length), and the "see all on Medium" escape hatch below states that this is a curated subset. Every href here is off-site, so `ThoughtRow` is unconditionally `target="_blank" rel="noopener noreferrer"` — there is no `detailPath`-style internal-route branch as in `ProjectCard`.
+
+Copy in `thoughts-list.ts` and the section's framing block is placeholder and marked `TODO(#28)`; more articles land in #30.
+
+### The journey modal (URL-driven, currently unrendered)
+
+**Nothing renders this today** — `page.tsx` no longer reads `searchParams` and no link points at `?modal=journey`. The machinery is kept for a future journey subpage, so here is how it was wired, in case it comes back.
+
+There was no modal state: a link to `?modal=journey` with `scroll={false}`, and `page.tsx` awaiting `props.searchParams` (async since Next 15) to render `JourneyModal`. `SideModal` renders through `createPortal` into `document.body`, locks `body` overflow, listens for Escape, and closes with `router.back()` — so closing depends on the modal having been reached via a history push, not a direct visit.
+
+`SideModal` returns `null` until `useSyncExternalStore` reports it's hydrated. That guard is load-bearing, not defensive: `"use client"` components are still server-rendered, and `createPortal(..., document.body)` throws `ReferenceError: document is not defined` during SSR without it. (`useSyncExternalStore` rather than a `useState` + `useEffect` pair because `react-hooks/set-state-in-effect` rejects the latter.) Note that re-introducing a `searchParams` read would also make `/` a dynamic route again, so the page would be server-rendered on demand rather than prerendered.
 
 ### Scroll-driven background color (the fragile part)
 
-`document.body.style.backgroundColor` is mutated imperatively from more than one place, and they interact:
+`document.body.style.backgroundColor` is mutated imperatively, and there is now exactly **one** writer: `ui/components/FancySectionTitle.tsx`.
 
-- `first-things-first.tsx` uses an `IntersectionObserver` to set `#FF034F` (and add a `pink-background` body class), clearing it only when `scrollY < 500` or `scrollY > innerHeight * 3`.
-- `FancySectionTitle` (a 300vh scroll-scrubbed title used by `HighlightedProject`) recomputes its own background alpha on every scroll event and also sets/clears the same body background at the 50% mark.
-- `animations.css` reacts to the body class: `.pink-background .show-intro { transform: scale(0.96) }`.
+`FancySectionTitle` is a 300vh scroll-scrubbed title (`h-[300vh] pt-[100vh]`, used once by `HighlightedProject`). On every `scroll` event, while `scrollY` is inside its own `offsetTop → offsetTop + offsetHeight` band, it:
 
-Those scroll-position thresholds are hand-tuned to the current section order and heights. Reordering sections, changing section heights, or adding a new full-height section will break the background transitions and the sticky/z-index stacking (`StickySection` is `sticky top-0`; `FirstThingsFirst` sits in a `z-20` wrapper). Recent commit history is mostly fixes in exactly this area — verify scroll behavior visually after touching layout.
+- recomputes `percentScrolled` and paints its **own** element background `rgba(255, 3, 79, 1 - percentScrolled)` (pink fading out) and shrinks the title font size;
+- sets `document.body.style.backgroundColor = "#FF034F"` below the 50% mark and clears it (`""`, back to the `globals.css` black) above it.
+
+**Outside the band it clears the body background.** That `else` branch is load-bearing, not defensive: without it, scrolling back up and leaving the band above `offsetTop` leaves the body stuck at `#FF034F` under the hero, and the hero's grey-on-black copy becomes grey-on-pink. Being the only writer means this component also owns the reset — there is no observer elsewhere cleaning up after it any more.
+
+Other things worth knowing before touching this:
+
+- The handler runs on `scroll` only, never on mount, so first paint is always black — no pink flash on load.
+- Because the band starts exactly at the hero's bottom edge, the hero is off-screen the instant the body turns pink. If a section is ever inserted between them, that coincidence is gone.
+- `Intro` is a plain block (**not** `sticky`). It was `sticky top-0` while `FirstThingsFirst` scrolled over it inside a shared wrapper `div`; with that wrapper gone the sticky containing block became `<main>`, which pinned the hero over the whole page and let it paint on top of the non-positioned section backgrounds. The sticky was removed rather than re-wrapped.
+
+The band is derived from live `offsetTop`/`offsetHeight`, so it survives section reordering — but the *look* of the transition is tuned to `HighlightedProject` following a single full-height hero. Adding a full-height section between `Intro` and `HighlightedProject`, or a second `FancySectionTitle`, changes when pink appears and needs a visual scroll pass (desktop **and** narrow) in both directions to confirm. Lint and build cannot catch a regression here.
 
 ### Styling
 
